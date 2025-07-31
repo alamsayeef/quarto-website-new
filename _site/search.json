@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mohammad Sayeef Alam",
+    "section": "",
+    "text": "I am a doctoral candidate at the Norwegian University of Science and Technology in Trondheim, with a strong background in health data analysis. My research focuses on statistical genetics and gastrointestinal diseases, where I work with tools like R, Python, and bash.\nIn my spare time, I enjoy creating visualizations and building interactive applications to support decision-making in healthcare, and I’m driven by the chance to use programming to address challenges in healthcare using real-world data."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "\nAbout me\n",
+    "section": "",
+    "text": "About me\n\n\nI’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact."
+  },
+  {
+    "objectID": "blogs.html",
+    "href": "blogs.html",
+    "title": "About Me",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "workshops.html",
+    "href": "workshops.html",
+    "title": "About Me",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "\nMohammad Sayeef Alam\n",
+    "section": "",
+    "text": "Mohammad Sayeef Alam"
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Mohammad Sayeef Alam",
+    "section": "",
+    "text": "I am a doctoral candidate at Norwegian University of Science and Technology, Trondheim. I have extensive background working with varied health data sets and using advanced analytics to enable stakeholders to make informed decisions.\nI advanced my expertise through doctoral research focused on statistical genetics and gastrointestinal diseases, working extensively in R, Python, and bash environments. I also deepened my skills in data visualization, including building interactive Shiny apps. I am passionate about leveraging programming to solve real-world problems in healthcare."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "About Me",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "resume.html#associate-parexel-remote-india",
+    "href": "resume.html#associate-parexel-remote-india",
+    "title": "\nMohammad Sayeef Alam\n",
+    "section": "Associate, Parexel – Remote, India",
+    "text": "Associate, Parexel – Remote, India\nJuly 2021 – February 2022\n\nDeveloped interactive platforms (e.g., RShiny) for economic evaluations.\nPerformed statistical analyses aligned with HTA guidelines across multiple disease areas.\nAutomated dashboards (Excel/VBA) for clinical endpoint visualization.\nCoordinated projects and managed client expectations.\nContributed to SAPs and validated datasets.\nPresented analytical results to stakeholders and refined deliverables."
+  },
+  {
+    "objectID": "resume.html#phd-ntnu-trondheim-norway",
+    "href": "resume.html#phd-ntnu-trondheim-norway",
+    "title": "\nMohammad Sayeef Alam\n",
+    "section": "PhD, NTNU – Trondheim, Norway",
+    "text": "PhD, NTNU – Trondheim, Norway\nApril 2022 – Current\n\nApplied advanced statistical methods to genetic and registry data.\nDesigned analysis pipelines to improve efficiency.\nPresented findings at conferences and published in peer-reviewed journals.\nCollaborated with external research groups.\nBuilt academic networks and secured over 150,000 NOK in funding."
+  },
+  {
+    "objectID": "resume.html#nordic-shortfall-calculator",
+    "href": "resume.html#nordic-shortfall-calculator",
+    "title": "\nMohammad Sayeef Alam\n",
+    "section": "Nordic Shortfall Calculator",
+    "text": "Nordic Shortfall Calculator\n\nDeveloped a model to calculate shortfall for Denmark, Finland, Norway, and Sweden.\nProvides estimates of QALE based on EQ-5D/3D values.\nIncludes comparative options, discount rates, and dynamic inputs."
+  }
+]

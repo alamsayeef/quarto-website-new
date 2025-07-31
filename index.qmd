@@ -1,0 +1,30 @@
+---
+title: "Mohammad Sayeef Alam"
+image: images/linkedinpic.jpg
+about:
+  template: jolla
+  image-width: 14em
+  image-shape: round
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/bigdatadipper
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/mohasal
+    - icon: github
+      text: Github
+      href: https://github.com/alamsayeef/
+    - icon: envelope
+      text: Contact me
+      href: mailto:alam.sayeef@gmail.com
+---
+
+
+<div class="center-about">
+
+I am a doctoral candidate at the Norwegian University of Science and Technology in Trondheim, with a strong background in health data analysis. My research focuses on statistical genetics and gastrointestinal diseases, where I work with tools like R, Python, and bash. 
+
+In my spare time, I enjoy creating visualizations and building interactive applications to support decision-making in healthcare, and I'm driven by the chance to use programming to address challenges in healthcare using real-world data.
+
+</div>

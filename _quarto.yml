@@ -1,0 +1,69 @@
+project:
+  type: website
+
+website:
+  title: "Mohammad Sayeef Alam"
+  
+  favicon: "images/linkedinpic.jpg"
+  
+  page-footer:
+    center: |
+      <span class="container"><strong>[Contact Mohammad Sayeef Alam](mailto:alam.sayeef@gmail.com){target="_blank"}</strong></span>
+    left: |
+      <span class="container"><strong>Made with [Posit Quarto](https://quarto.org/){target="_blank"}</strong></span>
+    right: |
+      <span class="container"><strong>[Github Repo](https://github.com/deepshamenghani/alamsayeef.github.io){target="_blank"}</strong></span>
+    background: "#009000"
+    
+  navbar:
+    
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About me
+      - href: projects.qmd
+        text: Projects
+      - href: talks.qmd
+        text: Talks
+      - href: resume.qmd
+        text: CV
+      - href: workshops.qmd
+        text: Workshops
+      - href: blogs.qmd
+        text: Blogs
+        
+    right:
+      - icon: twitter
+        href: https://twitter.com/sayeef_alam
+        aria-label: Quarto Twitter
+      - icon: linkedin
+        href: https://linkedin.com/in/mohasal
+        aria-label: Quarto LinkedIn
+      - icon: github
+        href: https://github.com/alamsayeef/
+        aria-label: Quarto Github
+        
+  search: 
+    location: navbar
+    type: overlay
+
+format:
+  html:
+    grid: 
+      body-width: 2000px
+      sidebar-width: 200px
+      margin-width: 200px
+    theme:
+      light: [cosmo, theme_light_custom.scss]
+      dark: [cosmo, theme_dark_custom.scss]
+    css: styles.css
+    citations-hover: true
+    code-link: true
+    code-fold: show
+    code-tools: false
+    code-block-border-left: "#004E4F"
+    
+
+    
+editor: visual

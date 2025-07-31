@@ -1,0 +1,85 @@
+<h1 style="margin-left: 40%; transform: translateX(-25%); width: 60%;">Mohammad Sayeef Alam</h1>
+
+<div style="margin-left: 40%; transform: translateX(-25%); width: 60%;">
+  <a href="images/ResumeMSA.pdf" download style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+    Download PDF
+  </a>
+</div>
+
+
+<div style="margin-left: 40%; transform: translateX(-25%); width: 60%;">
+
+
+- **Location:** Trondheim, Norway  
+- **Email:** alam.sayeef@gmail.com  
+- **Phone:** +47 4867 1602  
+- **LinkedIn:** [LinkedIn](#)
+
+# Summary
+- PhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.
+- Six years of experience in data analysis in various statistical methods and datasets related to health.
+- Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on experience in R and Excel.
+- Technically minded with the ability to break down complex solutions for diverse audiences.
+- Collaborative team player with a focus on contributing to a positive work environment.
+- Adaptable to fast-paced environments and capable of making decisions under pressure.
+- Strong communication skills in English.
+
+# Professional Experience
+
+## Associate, Parexel – Remote, India
+**July 2021 – February 2022**
+
+  - Developed interactive platforms (e.g., RShiny) for economic evaluations.
+  - Performed statistical analyses aligned with HTA guidelines across multiple disease areas.
+  - Automated dashboards (Excel/VBA) for clinical endpoint visualization.
+  - Coordinated projects and managed client expectations.
+  - Contributed to SAPs and validated datasets.
+  - Presented analytical results to stakeholders and refined deliverables.
+
+# Research Experience
+
+## PhD, NTNU – Trondheim, Norway
+**April 2022 – Current**
+
+  - Applied advanced statistical methods to genetic and registry data.
+  - Designed analysis pipelines to improve efficiency.
+  - Presented findings at conferences and published in peer-reviewed journals.
+  - Collaborated with external research groups.
+  - Built academic networks and secured over 150,000 NOK in funding.
+
+# Project
+
+## Nordic Shortfall Calculator
+- Developed a model to calculate shortfall for Denmark, Finland, Norway, and Sweden.
+- Provides estimates of QALE based on EQ-5D/3D values.
+- Includes comparative options, discount rates, and dynamic inputs.
+
+# Skills
+
+**Software:** R, SAS, Python, Git, Microsoft Excel, PowerPoint, Word  
+**Transferable:** Communicator, Detail-oriented, Problem solver, Relationship builder, Results-driven, Strategic  
+**Hobbies:** Hiking, swimming, cooking for others
+
+# Education
+
+- **MPhil in Biostatistics and Demography**, International Institute for Population Sciences (2020 – 2021)
+- **MSc in Biostatistics and Demography**, International Institute for Population Sciences (2018 – 2020)
+- **BSc in Statistics**, University of Calcutta (2014 – 2018)
+
+# Publications
+
+1. Alam MS et al. *Scientific Reports*, 2025;15(1):19764.
+2. Singh M, Alam MS et al. *Frontiers in Public Health*, 2021;9:667502.
+3. Sen K, Alam MS et al. *Indian Journal of Endocrinology and Metabolism*, 2020;24(6):532-6.
+
+# Conferences
+
+1. 20th International Celiac Disease Symposium – Sheffield, UK (oral), September 2024
+2. Nordic Conference on Future Health – Trondheim, Norway (oral), September 2024
+3. 16th International Conference on Urban Health – Xiamen, China (oral), November 2020
+
+# References
+Available upon request.
+
+
+</div>
