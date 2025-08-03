@@ -9,9 +9,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "\nAbout me\n",
+    "title": "Mohammad Sayeef Alam",
     "section": "",
-    "text": "About me\n\n\nI’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact."
+    "text": "I’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact.\n\n\n\nSee ya later ⛷️"
   },
   {
     "objectID": "blogs.html",
@@ -39,7 +39,7 @@
     "href": "talks.html",
     "title": "Mohammad Sayeef Alam",
     "section": "",
-    "text": "I am a doctoral candidate at Norwegian University of Science and Technology, Trondheim. I have extensive background working with varied health data sets and using advanced analytics to enable stakeholders to make informed decisions.\nI advanced my expertise through doctoral research focused on statistical genetics and gastrointestinal diseases, working extensively in R, Python, and bash environments. I also deepened my skills in data visualization, including building interactive Shiny apps. I am passionate about leveraging programming to solve real-world problems in healthcare."
+    "text": "No matching items"
   },
   {
     "objectID": "projects.html",
@@ -110,5 +110,26 @@
     "title": "Mohammad Sayeef Alam",
     "section": "Packaging MOON",
     "text": "Packaging MOON\n\n\n\n\n\n\nBoth R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
+  },
+  {
+    "objectID": "talks.html#lab-reports",
+    "href": "talks.html#lab-reports",
+    "title": "Team Documents",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "talks.html#meeting-notes",
+    "href": "talks.html#meeting-notes",
+    "title": "Team Documents",
+    "section": "Meeting Notes",
+    "text": "Meeting Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "Mohammad Sayeef Alam",
+    "section": "",
+    "text": "I’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact."
   }
 ]

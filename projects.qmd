@@ -1,6 +1,6 @@
 ## QALY Shortfall calculator for Nordics
 
-::: columns
+:::::: columns
 ::: {.column width="55%"}
 The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.
 
@@ -13,11 +13,11 @@ The app is built using the Shiny package for R. It includes several visualizatio
 ::: {.column width="40%"}
 ![](images/nsc_app.gif)
 :::
-:::
+::::::
 
 ## Packaging MOON
 
-::: columns
+:::::: columns
 ::: {.column width="40%"}
 ![](images/transition_diagram.jpg)
 :::
@@ -30,4 +30,4 @@ Both R and Excel are powerful data science tools and can be used to accomplish e
 
 Gudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity.
 :::
-:::
+::::::
