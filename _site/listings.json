@@ -1,10 +1,25 @@
 [
   {
     "listing": "/talks.html",
-    "items": []
+    "items": [
+      "/talks/icds24oral.html",
+      "/talks/icds24poster.html",
+      "/talks/ncfh24oral.html",
+      "/talks/ncfh24poster.html"
+    ]
   },
   {
     "listing": "/projects.html",
     "items": []
+  },
+  {
+    "listing": "/blogs.html",
+    "items": [
+      "/blogs/gwas.html",
+      "/blogs/healthecon.html",
+      "/blogs/mcmc.html",
+      "/blogs/mice.html",
+      "/blogs/prs.html"
+    ]
   }
 ]

@@ -1,8 +1,10 @@
 ---
 listing:
-  contents: talks
+  contents:
+    - talks/*.qmd
   sort: "date desc"
-  type: default
+  type: grid
+  grid-columns: 4
   categories: true
   sort-ui: false
   filter-ui: false
@@ -10,4 +12,3 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-
