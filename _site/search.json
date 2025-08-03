@@ -44,9 +44,9 @@
   {
     "objectID": "projects.html",
     "href": "projects.html",
-    "title": "About Me",
+    "title": "Mohammad Sayeef Alam",
     "section": "",
-    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
   },
   {
     "objectID": "resume.html#associate-parexel-remote-india",
@@ -68,5 +68,47 @@
     "title": "\nMohammad Sayeef Alam\n",
     "section": "Nordic Shortfall Calculator",
     "text": "Nordic Shortfall Calculator\n\nDeveloped a model to calculate shortfall for Denmark, Finland, Norway, and Sweden.\nProvides estimates of QALE based on EQ-5D/3D values.\nIncludes comparative options, discount rates, and dynamic inputs."
+  },
+  {
+    "objectID": "projects.html#global-biodiversity-shiny-dashboard-for-poland",
+    "href": "projects.html#global-biodiversity-shiny-dashboard-for-poland",
+    "title": "Mohammad Sayeef Alam",
+    "section": "",
+    "text": "The GBIF Data Explorer is a web application that allows users to explore and analyze biodiversity data for Poland from the Global Biodiversity Information Facility (GBIF) database.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny dashboard"
+  },
+  {
+    "objectID": "projects.html#collaborating-between-python-and-r-using-reticulate",
+    "href": "projects.html#collaborating-between-python-and-r-using-reticulate",
+    "title": "Mohammad Sayeef Alam",
+    "section": "Collaborating between Python and R using Reticulate",
+    "text": "Collaborating between Python and R using Reticulate\n\n\n\n\n\n\nBoth R and Python are powerful data science languages and can be used to accomplish end-to-end analytics projects. Reticulate makes it easy to collaborate and talk between the two languages. I think of it as a translator on my fingertips.\nMy teammate and I participated in Microsoft hackathon where we accessed data from APIs using Python, pulled the output in R using Reticulate and created visualizations to derive business insights using Ggplot2… Check out how"
+  },
+  {
+    "objectID": "projects.html#data-visualizations---animation-and-interactivity-using-gganimate-and-plotly",
+    "href": "projects.html#data-visualizations---animation-and-interactivity-using-gganimate-and-plotly",
+    "title": "Mohammad Sayeef Alam",
+    "section": "Data visualizations - Animation and Interactivity using Gganimate and Plotly",
+    "text": "Data visualizations - Animation and Interactivity using Gganimate and Plotly\n\n\nAnimation brings in a key component of analysis where the third parameter you want to animate is not directly visible in your plot. Sometimes it can tell a powerful story and sometimes it can just add some flair to an otherwise low-key story.\nThis blog goes through examples and code to show how easy it is to use gganimate and plotly packages to animate your data visualizations and make them interactive…. Continue reading"
+  },
+  {
+    "objectID": "projects.html#sales-forecasting-and-anomaly-detection-shiny-dashboard",
+    "href": "projects.html#sales-forecasting-and-anomaly-detection-shiny-dashboard",
+    "title": "Mohammad Sayeef Alam",
+    "section": "Sales forecasting and anomaly detection Shiny dashboard",
+    "text": "Sales forecasting and anomaly detection Shiny dashboard\n\n\n\n\n\n\nThis dashboard, built with Shiny Flex capability, looks at data from EverythingYouWillNeed.com website (fake data) to report out odaily product sales. You can select the product, the dates to analyze and click on apply to replicate the report, check sales forecast and anomalies for the specific product choice.\nGiving your stakeholders the ability to play with product grain forecast and anomaly detection is a great was to get them on-board prior to deploying any model at scale. This Shiny dashboard was built specifically for that purpose…. Link to play with the Shiny dashboard"
+  },
+  {
+    "objectID": "projects.html#qaly-shortfall-calculator-for-nordics",
+    "href": "projects.html#qaly-shortfall-calculator-for-nordics",
+    "title": "Mohammad Sayeef Alam",
+    "section": "",
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
+  },
+  {
+    "objectID": "projects.html#packaging-moon",
+    "href": "projects.html#packaging-moon",
+    "title": "Mohammad Sayeef Alam",
+    "section": "Packaging MOON",
+    "text": "Packaging MOON\n\n\n\n\n\n\nBoth R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
   }
 ]
