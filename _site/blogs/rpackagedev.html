@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.552">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Mohammad Sayeef Alam - prs</title>
+<meta name="description" content="Basic checks and debugging while R package development">
+<title>MSA - Learnings from first R package development</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +18,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -41,8 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -67,21 +97,15 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Mohammad Sayeef Alam</span>
+    <span class="navbar-title">MSA</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -90,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -119,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/sayeef_alam"> <i class="bi bi-twitter" role="img" aria-label="Quarto Twitter">
 </i> 
 <span class="menu-text"></span></a>
@@ -136,26 +160,29 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Learnings from first R package development</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Programming</div>
+  </div>
+  </div>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">prs</h1>
+<div>
+  <div class="description">
+    <p>Basic checks and debugging while R package development</p>
+  </div>
 </div>
-
 
 
 <div class="quarto-title-meta">
@@ -167,14 +194,113 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><section id="intro" class="level1"><h1>Intro</h1>
+<p>This documentation is for individuals such as me, to create more than basic R package while debugging common errors, warnings and notes.</p>
+</section><section id="prerequisite" class="level1"><h1>Prerequisite</h1>
+<table class="table">
+<thead><tr class="header">
+<th>Software / package</th>
+<th>Version</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>R</td>
+<td>4.4.2</td>
+</tr>
+<tr class="even">
+<td>RStudio</td>
+<td>2024.12.0+467</td>
+</tr>
+<tr class="odd">
+<td><code>devtools</code></td>
+<td>2.4.5</td>
+</tr>
+<tr class="even">
+<td><code>usethis</code></td>
+<td>3.1.0</td>
+</tr>
+<tr class="odd">
+<td><code>rlang</code></td>
+<td>1.1.6</td>
+</tr>
+</tbody>
+</table>
+<p>Some common functions that would be used</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 51%">
+<col style="width: 37%">
+</colgroup>
+<thead><tr class="header">
+<th>Usage</th>
+<th>Function</th>
+<th>Purpose</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Single</td>
+<td><code>usethis::create_package("path/package")</code></td>
+<td>initialize package</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>usethis::use_mit_license("Your name")</code></td>
+<td>add license</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code><a href="https://usethis.r-lib.org/reference/use_pipe.html">usethis::use_pipe()</a></code></td>
+<td>add pipe function as a dependency</td>
+</tr>
+<tr class="even">
+<td>Multiple</td>
+<td><code><a href="https://devtools.r-lib.org/reference/check.html">devtools::check()</a></code></td>
+<td>build package locally and check</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code><a href="https://devtools.r-lib.org/reference/load_all.html">devtools::load_all()</a></code></td>
+<td>load functions in 📂 <code>R/</code> into memory</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>usethis::use_r("function")</code></td>
+<td>create R script for function</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>usethis::use_package("package")</code></td>
+<td>add package dependency</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code></td>
+<td>build and add documentation</td>
+</tr>
+</tbody>
+</table></section><section id="step-1-create-package" class="level1"><h1>Step 1: Create package</h1>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span><span class="op">(</span><span class="st">"path/to/folder/packagename"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now you have a package! The <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package</a></code> function:</p>
+<ol type="1">
+<li><p>Creates a new R project named <code>packagename</code> at your specified location.</p></li>
+<li><p>Opens the <code>packagename</code> project in a new RStudio session.</p></li>
+<li><p>Creates the minimal essential files and structure required for R packages.</p></li>
+</ol></section><section id="step-2-connect-with-git" class="level1"><h1>Step 2: Connect with Git</h1>
+<p>If you do not have Git already set up in your Rstudio terminal. <a href="../blogs/gitsetup.html">Follow guide</a></p>
+</section><section id="other-resources" class="level1"><h1>Other resources:</h1>
+<ul>
+<li><p><a href="https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf" target="_blank">Package development</a> cheat sheet</p></li>
+<li><p><a href="https://r-pkgs.org/" target="_blank">R packages</a> book by Hadley Wickham and Jenny Bryan</p></li>
+<li><p><a href="https://masalmon.eu/2017/12/11/goodrpackages/" target="_blank">How to develop good R packages</a> by Maëlle Salmon</p></li>
+<li><p><a href="https://kbroman.org/pkg_primer/" target="_blank">R Package Primer</a> by Karl Broman</p></li>
+</ul>
 
 
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -728,8 +854,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p><span class="container"><strong>Made with <a href="https://quarto.org/" target="_blank">Posit Quarto</a></strong></span></p>
 </div>   
@@ -741,8 +866,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

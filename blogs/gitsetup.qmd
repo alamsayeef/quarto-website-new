@@ -1,0 +1,108 @@
+---
+title: "Git and SSH Setup Guide"
+description: |
+  This guide provides step-by-step instructions to connect git, clone repo and push commits
+categories: [Terminal, Programming]
+---
+
+# Introduction
+
+This guide provides step-by-step instructions to:
+
+1. Connect your Git account
+2. Set up SSH keys
+3. Create a local Git repository
+4. Link it to an online repository
+
+# Step 1: Connect Git Account
+
+- Hoping that you have git downloaded and installed if not you can download from [official website](https://git-scm.com/downloads)
+- Configure your Git identity:
+
+```sh
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+# Step 2: Set Up SSH Keys
+
+* Generate SSH key:
+
+```sh
+ssh-keygen -t ed25519 -C "your.email@example.com"
+```
+
+Press Enter to accept the default file location.
+
+* Start the SSH agent:
+
+```sh
+eval "$(ssh-agent -s)"
+```
+
+* Add your SSH key to the agent:
+
+```sh
+ssh-add ~/.ssh/id_ed25519
+```
+
+* Copy the SSH key to your clipboard:
+
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
+
+* Add the key to your Git hosting service (e.g., GitHub, GitLab) under `Settings > SSH > Add new key`.
+
+# Step 3: Create Local Git Repository
+
+Navigate to your project directory:
+
+```sh
+cd /path/to/your/project
+```
+
+Initialize Git:
+
+```sh
+git init
+```
+
+Add files and commit:
+
+```sh
+git add .
+git commit -m "Initial commit"
+```
+
+# Step 4: Link to Online Repository
+
+Create a new repository on GitHub/GitLab (without README if already committed locally).
+
+Link your local repo:
+
+```sh
+git remote add origin git@github.com:yourusername/your-repo.git
+```
+
+Sometimes it maybe `master` or `main`. You can check that by
+
+```sh
+git branch
+```
+
+Push your code:
+
+```sh
+git push -u origin master
+```
+
+Here the `-u` parameter means upstream so next time you can just write git push and it will remember that you wish to push it to master. (useful when you have single branch)
+
+After this you only need to repeat the following:
+
+```sh
+git add .
+git commit -m "provide new commit comment"
+git push origin master
+```

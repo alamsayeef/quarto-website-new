@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Mohammad Sayeef Alam",
     "section": "",
-    "text": "I am a doctoral candidate at the Norwegian University of Science and Technology in Trondheim, with a strong background in health data analysis. My research focuses on statistical genetics and gastrointestinal diseases, where I work with tools like R, Python, and bash.\nIn my spare time, I enjoy creating visualizations and building interactive applications to support decision-making in healthcare, and I’m driven by the chance to use programming to address challenges in healthcare using real-world data."
+    "text": "I am a doctoral candidate at the Norwegian University of Science and Technology in Trondheim, with a strong background in health data analysis. My research focuses on statistical genetics and gastrointestinal diseases, where I work with tools like R, Python, and Bash.\nIn my spare time, I enjoy creating visualizations and building interactive applications to support decision-making in healthcare, and I’m driven by the chance to use programming to address challenges in healthcare using real-world data."
   },
   {
     "objectID": "about.html",
@@ -16,16 +16,16 @@
   {
     "objectID": "blogs.html",
     "href": "blogs.html",
-    "title": "Mohammad Sayeef Alam",
+    "title": "MSA",
     "section": "",
-    "text": "GWAS\n\n\n\n\n\n\nGenetics\n\n\nMethods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhealthecon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmcmc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Git and SSH Setup Guide\n\n\n\n\n\n\nTerminal\n\n\nProgramming\n\n\n\nThis guide provides step-by-step instructions to connect git, clone repo and push commits \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGWAS\n\n\n\n\n\n\nGenetics\n\n\nMethods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhealthecon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmcmc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearnings from first R package development\n\n\n\n\n\n\nR\n\n\nProgramming\n\n\n\nBasic checks and debugging while R package development \n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "workshops.html",
     "href": "workshops.html",
     "title": "About Me",
     "section": "",
-    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+    "text": "About this site\n\nCode1 + 1\n\n[1] 2"
   },
   {
     "objectID": "resume.html",
@@ -131,5 +131,19 @@
     "title": "Mohammad Sayeef Alam",
     "section": "",
     "text": "I’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact."
+  },
+  {
+    "objectID": "blogs/rpackagedev.html",
+    "href": "blogs/rpackagedev.html",
+    "title": "Learnings from first R package development",
+    "section": "",
+    "text": "Intro\nThis documentation is for individuals such as me, to create more than basic R package while debugging common errors, warnings and notes.\nPrerequisite\n\n\nSoftware / package\nVersion\n\n\n\nR\n4.4.2\n\n\nRStudio\n2024.12.0+467\n\n\ndevtools\n2.4.5\n\n\nusethis\n3.1.0\n\n\nrlang\n1.1.6\n\n\n\nSome common functions that would be used\n\n\n\n\n\n\n\nUsage\nFunction\nPurpose\n\n\n\nSingle\nusethis::create_package(\"path/package\")\ninitialize package\n\n\n\nusethis::use_mit_license(\"Your name\")\nadd license\n\n\n\nusethis::use_pipe()\nadd pipe function as a dependency\n\n\nMultiple\ndevtools::check()\nbuild package locally and check\n\n\n\ndevtools::load_all()\nload functions in 📂 R/ into memory\n\n\n\nusethis::use_r(\"function\")\ncreate R script for function\n\n\n\nusethis::use_package(\"package\")\nadd package dependency\n\n\n\ndevtools::document()\nbuild and add documentation\n\n\nStep 1: Create package\n\nCodeusethis::create_package(\"path/to/folder/packagename\")\n\n\nNow you have a package! The usethis::create_package function:\n\nCreates a new R project named packagename at your specified location.\nOpens the packagename project in a new RStudio session.\nCreates the minimal essential files and structure required for R packages.\nStep 2: Connect with Git\nIf you do not have Git already set up in your Rstudio terminal. Follow guide\nOther resources:\n\nPackage development cheat sheet\nR packages book by Hadley Wickham and Jenny Bryan\nHow to develop good R packages by Maëlle Salmon\nR Package Primer by Karl Broman"
+  },
+  {
+    "objectID": "blogs/gitsetup.html",
+    "href": "blogs/gitsetup.html",
+    "title": "Git and SSH Setup Guide",
+    "section": "",
+    "text": "Introduction\nThis guide provides step-by-step instructions to:\n\nConnect your Git account\nSet up SSH keys\nCreate a local Git repository\nLink it to an online repository\n\n\n\nStep 1: Connect Git Account\n\nHoping that you have git downloaded and installed if not you can download from official website\nConfigure your Git identity:\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@example.com\"\n\n\nStep 2: Set Up SSH Keys\n\nGenerate SSH key:\n\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nPress Enter to accept the default file location.\n\nStart the SSH agent:\n\neval \"$(ssh-agent -s)\"\n\nAdd your SSH key to the agent:\n\nssh-add ~/.ssh/id_ed25519\n\nCopy the SSH key to your clipboard:\n\ncat ~/.ssh/id_ed25519.pub\n\nAdd the key to your Git hosting service (e.g., GitHub, GitLab) under Settings &gt; SSH &gt; Add new key.\n\n\n\nStep 3: Create Local Git Repository\nNavigate to your project directory:\ncd /path/to/your/project\nInitialize Git:\ngit init\nAdd files and commit:\ngit add .\ngit commit -m \"Initial commit\"\n\n\nStep 4: Link to Online Repository\nCreate a new repository on GitHub/GitLab (without README if already committed locally).\nLink your local repo:\ngit remote add origin git@github.com:yourusername/your-repo.git\nSometimes it maybe master or main. You can check that by\ngit branch\nPush your code:\ngit push -u origin master\nHere the -u parameter means upstream so next time you can just write git push and it will remember that you wish to push it to master. (useful when you have single branch)\nAfter this you only need to repeat the following:\ngit add .\ngit commit -m \"provide new commit comment\"\ngit push origin master"
   }
 ]

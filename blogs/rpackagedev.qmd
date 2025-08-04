@@ -1,0 +1,62 @@
+---
+title: "Learnings from first R package development"
+description: |
+  Basic checks and debugging while R package development
+categories: [R, Programming]
+---
+
+# Intro
+
+This documentation is for individuals such as me, to create more than basic R package while debugging common errors, warnings and notes.
+
+# Prerequisite
+
+| Software / package  | Version               |
+|---------------------|-----------------------|
+| R                   | 4.4.2                 | 
+| RStudio             | 2024.12.0+467         | 
+| `devtools`          | 2.4.5                 | 
+| `usethis`           | 3.1.0                 |
+| `rlang`             | 1.1.6                 |
+
+Some common functions that would be used
+
+| Usage    | Function                                       | Purpose                           |
+|----------|------------------------------------------------|-----------------------------------|
+| Single   | `usethis::create_package("path/package")`      | initialize package                | 
+|          | `usethis::use_mit_license("Your name")`        | add  license                      |
+|          | `usethis::use_pipe()`                          | add pipe function as a dependency |
+| Multiple | `devtools::check()`                            | build package locally and check   |
+|          | `devtools::load_all()`                         | load functions in `r emo::ji("folder")` `R/` into memory    |
+|          | `usethis::use_r("function")`                   | create R script for function      |
+|          | `usethis::use_package("package")     `         | add package dependency            |
+|          | `devtools::document()`                         | build and add documentation       |
+
+# Step 1: Create package
+
+```{r s1, eval=FALSE}
+usethis::create_package("path/to/folder/packagename")
+```
+
+Now you have a package!  The `usethis::create_package` function:
+
+1. Creates a new R project named `packagename` at your specified location.
+
+2. Opens the `packagename` project in a new RStudio session.
+
+3. Creates the minimal essential files and structure required for R packages.
+
+# Step 2: Connect with Git
+
+If you do not have Git already set up in your Rstudio terminal. [Follow guide](./gitsetup.qmd)
+
+
+# Other resources:
+
+* [Package development](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf){target="_blank"} cheat sheet
+
+* [R packages](https://r-pkgs.org/){target="_blank"} book by Hadley Wickham and Jenny Bryan
+
+* [How to develop good R packages](https://masalmon.eu/2017/12/11/goodrpackages/){target="_blank"} by Maëlle Salmon
+
+* [R Package Primer](https://kbroman.org/pkg_primer/){target="_blank"} by Karl Broman
