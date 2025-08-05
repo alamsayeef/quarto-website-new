@@ -18,6 +18,7 @@ This documentation is for individuals such as me, to create more than basic R pa
 | `devtools`          | 2.4.5                 | 
 | `usethis`           | 3.1.0                 |
 | `rlang`             | 1.1.6                 |
+| `roxygen2`          | 7.3.2                 |
 
 Some common functions that would be used
 
@@ -52,8 +53,99 @@ If you do not have Git already set up in your Rstudio terminal. [Follow guide](.
 
 Try to create a habit of pushing your commit (even tiny) with detailed description to be able to back track your own steps and monitor how the package/app/anything developed.
 
-# Step 3: 
+# Step 3: Check every step
 
+Incorporating checks after every step helps to build robust packages.
+
+```{r s3, eval=FALSE}
+devtools::check()
+```
+
+The errors and warning should be shown at the end. But might sometimes be quite verbose and difficult to understand.
+
+# Step 4: Debug current and upcoming warnings
+
+```{r s4.1, eval=FALSE}
+usethis::use_mit_license("your name here")
+```
+
+If you wish to use the pipe operator `%>%` then you should import it as shown below.
+
+```{r s4.2, eval=FALSE}
+usethis::use_pipe()
+```
+
+Package dependencies should also be updated while writing the package. But if you have an overview of the packages that will be used it is recommended to start adding it before coding itself.
+
+```{r s4.3, eval=FALSE}
+usethis::use_package("dplyr")
+```
+
+Packages like `tidyverse` cannot be imported. But if you wish to use the function from within a package it can be done in the following way:
+
+## Step 4.5: Perform checks
+
+```{r s4.5, eval=FALSE}
+devtools::document()
+devtools::check()
+```
+
+# Step 5: Generate an R script to write function
+
+```{r s5, eval=FALSE}
+usethis::use_r("name of R script")
+```
+
+# Step 6: Create roxygen skeleton
+
+You can add the skeleton two ways:
+
+  1.  `Code -> Insert Roxygen Skeleton`, or
+
+  2.  `Ctrl/Cmd + Alt + Shift + R`
+
+Edit the roxygen skeleton
+
+```  
+#' Computes a tidy correlation
+#'
+#' @param data input data set
+#' @param var1 name of variable 1 
+#' @param var2 name of variable 2 
+#'
+#' @return A tibble with the Pearson correlation and the p-value
+#' @export
+#'
+#' @examples
+#' compute_corr(data = faithful, var1 = eruptions, var2 = waiting)
+```
+
+## Step 6.5: Perform checks
+
+```{r s6.5, eval=FALSE}
+devtools::document()
+devtools::check()
+```
+
+# Step 7: Install your package
+
+You can now install your package and load all the functions using the following codes:
+
+```{r s7.1, eval=FALSE}
+devtools::install("path/to/package")
+```
+
+If you have it uploaded on the github then you can download it on other local machines to use it
+
+```{r s7.2, eval=FALSE}
+devtools::install_github("user/repo")
+```
+
+To use the package functions use the following code
+
+```{r s7.3, eval=FALSE}
+devtools::load_all()
+```
 
 # Other resources:
 
