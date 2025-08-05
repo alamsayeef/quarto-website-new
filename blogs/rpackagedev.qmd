@@ -50,6 +50,10 @@ Now you have a package!  The `usethis::create_package` function:
 
 If you do not have Git already set up in your Rstudio terminal. [Follow guide](./gitsetup.qmd)
 
+Try to create a habit of pushing your commit (even tiny) with detailed description to be able to back track your own steps and monitor how the package/app/anything developed.
+
+# Step 3: 
+
 
 # Other resources:
 
