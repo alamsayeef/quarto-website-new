@@ -10,7 +10,10 @@
   },
   {
     "listing": "/projects.html",
-    "items": []
+    "items": [
+      "/projects/moonr.html",
+      "/projects/nsc.html"
+    ]
   },
   {
     "listing": "/blogs.html",

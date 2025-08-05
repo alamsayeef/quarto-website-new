@@ -9,7 +9,7 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Mohammad Sayeef Alam",
+    "title": "MSA",
     "section": "",
     "text": "I’m a doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim, where my research focuses on statistical genetics and gastrointestinal diseases. With a strong foundation in statistics and biostatistics, I work with real-world health data to support better decision-making in healthcare.\nMy work involves applying advanced statistical methods and programming in R, Python, and bash. I also enjoy building interactive tools—such as Shiny apps—that help make complex data more accessible and actionable. I’m especially motivated by the opportunity to use programming to address real-world challenges in healthcare.\nWhat motivates me most is the opportunity to apply programming and analytics to real-world challenges in healthcare. I find it rewarding to contribute to projects that have practical impact, whether through research, collaboration, or tool development.\nBeyond research, I value community and connection. During the month of Ramadan, I volunteer at the MSiT mosque in Trondheim, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends. It’s a small way to contribute to a welcoming and inclusive environment.\nOutside of work, I enjoy hiking, swimming, improving my Norwegian and cooking for others. These activities help me stay grounded and bring balance to my academic life. I’m always eager to learn, collaborate, and contribute to projects that make a meaningful impact.\n\n\n\nSee ya later ⛷️"
   },
@@ -37,16 +37,16 @@
   {
     "objectID": "talks.html",
     "href": "talks.html",
-    "title": "Mohammad Sayeef Alam",
+    "title": "MSA",
     "section": "",
     "text": "GWAS\n\n\n\nOral\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPRS\n\n\n\nPoster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPRS\n\n\n\nOral\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGWAS\n\n\n\nPoster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
-    "title": "Mohammad Sayeef Alam",
+    "title": "MSA",
     "section": "",
-    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
+    "text": "Packaging MOON in R\n\n\n\nR\n\n\nExcel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQALY Shortfall calculator for Nordics\n\n\n\nR\n\n\nShiny\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resume.html#associate-parexel-remote-india",
@@ -100,16 +100,16 @@
   {
     "objectID": "projects.html#qaly-shortfall-calculator-for-nordics",
     "href": "projects.html#qaly-shortfall-calculator-for-nordics",
-    "title": "Mohammad Sayeef Alam",
+    "title": "MSA",
     "section": "",
     "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
   },
   {
     "objectID": "projects.html#packaging-moon",
     "href": "projects.html#packaging-moon",
-    "title": "Mohammad Sayeef Alam",
-    "section": "Packaging MOON",
-    "text": "Packaging MOON\n\n\n\n\n\n\nBoth R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
+    "title": "MSA",
+    "section": "",
+    "text": "Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
   },
   {
     "objectID": "talks.html#lab-reports",
@@ -159,5 +159,33 @@
     "title": "Learnings from first R package development",
     "section": "Step 6.5: Perform checks",
     "text": "Step 6.5: Perform checks\n\nCodedevtools::document()\ndevtools::check()"
+  },
+  {
+    "objectID": "projects/nsc.html",
+    "href": "projects/nsc.html",
+    "title": "QALY Shortfall calculator for Nordics",
+    "section": "",
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
+  },
+  {
+    "objectID": "projects/nsc.html#qaly-shortfall-calculator-for-nordics",
+    "href": "projects/nsc.html#qaly-shortfall-calculator-for-nordics",
+    "title": "MSA",
+    "section": "",
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
+  },
+  {
+    "objectID": "projects/moonr.html",
+    "href": "projects/moonr.html",
+    "title": "Packaging MOON in R",
+    "section": "",
+    "text": "Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
+  },
+  {
+    "objectID": "projects/moonr.html#packaging-moon",
+    "href": "projects/moonr.html#packaging-moon",
+    "title": "MSA",
+    "section": "",
+    "text": "Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
   }
 ]

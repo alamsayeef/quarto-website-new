@@ -1,0 +1,19 @@
+---
+title: Packaging MOON in R
+categories: [R, Excel]
+---
+
+:::::: columns
+::: {.column width="40%"}
+![](images/transition_diagram.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.
+
+Gudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity.
+:::
+::::::
