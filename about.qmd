@@ -1,9 +1,21 @@
+---
+title: About me
+format:
+  html:
+    page-layout: full
+---
+
+
 ::: {.grid .justify-center}
 
 ::: {.g-col-6}
+<br>
+<br>
+
+
 I’m a final year doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim. My research focuses on statistical genetics and gastrointestinal diseases. I am responsible to investigate for associations within the high-dimensional genetic data and couple it with real-world data to report the difference among different population groups.
 
-I am also peculiarly fond of programming and health economics (especially modelling and analytics). I have hands-on experience in R, STATA, SAS, Excel (VBA) as well as BASH (recently). I enjoy building interactive apps using modern tools like Shiny to help end users make data driven decision making.
+I am also peculiarly fond of programming and health economics (especially modelling and analytics). I have hands-on experience in R, STATA, SAS, Excel (VBA) as well as Bash. I enjoy building interactive apps using modern tools like Shiny to help end users make data driven decision making.
 
 My career goal is to contribute to evidence synthesis and decision making in healthcare through rigorous research, immersive analytics, and collaborative science that benefits communities worldwide.
 
