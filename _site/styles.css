@@ -10,3 +10,15 @@
   text-align: left;
   max-width: 500px;
 }
+
+.center-about-me {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.center-about-me .columns {
+  display: flex;
+  gap: 4rem; /* Add space between columns */
+  align-items: flex-start;
+}
