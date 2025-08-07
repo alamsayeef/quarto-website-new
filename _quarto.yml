@@ -3,7 +3,7 @@ project:
 
 website:
   title: "MSA"
-  
+  back-to-top-navigation: true 
   favicon: "images/linkedinpic.jpg"
   
   page-footer:
@@ -50,10 +50,8 @@ website:
 
 format:
   html:
-    grid: 
-      body-width: 2000px
-      sidebar-width: 200px
-      margin-width: 200px
+    toc: true
+    page-layout: article
     theme:
       light: [cosmo, theme_light_custom.scss]
       dark: [cosmo, theme_dark_custom.scss]

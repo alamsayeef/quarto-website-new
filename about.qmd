@@ -1,9 +1,6 @@
-::::: {.columns .center-about}
-::: {.column width="25%" style="padding-right: 0.5rem;"}
-<img src="images/aboutme.gif" alt="About Me GIF" style="width: 150%; max-height: 550px; object-fit: contain; margin-top: 4rem;"/>
-:::
+::: {.grid .justify-center}
 
-::: {.column .center-about-content width="75%"}
+::: {.g-col-6}
 I’m a final year doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim. My research focuses on statistical genetics and gastrointestinal diseases. I am responsible to investigate for associations within the high-dimensional genetic data and couple it with real-world data to report the difference among different population groups.
 
 I am also peculiarly fond of programming and health economics (especially modelling and analytics). I have hands-on experience in R, STATA, SAS, Excel (VBA) as well as BASH (recently). I enjoy building interactive apps using modern tools like Shiny to help end users make data driven decision making.
@@ -11,12 +8,13 @@ I am also peculiarly fond of programming and health economics (especially modell
 My career goal is to contribute to evidence synthesis and decision making in healthcare through rigorous research, immersive analytics, and collaborative science that benefits communities worldwide.
 
 When I'm not researching, you'll find me hiking/skiing, learning to swim, watching anime. I also value community and connections. I volunteer at the MSiT mosque in Trondheim during the month of Ramadan, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends.
+
+**See ya later ⛷️**
 :::
 
-<p style="text-align: center; margin-top: 1rem; font-size: 1.2rem;">
+::: {.g-col-4 .text-center}
+![](images/aboutme.gif)
+:::
 
-<strong>See ya later ⛷️</strong>
+:::
 
-</p>
-
-:::::
