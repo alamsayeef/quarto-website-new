@@ -1,85 +1,116 @@
-<h1 style="margin-left: 40%; transform: translateX(-25%); width: 60%;">Mohammad Sayeef Alam</h1>
-
-<div style="margin-left: 40%; transform: translateX(-25%); width: 60%;">
-  <a href="images/ResumeMSA.pdf" download style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-    Download PDF
-  </a>
-</div>
-
-
-<div style="margin-left: 40%; transform: translateX(-25%); width: 60%;">
+---
+title: Curriculum Vitae
+format:
+  html:
+    page-layout: full
+---
 
 
-- **Location:** Trondheim, Norway  
-- **Email:** alam.sayeef@gmail.com  
-- **Phone:** +47 4867 1602  
-- **LinkedIn:** [LinkedIn](#)
+<a href="images/ResumeMSA.pdf" download style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;"> Download PDF </a>
 
-# Summary
-- PhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.
-- Six years of experience in data analysis in various statistical methods and datasets related to health.
-- Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on experience in R and Excel.
-- Technically minded with the ability to break down complex solutions for diverse audiences.
-- Collaborative team player with a focus on contributing to a positive work environment.
-- Adaptable to fast-paced environments and capable of making decisions under pressure.
-- Strong communication skills in English.
+-   **Location:** Trondheim, Norway\
+-   **Email:** alam.sayeef\@gmail.com\
+-   **Phone:** +47 4867 1602\
+-   **LinkedIn:** [LinkedIn](#)
 
-# Professional Experience
+## Summary
 
-## Associate, Parexel – Remote, India
+-   PhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.
+-   Six years of experience in data analysis in various statistical methods and datasets related to health.
+-   Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on
+experience of its implementation in both R and Excel.
+-   Technically minded with the ability to break down a complex solution to ensure understanding at
+multiple levels and heterogeneous audience.
+-   Collaborative and supportive team player, conscious of my role as a contributor to a good working
+environment.
+-   Ability to take on new challenges in a fast-paced environment and make decisions under pressure.
+-   Fluent in English and beginner in Norwegian
+
+## Professional Experience
+
+### Associate, Parexel - Remote, India
+
 **July 2021 – February 2022**
 
-  - Developed interactive platforms (e.g., RShiny) for economic evaluations.
-  - Performed statistical analyses aligned with HTA guidelines across multiple disease areas.
-  - Automated dashboards (Excel/VBA) for clinical endpoint visualization.
-  - Coordinated projects and managed client expectations.
-  - Contributed to SAPs and validated datasets.
-  - Presented analytical results to stakeholders and refined deliverables.
+-   Supported the development of interactive platforms (e.g., RShiny) to conduct economic evaluations (e.g.,
+cost-effectiveness, budget impact) under senior guidance.
+-   Performed statistical analyzes (e.g., Bayesian network meta-analysis, MAIC, STC) aligned with health
+technology assessment (HTA) guidelines (e.g., TSD, NICE) across multiple disease areas.
+-   Automated dashboards (Excel/VBA) to visualize key clinical endpoints (e.g. survival curves,
+demographics) for regional stakeholder reporting.
+-   Supported client engagements by helping to coordinate projects, manage their expectations, and ensured
+the timely delivery of analytical output.
+-   Contributed to statistical analysis plans (SAPs) by programming scripts, conducting feasibility
+assessments, and validating data sets for accuracy.
+-   Assisted in presenting analytical results to internal and external stakeholders, incorporating feedback to
+refine deliverables.
 
-# Research Experience
+## Research Experience
 
-## PhD, NTNU – Trondheim, Norway
+### PhD, NTNU – Trondheim, Norway
+
 **April 2022 – Current**
 
-  - Applied advanced statistical methods to genetic and registry data.
-  - Designed analysis pipelines to improve efficiency.
-  - Presented findings at conferences and published in peer-reviewed journals.
-  - Collaborated with external research groups.
-  - Built academic networks and secured over 150,000 NOK in funding.
+-   Applied advanced statistical methods to analyze high-dimensional genetic and real-world registry data,
+generating actionable insights for large-scale studies.
+-   Designed and optimized analysis pipelines, reducing computational time and resource usage, and
+increasing team productivity.
+-   Presented research findings at national and international conferences and published results in
+peer-reviewed journals, contributing to scientific knowledge and visibility.
+-   Fostered and expanded collaborations with external university research groups, driving successful joint
+projects.
+-   Built a supportive academic network during an international research stay, facilitating new research
+opportunities.
+-   Secured more than 150,000 NOK in competitive external funding from three agencies, supporting
+innovative research initiatives.
 
-# Project
 
-## Nordic Shortfall Calculator
-- Developed a model to calculate shortfall for Denmark, Finland, Norway, and Sweden.
-- Provides estimates of QALE based on EQ-5D/3D values.
-- Includes comparative options, discount rates, and dynamic inputs.
+## [Project](projects.qmd)
 
-# Skills
+### [Nordic Shortfall Calculator](projects/nsc.qmd)
 
-**Software:** R, SAS, Python, Git, Microsoft Excel, PowerPoint, Word  
-**Transferable:** Communicator, Detail-oriented, Problem solver, Relationship builder, Results-driven, Strategic  
-**Hobbies:** Hiking, swimming, cooking for others
+-   Developed a proof-of-concept model that calculates the absolute and proportional shortfall of 4 Nordic
+countries, i.e., Denmark, Finland, Norway, and Sweden
+-   Provides up-to-date estimates of quality-adjusted life expectency of respective Nordic population based on the EQ-5D or 3D values.
+-   Features comparative options between different value sets for each country, discount rates, updates
+automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummulative QALYs.
 
-# Education
+## Skills
 
-- **MPhil in Biostatistics and Demography**, International Institute for Population Sciences (2020 – 2021)
-- **MSc in Biostatistics and Demography**, International Institute for Population Sciences (2018 – 2020)
-- **BSc in Statistics**, University of Calcutta (2014 – 2018)
+-   **Software:** R, SAS, Python, Git, Microsoft Excel, PowerPoint, Word
+-   **Transferable:** Communicator, Detail-oriented, Problem solver, Relationship builder, Results-driven, Strategic
+-   **Hobbies:** Hiking, Skiing, Swimming, Anime
 
-# Publications
+## Education
 
-1. Alam MS et al. *Scientific Reports*, 2025;15(1):19764.
-2. Singh M, Alam MS et al. *Frontiers in Public Health*, 2021;9:667502.
-3. Sen K, Alam MS et al. *Indian Journal of Endocrinology and Metabolism*, 2020;24(6):532-6.
+-   **MPhil in Biostatistics and Demography**, International Institute for Population Sciences (2020 – 2021)
+-   **MSc in Biostatistics and Demography**, International Institute for Population Sciences (2018 – 2020)
+-   **BSc in Statistics**, University of Calcutta (2014 – 2018)
 
-# Conferences
+## Publications
 
-1. 20th International Celiac Disease Symposium – Sheffield, UK (oral), September 2024
-2. Nordic Conference on Future Health – Trondheim, Norway (oral), September 2024
-3. 16th International Conference on Urban Health – Xiamen, China (oral), November 2020
+1.  [Population screening of adults identifies novel genetic variants associated with celiac disease.](https://doi.org/10.1038/s41598-025-04421-6) *Alam MS, Thomas L, Brumpton B, Hveem K, Lundin KE, Withoff S, Jonkers IH, Sollid LM, Hjort R, Ness-Jensen E.* Scientific Reports. 2025 Jun 5;15(1):19764
 
-# References
+2.  [Understanding the spatial predictors of malnutrition among 0–2 years children in India using path analysis.](https://doi.org/10.3389/fpubh.2021.667502) *Singh M, Alam MS, Majumdar P, Tiwary B, Narzari H, Mahendradhata Y.* Frontiers in Public Health. 2021 Jul 30;9:667502
+
+3.  [Thyroid Function Test in COVID-19 Patients: A Cross-Sectional Study in a Tertiary Care Hospital.](https://doi.org/10.4103/ijem.IJEM_779_20) *Sen K, Sinha A, Sen S, Chakraborty S, Alam MS.* Indian J Endocrinol Metab. 2020;24(6):532-536
+
+4. [The effects of social media consumption among the internet users during COVID-19 lockdown in India: Results from an online survey.](https://www.ojhas.org/issue76/2020-4-6.html) *Mustafa A, Alam MS, Shekhar C.*
+Online Journal of Health and Allied Sciences 19 (4)
+
+## [Conferences](talks.qmd#)
+
+### Oral
+1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
+2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
+3.  16th International Conference on Urban Health – Xiamen, China, November 2020
+4.  5th International Integrative Research Conference on Governance and Modernization in Changing Environment - Comilla, Bangladesh, December 2019
+
+### Poster
+1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
+2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
+
+## References
+
 Available upon request.
 
-
-</div>

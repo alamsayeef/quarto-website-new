@@ -11,7 +11,7 @@
     "href": "about.html",
     "title": "About me",
     "section": "",
-    "text": "I’m a final year doctoral candidate at the Norwegian University of Science and Technology (NTNU) in Trondheim. My research focuses on statistical genetics and gastrointestinal diseases. I am responsible to investigate for associations within the high-dimensional genetic data and couple it with real-world data to report the difference among different population groups.\nI am also peculiarly fond of programming and health economics (especially modelling and analytics). I have hands-on experience in R, STATA, SAS, Excel (VBA) as well as Bash. I enjoy building interactive apps using modern tools like Shiny to help end users make data driven decision making.\nMy career goal is to contribute to evidence synthesis and decision making in healthcare through rigorous research, immersive analytics, and collaborative science that benefits communities worldwide.\nWhen I’m not researching, you’ll find me hiking/skiing, learning to swim, watching anime. I also value community and connections. I volunteer at the MSiT mosque in Trondheim during the month of Ramadan, helping serve food to people of all faiths—whether they are breaking their fast or simply sharing a warm meal with friends.\nSee ya later ⛷️\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "I am a final-year PhD candidate in Genetic Epidemiology at the Norwegian University of Science and Technology (NTNU) in Trondheim. My research focuses on statistical genetics and gastrointestinal diseases, where I analyze high-dimensional genetic data and link it with real-world health records to uncover differences across population groups.\nI hold dual master’s degrees in Biostatistics and a bachelor’s degree in Statistics. Over the past six years, I have gained experience working with diverse health-related datasets, applying a range of statistical methods in epidemiology, biostatistics, clinical trials, and genetics.\nI have hands-on experience with tools such as R, STATA, SAS, Excel (including VBA), and Bash. I particularly enjoy building interactive applications using Shiny to support data-driven decision-making. I am technically minded and strive to communicate complex ideas in a way that is accessible to different audiences. I value a positive working environment and am always open to new challenges. I am fluent in English and still learning Norwegian.\nOutside of research, I enjoy hiking, skiing, and watching anime. I’m also learning to swim. Community and connection are important to me—I volunteer at the MSiT mosque in Trondheim during Ramadan, helping serve meals to people of all backgrounds.\nMy career goal is to contribute to evidence synthesis and informed decision-making in healthcare through rigorous research, thoughtful analytics, and collaborative science that benefits communities worldwide.\nSee ya later ⛷️\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "blogs.html",
@@ -30,9 +30,9 @@
   {
     "objectID": "resume.html",
     "href": "resume.html",
-    "title": "\nMohammad Sayeef Alam\n",
+    "title": "Curriculum Vitae",
     "section": "",
-    "text": "Mohammad Sayeef Alam"
+    "text": "Download PDF"
   },
   {
     "objectID": "talks.html",
@@ -51,21 +51,21 @@
   {
     "objectID": "resume.html#associate-parexel-remote-india",
     "href": "resume.html#associate-parexel-remote-india",
-    "title": "\nMohammad Sayeef Alam\n",
+    "title": "Curriculum Vitae",
     "section": "Associate, Parexel – Remote, India",
     "text": "Associate, Parexel – Remote, India\nJuly 2021 – February 2022\n\nDeveloped interactive platforms (e.g., RShiny) for economic evaluations.\nPerformed statistical analyses aligned with HTA guidelines across multiple disease areas.\nAutomated dashboards (Excel/VBA) for clinical endpoint visualization.\nCoordinated projects and managed client expectations.\nContributed to SAPs and validated datasets.\nPresented analytical results to stakeholders and refined deliverables."
   },
   {
     "objectID": "resume.html#phd-ntnu-trondheim-norway",
     "href": "resume.html#phd-ntnu-trondheim-norway",
-    "title": "\nMohammad Sayeef Alam\n",
+    "title": "Curriculum Vitae",
     "section": "PhD, NTNU – Trondheim, Norway",
     "text": "PhD, NTNU – Trondheim, Norway\nApril 2022 – Current\n\nApplied advanced statistical methods to genetic and registry data.\nDesigned analysis pipelines to improve efficiency.\nPresented findings at conferences and published in peer-reviewed journals.\nCollaborated with external research groups.\nBuilt academic networks and secured over 150,000 NOK in funding."
   },
   {
     "objectID": "resume.html#nordic-shortfall-calculator",
     "href": "resume.html#nordic-shortfall-calculator",
-    "title": "\nMohammad Sayeef Alam\n",
+    "title": "Curriculum Vitae",
     "section": "Nordic Shortfall Calculator",
     "text": "Nordic Shortfall Calculator\n\nDeveloped a model to calculate shortfall for Denmark, Finland, Norway, and Sweden.\nProvides estimates of QALE based on EQ-5D/3D values.\nIncludes comparative options, discount rates, and dynamic inputs."
   },
@@ -165,7 +165,7 @@
     "href": "projects/nsc.html",
     "title": "QALY Shortfall calculator for Nordics",
     "section": "",
-    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app"
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "projects/nsc.html#qaly-shortfall-calculator-for-nordics",
@@ -187,5 +187,68 @@
     "title": "MSA",
     "section": "",
     "text": "Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
+  },
+  {
+    "objectID": "resume.html#summary",
+    "href": "resume.html#summary",
+    "title": "Curriculum Vitae",
+    "section": "Summary",
+    "text": "Summary\n\nPhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.\nSix years of experience in data analysis in various statistical methods and datasets related to health.\nKnowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on experience of its implementation in both R and Excel.\nTechnically minded with the ability to break down a complex solution to ensure understanding at multiple levels and heterogeneous audience.\nCollaborative and supportive team player, conscious of my role as a contributor to a good working environment.\nAbility to take on new challenges in a fast-paced environment and make decisions under pressure.\nFluent in English and beginner in Norwegian"
+  },
+  {
+    "objectID": "resume.html#professional-experience",
+    "href": "resume.html#professional-experience",
+    "title": "Curriculum Vitae",
+    "section": "Professional Experience",
+    "text": "Professional Experience\n\nAssociate, Parexel - Remote, India\nJuly 2021 – February 2022\n\nSupported the development of interactive platforms (e.g., RShiny) to conduct economic evaluations (e.g., cost-effectiveness, budget impact) under senior guidance.\nPerformed statistical analyzes (e.g., Bayesian network meta-analysis, MAIC, STC) aligned with health technology assessment (HTA) guidelines (e.g., TSD, NICE) across multiple disease areas.\nAutomated dashboards (Excel/VBA) to visualize key clinical endpoints (e.g. survival curves, demographics) for regional stakeholder reporting.\nSupported client engagements by helping to coordinate projects, manage their expectations, and ensured the timely delivery of analytical output.\nContributed to statistical analysis plans (SAPs) by programming scripts, conducting feasibility assessments, and validating data sets for accuracy.\nAssisted in presenting analytical results to internal and external stakeholders, incorporating feedback to refine deliverables."
+  },
+  {
+    "objectID": "resume.html#research-experience",
+    "href": "resume.html#research-experience",
+    "title": "Curriculum Vitae",
+    "section": "Research Experience",
+    "text": "Research Experience\n\nPhD, NTNU – Trondheim, Norway\nApril 2022 – Current\n\nApplied advanced statistical methods to analyze high-dimensional genetic and real-world registry data, generating actionable insights for large-scale studies.\nDesigned and optimized analysis pipelines, reducing computational time and resource usage, and increasing team productivity.\nPresented research findings at national and international conferences and published results in peer-reviewed journals, contributing to scientific knowledge and visibility.\nFostered and expanded collaborations with external university research groups, driving successful joint projects.\nBuilt a supportive academic network during an international research stay, facilitating new research opportunities.\nSecured more than 150,000 NOK in competitive external funding from three agencies, supporting innovative research initiatives."
+  },
+  {
+    "objectID": "resume.html#project",
+    "href": "resume.html#project",
+    "title": "Curriculum Vitae",
+    "section": "Project",
+    "text": "Project\n\nNordic Shortfall Calculator\n\nDeveloped a proof-of-concept model that calculates the absolute and proportional shortfall of 4 Nordic countries, i.e., Denmark, Finland, Norway, and Sweden\nProvides up-to-date estimates of quality-adjusted life expectency of respective Nordic population based on the EQ-5D or 3D values.\nFeatures comparative options between different value sets for each country, discount rates, updates automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummulative QALYs."
+  },
+  {
+    "objectID": "resume.html#skills",
+    "href": "resume.html#skills",
+    "title": "Curriculum Vitae",
+    "section": "Skills",
+    "text": "Skills\n\nSoftware: R, SAS, Python, Git, Microsoft Excel, PowerPoint, Word\nTransferable: Communicator, Detail-oriented, Problem solver, Relationship builder, Results-driven, Strategic\nHobbies: Hiking, Skiing, Swimming, Anime"
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Curriculum Vitae",
+    "section": "Education",
+    "text": "Education\n\nMPhil in Biostatistics and Demography, International Institute for Population Sciences (2020 – 2021)\nMSc in Biostatistics and Demography, International Institute for Population Sciences (2018 – 2020)\nBSc in Statistics, University of Calcutta (2014 – 2018)"
+  },
+  {
+    "objectID": "resume.html#publications",
+    "href": "resume.html#publications",
+    "title": "Curriculum Vitae",
+    "section": "Publications",
+    "text": "Publications\n\nPopulation screening of adults identifies novel genetic variants associated with celiac disease. Alam MS, Thomas L, Brumpton B, Hveem K, Lundin KE, Withoff S, Jonkers IH, Sollid LM, Hjort R, Ness-Jensen E. Scientific Reports. 2025 Jun 5;15(1):19764\nUnderstanding the spatial predictors of malnutrition among 0–2 years children in India using path analysis. Singh M, Alam MS, Majumdar P, Tiwary B, Narzari H, Mahendradhata Y. Frontiers in Public Health. 2021 Jul 30;9:667502\nThyroid Function Test in COVID-19 Patients: A Cross-Sectional Study in a Tertiary Care Hospital. Sen K, Sinha A, Sen S, Chakraborty S, Alam MS. Indian J Endocrinol Metab. 2020;24(6):532-536\nThe effects of social media consumption among the internet users during COVID-19 lockdown in India: Results from an online survey. Mustafa A, Alam MS, Shekhar C. Online Journal of Health and Allied Sciences 19 (4)"
+  },
+  {
+    "objectID": "resume.html#conferences",
+    "href": "resume.html#conferences",
+    "title": "Curriculum Vitae",
+    "section": "Conferences",
+    "text": "Conferences\n\nOral\n\n20th International Celiac Disease Symposium – Sheffield, UK, September 2024\nNordic Conference on Future Health – Trondheim, Norway, September 2024\n16th International Conference on Urban Health – Xiamen, China, November 2020\n5th International Integrative Research Conference on Governance and Modernization in Changing Environment - Comilla, Bangladesh, December 2019\n\n\n\nPoster\n\n20th International Celiac Disease Symposium – Sheffield, UK, September 2024\nNordic Conference on Future Health – Trondheim, Norway, September 2024"
+  },
+  {
+    "objectID": "resume.html#references",
+    "href": "resume.html#references",
+    "title": "Curriculum Vitae",
+    "section": "References",
+    "text": "References\nAvailable upon request."
   }
 ]
