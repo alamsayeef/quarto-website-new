@@ -9,7 +9,7 @@ categories: [R, Excel]
 ::: {.column width="5%"}
 :::
 ::: {.column width="50%"}
-![](images/transition_diagram.jpg)
+![](images/moonr_sticker.png)
 :::
 ::: {.column width="5%"}
 :::
