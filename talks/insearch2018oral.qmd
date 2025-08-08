@@ -1,0 +1,30 @@
+---
+title: "Shifting Paradigm in the Cause of Maternal Mortality in West Bengal: A Facility and Community-Based Mixed Method Approach Study"
+author: Mohammad Sayeef Alam, Md Illias Kanchan Sk
+date: 18 December, 2018
+format: html
+categories: [Oral presentation, Public Health, Maternal Mortality, Mixed methods]
+toc: false
+---
+
+## Conference name
+
+### $5^{th}$ International Integrative Research Conference on Governance and Modernization in Changing Environment (INSEARCH)
+
+## Conference Venue:
+
+*BARD, Comilla, Bangladesh*
+
+## Abstract
+
+**Background:** Previously, studies have manifested a high magnitude of maternal deathsattributed to obstetric haemorrhage in West Bengal. But in the recent decade, the State has marked a unique recognition for having the highest maternal mortality caused by eclampsia in the country as well as in the globe.
+
+**Objectives:** The study aimed to determine the incidence of maternal mortality attributed to eclampsia and identify the confounding factors associated with eclamptic maternal deaths.
+
+**Methods:** It was a mixed method study. First, a facility-based study was conducted for all maternal deaths occurred between November 2013 and October 2015 (N=317), in two tertiary level hospitals. Second, we conducted community-based maternal death reviews (verbal autopsies) of 20 deaths.
+
+**Results:** Eclampsia accounted in one-third of maternal deaths. Almost two-thirds of maternal deaths attributed to eclampsia were highly concentrated among women who resided in distant areas from the studied hospitals. The women belonged to \<24 years age group (65%) and primigravidas (40%) mothers were noted to have an increased risk of eclamptic deaths as compared to relatively older groups and multigravida women. The maternal deaths related to eclampsia was comparatively higher among cesarean section experienced mother compared to normally delivered. Verbal autopsies indicated that majority of pregnant women had the irregular AN Cheek-ups history, particularly during the second trimester of pregnancy. Most of the eclamptic deceased women had been taken to at least three health facilities. Gravidity, the number of ANC and mode of delivery were the significant confounder of eclamptic deaths in the study.
+
+**Conclusion:** The study confirmed an excess risk of hypertensive disorders which is much higher compared to previous studies in the globe. Establishment of separate Eclampsia Units at lower levels health facilities equipping with modern ICU facilities is more plausible and expedient pathway to alleviate the burden of eclampsia-related maternal deaths.
+
+*Keywords:* **Eclampsia**, **Maternal Mortality**, **West Bengal**

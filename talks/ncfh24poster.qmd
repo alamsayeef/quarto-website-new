@@ -1,4 +1,28 @@
 ---
-title: "GWAS"
-categories: [Poster]
+title: "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study."
+author: 	Mohammad Sayeef Alam, Laurent F Thomas, Ben Brumpton, Kristian Hveem, Knut E A Lundin, Sebo Withoff, Iris H Jonkers, Ludvig M Sollid, Rebecka Hjort, Eivind Ness Jensen
+date: 10 September, 2024
+format: html
+categories: [Poster presentations, GWAS, Celiac Genetics, Gastrointestinal disease]
+toc: false
 ---
+
+## Conference name
+
+### The Nordic Conference on Future Health
+
+## Conference Venue:
+
+*Trondheim, Norway*
+
+## Abstract
+
+**Introduction:** Poor water quality has been considered to be a confounder factor of the communicable disease. The study analyzed the current burden of communicable diseases and explored the factors associated with it in the major urban populated states of India.
+
+**Methods:** This study used the India’s fourth round District Level Household and Facility Survey (2012–13) data. The study particularly focused on the major urban states of India which are having more than 30,000 urban populations. We used bivariate analysis and the adjusted odds ratio (AOR) with 95% confidence intervals (CI) to identify the independent predictors.
+
+**Results:** Public tap was found to be a prime source of drinking water in the urban India. Tamil Nadu (near about half) had the largest urban population using unimproved water sources. The prevalence of communicable disease was high (11 percent) among the population using unimproved drinking compared to their counterparts (5 percent). About 15 percent of the urban population in West Bengal had higher communicable diseases than other urban populated states of India. The factors found significantly associated with communicable diseases were age (AOR=1.40), years of schooling (AOR=0.95), source of drinking water (AOR=0.77) and having toilet facility (AOR=1.32).
+
+**Conclusion:** Improved drinking water coverage in India is still considerably low as compared to the national target set in SDG. The present study suggests that improved drinking water sources and clean and hygienic toilet facility are significant determinants of communicable diseases. The measure should be devised to enhance health information and accessibility of safe drinking water to prevent communicable diseases in line with achieving the Sustainable Development Goal 3.
+
+*Keywords:* **Communicable diseases**, **risk factors**, **urban area**, **India**.

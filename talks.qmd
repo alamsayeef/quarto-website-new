@@ -3,12 +3,13 @@ listing:
   contents:
     - talks/*.qmd
   sort: "date desc"
-  type: grid
-  grid-columns: 4
+  type: table
   categories: true
-  sort-ui: false
-  filter-ui: false
-  image-height: 10em
-page-layout: full
+  sort-ui: [title, author, date]
+  filter-ui: [title, author, date]
+  image-align: left
 title-block-banner: true
+format:
+  html:
+    page-layout: full
 ---

@@ -1,19 +1,19 @@
 ---
-title: "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study."
-author: Mohammad Sayeef Alam, Laurent F Thomas, Ben Brumpton, Kristian Hveem, Knut E A Lundin, Sebo Withoff, Iris H Jonkers, Ludvig M Sollid, Rebecka Hjort, Eivind Ness Jensen
-date: 10 September, 2024
+title: "Prevalence of communicable diseases and its epidemiological correlates in major urban populated states of India: Evidence from a nationally representative sample"
+author: Mohammad Sayeef Alam, Balram Paswan, Mohammed Illias Sheikh
+date: 4 November, 2019
 format: html
-categories: [Oral presentations, GWAS, Celiac Genetics, Gastrointestinal disease]
+categories: [Oral presentation, Public Health, Communicable disease burden, Demographic Health Survey]
 toc: false
 ---
 
 ## Conference name
 
-### The Nordic Conference on Future Health
+### $16^{th}$ International Conference on Urban Health (ICUH)
 
 ## Conference Venue:
 
-*Trondheim, Norway*
+*Xiamen, China*
 
 ## Abstract
 
