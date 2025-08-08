@@ -5,7 +5,6 @@ format:
     page-layout: full
 ---
 
-
 <a href="images/ResumeMSA.pdf" download style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;"> Download PDF </a>
 
 -   **Location:** Trondheim, Norway\
@@ -17,12 +16,9 @@ format:
 
 -   PhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.
 -   Six years of experience in data analysis in various statistical methods and datasets related to health.
--   Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on
-experience of its implementation in both R and Excel.
--   Technically minded with the ability to break down a complex solution to ensure understanding at
-multiple levels and heterogeneous audience.
--   Collaborative and supportive team player, conscious of my role as a contributor to a good working
-environment.
+-   Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on experience of its implementation in both R and Excel.
+-   Technically minded with the ability to break down a complex solution to ensure understanding at multiple levels and heterogeneous audience.
+-   Collaborative and supportive team player, conscious of my role as a contributor to a good working environment.
 -   Ability to take on new challenges in a fast-paced environment and make decisions under pressure.
 -   Fluent in English and beginner in Norwegian
 
@@ -32,18 +28,12 @@ environment.
 
 **July 2021 – February 2022**
 
--   Supported the development of interactive platforms (e.g., RShiny) to conduct economic evaluations (e.g.,
-cost-effectiveness, budget impact) under senior guidance.
--   Performed statistical analyzes (e.g., Bayesian network meta-analysis, MAIC, STC) aligned with health
-technology assessment (HTA) guidelines (e.g., TSD, NICE) across multiple disease areas.
--   Automated dashboards (Excel/VBA) to visualize key clinical endpoints (e.g. survival curves,
-demographics) for regional stakeholder reporting.
--   Supported client engagements by helping to coordinate projects, manage their expectations, and ensured
-the timely delivery of analytical output.
--   Contributed to statistical analysis plans (SAPs) by programming scripts, conducting feasibility
-assessments, and validating data sets for accuracy.
--   Assisted in presenting analytical results to internal and external stakeholders, incorporating feedback to
-refine deliverables.
+-   Supported the development of interactive platforms (e.g., RShiny) to conduct economic evaluations (e.g., cost-effectiveness, budget impact) under senior guidance.
+-   Performed statistical analyzes (e.g., Bayesian network meta-analysis, MAIC, STC) aligned with health technology assessment (HTA) guidelines (e.g., TSD, NICE) across multiple disease areas.
+-   Automated dashboards (Excel/VBA) to visualize key clinical endpoints (e.g. survival curves, demographics) for regional stakeholder reporting.
+-   Supported client engagements by helping to coordinate projects, manage their expectations, and ensured the timely delivery of analytical output.
+-   Contributed to statistical analysis plans (SAPs) by programming scripts, conducting feasibility assessments, and validating data sets for accuracy.
+-   Assisted in presenting analytical results to internal and external stakeholders, incorporating feedback to refine deliverables.
 
 ## Research Experience
 
@@ -51,29 +41,20 @@ refine deliverables.
 
 **April 2022 – Current**
 
--   Applied advanced statistical methods to analyze high-dimensional genetic and real-world registry data,
-generating actionable insights for large-scale studies.
--   Designed and optimized analysis pipelines, reducing computational time and resource usage, and
-increasing team productivity.
--   Presented research findings at national and international conferences and published results in
-peer-reviewed journals, contributing to scientific knowledge and visibility.
--   Fostered and expanded collaborations with external university research groups, driving successful joint
-projects.
--   Built a supportive academic network during an international research stay, facilitating new research
-opportunities.
--   Secured more than 150,000 NOK in competitive external funding from three agencies, supporting
-innovative research initiatives.
-
+-   Applied advanced statistical methods to analyze high-dimensional genetic and real-world registry data, generating actionable insights for large-scale studies.
+-   Designed and optimized analysis pipelines, reducing computational time and resource usage, and increasing team productivity.
+-   Presented research findings at national and international conferences and published results in peer-reviewed journals, contributing to scientific knowledge and visibility.
+-   Fostered and expanded collaborations with external university research groups, driving successful joint projects.
+-   Built a supportive academic network during an international research stay, facilitating new research opportunities.
+-   Secured more than 150,000 NOK in competitive external funding from three agencies, supporting innovative research initiatives.
 
 ## [Project](projects.qmd)
 
 ### [Nordic Shortfall Calculator](projects/nsc.qmd)
 
--   Developed a proof-of-concept model that calculates the absolute and proportional shortfall of 4 Nordic
-countries, i.e., Denmark, Finland, Norway, and Sweden
+-   Developed a proof-of-concept model that calculates the absolute and proportional shortfall of 4 Nordic countries, i.e., Denmark, Finland, Norway, and Sweden
 -   Provides up-to-date estimates of quality-adjusted life expectency of respective Nordic population based on the EQ-5D or 3D values.
--   Features comparative options between different value sets for each country, discount rates, updates
-automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummulative QALYs.
+-   Features comparative options between different value sets for each country, discount rates, updates automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummulative QALYs.
 
 ## Skills
 
@@ -95,22 +76,22 @@ automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummu
 
 3.  [Thyroid Function Test in COVID-19 Patients: A Cross-Sectional Study in a Tertiary Care Hospital.](https://doi.org/10.4103/ijem.IJEM_779_20) *Sen K, Sinha A, Sen S, Chakraborty S, Alam MS.* Indian J Endocrinol Metab. 2020;24(6):532-536
 
-4. [The effects of social media consumption among the internet users during COVID-19 lockdown in India: Results from an online survey.](https://www.ojhas.org/issue76/2020-4-6.html) *Mustafa A, Alam MS, Shekhar C.*
-Online Journal of Health and Allied Sciences 19 (4)
+4.  [The effects of social media consumption among the internet users during COVID-19 lockdown in India: Results from an online survey.](https://www.ojhas.org/issue76/2020-4-6.html) *Mustafa A, Alam MS, Shekhar C.* Online Journal of Health and Allied Sciences 19 (4)
 
 ## [Conferences](talks.qmd#)
 
 ### Oral
+
 1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
 2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
 3.  16th International Conference on Urban Health – Xiamen, China, November 2020
 4.  5th International Integrative Research Conference on Governance and Modernization in Changing Environment - Comilla, Bangladesh, December 2019
 
 ### Poster
+
 1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
 2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
 
 ## References
 
 Available upon request.
-

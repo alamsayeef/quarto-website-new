@@ -46,7 +46,7 @@
     "href": "projects.html",
     "title": "MSA",
     "section": "",
-    "text": "Packaging MOON in R\n\n\n\nR\n\n\nExcel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQALY Shortfall calculator for Nordics\n\n\n\nR\n\n\nShiny\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPackaging MOON in R\n\n\nFrom Excel to R - Advancing Decision Analytics for Cost-Effective Health Interventions for Obesity\n\n\n\nR\n\n\nExcel\n\n\n\n\n\n\n\n\n\nMohammad Sayeef Alam, Gudrun Maria Waaler Bjørnelv\n\n\n\n\n\n\n\n\n\n\n\n\nQALY Shortfall calculator for Nordics\n\n\nAn RShiny app to estimate the absolute and proportion shortfall in QALY for the five Nordic countries\n\n\n\nR\n\n\nShiny\n\n\n\n\n\n\n\n\n\nAug 8, 2025\n\n\nMohammad Sayeef Alam, Gudrun Maria Waaler Bjørnelv, Christina Hansen Edwards, Yvonne Anne Michel, Jon Magnussen\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "resume.html#associate-parexel-remote-india",
@@ -165,7 +165,7 @@
     "href": "projects/nsc.html",
     "title": "QALY Shortfall calculator for Nordics",
     "section": "",
-    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.\nThe app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter…. Check out the shiny app\n\n\n\n Back to top"
   },
   {
     "objectID": "projects/nsc.html#qaly-shortfall-calculator-for-nordics",
@@ -179,7 +179,7 @@
     "href": "projects/moonr.html",
     "title": "Packaging MOON in R",
     "section": "",
-    "text": "Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.\nGudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity."
+    "text": "The MOON (Modeling Obesity in Norway) study is a comprehensive decision-analytic model designed to simulate the long-term health and economic impacts of obesity in the Norwegian population. Built using a Markov framework, the model tracks individuals from age 2 to 100 across health states—normal weight, overweight, obese grade 1, obese grade 2, and death—based on real-world longitudinal data from national health surveys and registries. It estimates prevalence, healthcare costs, and years of life lost due to obesity, providing a robust foundation for evaluating the cost-effectiveness of preventive and treatment interventions.\n\n\nWe are currently undertaking a modernization of the MOON model by transitioning it from its original Excel-based implementation to a more scalable and transparent R-based framework. This shift will involve re-coding the model logic, integrating statistical analyses directly within R, and improving the reproducibility and flexibility of simulations. By leveraging R’s capabilities in data handling, visualization, and probabilistic modeling, we aim to enhance the model’s usability for researchers, policymakers, and public health analysts.\nMigrating the MOON model to R will significantly improve its accessibility, adaptability, and analytical power. The new version will allow for easier updates with new data, more sophisticated scenario analyses, and integration with other public health datasets. It will also enable other researchers—both within and outside Norway—to replicate, calibrate, and extend the model to their own contexts. Ultimately, this upgrade will support more informed decision-making in obesity prevention and treatment, helping stakeholders evaluate long-term health and economic outcomes with greater precision.\n\n\n\n Back to top"
   },
   {
     "objectID": "projects/moonr.html#packaging-moon",

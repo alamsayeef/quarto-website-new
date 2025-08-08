@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mohammad Sayeef Alam, Gudrun Maria Waaler Bjørnelv">
 
 <title>MSA - Packaging MOON in R</title>
 <style>
@@ -73,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,13 +148,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Packaging MOON in R</h1>
+<p class="subtitle lead">From Excel to R - Advancing Decision Analytics for Cost-Effective Health Interventions for Obesity</p>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">Excel</div>
@@ -164,6 +168,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mohammad Sayeef Alam, Gudrun Maria Waaler Bjørnelv </p>
+          </div>
+  </div>
     
   
     
@@ -175,19 +185,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:5%;">
+
+</div><div class="column" style="width:50%;">
 <p><img src="images/transition_diagram.jpg" class="img-fluid"></p>
 </div><div class="column" style="width:5%;">
 
-</div><div class="column" style="width:55%;">
-<p>Both R and Excel are powerful data science tools and can be used to accomplish end-to-end analytics projects.</p>
-<p>Gudrun and I, are trying to move the decision analytics model built on excel to R, to promote open-access science. The decision analytics model runs a Markov model to assess the cost effectiveness of intervention for obesity.</p>
+</div><div class="column" style="width:40%;">
+<p>The <a href="https://journals.sagepub.com/doi/10.1177/0272989X20971589">MOON (Modeling Obesity in Norway)</a> study is a comprehensive decision-analytic model designed to simulate the long-term health and economic impacts of obesity in the Norwegian population. Built using a Markov framework, the model tracks individuals from age 2 to 100 across health states—normal weight, overweight, obese grade 1, obese grade 2, and death—based on real-world longitudinal data from national health surveys and registries. It estimates prevalence, healthcare costs, and years of life lost due to obesity, providing a robust foundation for evaluating the cost-effectiveness of preventive and treatment interventions.</p>
 </div>
 </div>
+<p>We are currently undertaking a modernization of the MOON model by transitioning it from its original Excel-based implementation to a more scalable and transparent R-based framework. This shift will involve re-coding the model logic, integrating statistical analyses directly within R, and improving the reproducibility and flexibility of simulations. By leveraging R’s capabilities in data handling, visualization, and probabilistic modeling, we aim to enhance the model’s usability for researchers, policymakers, and public health analysts.</p>
+<p>Migrating the MOON model to R will significantly improve its accessibility, adaptability, and analytical power. The new version will allow for easier updates with new data, more sophisticated scenario analyses, and integration with other public health datasets. It will also enable other researchers—both within and outside Norway—to replicate, calibrate, and extend the model to their own contexts. Ultimately, this upgrade will support more informed decision-making in obesity prevention and treatment, helping stakeholders evaluate long-term health and economic outcomes with greater precision.</p>
 
 
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
