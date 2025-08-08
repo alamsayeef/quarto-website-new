@@ -22,7 +22,7 @@ This documentation is for individuals such as me, to create more than basic R pa
 Some common functions that would be used
 
 | Usage | Function | Purpose |
-|---------------|---------------------------------|------------------------|
+|------------------|--------------------------------|-----------------------|
 | Single | `usethis::create_package("path/package")` | initialize package |
 |  | `usethis::use_mit_license("Your name")` | add license |
 |  | `usethis::use_pipe()` | add pipe function as a dependency |
@@ -99,13 +99,13 @@ usethis::use_r("name of R script")
 
 You can add the skeleton two ways:
 
-  1.  `Code -> Insert Roxygen Skeleton`, or
+1.  `Code -> Insert Roxygen Skeleton`, or
 
-  2.  `Ctrl/Cmd + Alt + Shift + R`
+2.  `Ctrl/Cmd + Alt + Shift + R`
 
 Edit the roxygen skeleton
 
-```  
+```         
 #' Computes a tidy correlation
 #'
 #' @param data input data set

@@ -3,21 +3,16 @@ title: QALY Shortfall calculator for Nordics
 subtitle: An RShiny app to estimate the absolute and proportion shortfall in QALY for the five Nordic countries
 author: Mohammad Sayeef Alam, Gudrun Maria Waaler Bjørnelv, Christina Hansen Edwards, Yvonne Anne Michel, Jon Magnussen  
 categories: [R, Shiny]
-date: 08/08/2025
 ---
 
----
-
-<br>
 
 ![](images/nsc_app.gif)
 
-<br>
 
----
+The Nordic QALY Shortfall Calculator is an interactive RShiny application developed to support health technology assessments (HTAs) across Denmark, Finland, Iceland, Norway, and Sweden. It estimates Quality-Adjusted Life Year (QALY) shortfalls—a key metric for evaluating disease severity and guiding healthcare prioritization. By comparing the quality-adjusted life expectancy (QALE) of individuals with a specific disease to that of the general population, the tool provides transparent, evidence-based insights using national life tables and health-related quality of life (HRQoL) data.
 
-<br>
+This project transforms static health economic evaluations into a dynamic, user-driven experience. Built entirely in RShiny, the app integrates validated utility scoring algorithms (e.g., EQ-5D-3L/5L) and applies the Sullivan method to calculate QALE and shortfall metrics. Users can input demographic and clinical parameters, select utility scenarios, and instantly visualize results. The app’s modular design supports flexible scenario comparisons, enabling rapid exploration of severity-based modifiers and their impact on HTA decisions.
 
-The Nordic Shortfall Calculator is a web application that allows users to explore and analyze the QALY shortfall based on updated utility values as well as compare them to previous values or even values used by other Nordic countries.
+By making QALY shortfall estimation accessible and interactive, the Nordic QALY Shortfall Calculator empowers researchers, policymakers, and HTA professionals to apply severity-based weighting in a consistent and transparent manner. It facilitates cross-country comparisons, supports methodological harmonization, and encourages data-driven decision-making. The app’s open and adaptable framework also allows for future updates and extensions, making it a valuable resource for ongoing research and policy development in the Nordic region and beyond.
 
-The app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter.... [Check out the shiny app](https://mohasal.shinyapps.io/nordic-shortfall-calculator/){target="_blank"}
+The app is built using the Shiny package for R. It includes several visualizations and filters created using the following packages: DT, shiny, shinyWidgets, shinythemes, shinyjs, bslib, bsicons, lubridate, leaflet, highcharter. [Try the app](https://mohasal.shinyapps.io/nordic-shortfall-calculator/){target="_blank"}🔗
