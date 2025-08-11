@@ -2,11 +2,11 @@
 listing:
   contents:
     - blogs/*.qmd
-  sort: "date desc"
-  type: default
+  type: grid
+  fields: [image, date, title, description, categories]
   categories: true
-  sort-ui: false
-  filter-ui: false
+  sort-ui: true
+  filter-ui: true
   image-height: 10em
 page-layout: full
 title-block-banner: true

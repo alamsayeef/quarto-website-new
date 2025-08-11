@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -220,51 +220,38 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="VGVybWluYWwlMkNQcm9ncmFtbWluZw==" data-listing-file-modified-sort="1754388158156" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
-<div class="thumbnail">
-<p><a href="./blogs/gitsetup.html" class="no-external"></a></p><a href="./blogs/gitsetup.html" class="no-external">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="R2VuZXRpY3MlMkNNZXRob2Rz" data-listing-file-modified-sort="1754255383650" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./blogs/gwas.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/gitsetup.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/gitsetup.html" class="no-external">Git and SSH Setup Guide</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/gitsetup.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('VGVybWluYWw='); return false;">
-Terminal
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvZ3JhbW1pbmc='); return false;">
-Programming
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/gitsetup.html" class="no-external">This guide provides step-by-step instructions to connect git, clone repo and push commits </a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./blogs/gitsetup.html" class="no-external"></a></p><a href="./blogs/gitsetup.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R2VuZXRpY3MlMkNNZXRob2Rz" data-listing-file-modified-sort="1754255383650" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./blogs/gwas.html" class="no-external"></a></p><a href="./blogs/gwas.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/gwas.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/gwas.html" class="no-external">GWAS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/gwas.html" class="no-external"></a>
-</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+GWAS
+</h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R2VuZXRpY3M='); return false;">
 Genetics
@@ -273,116 +260,53 @@ Genetics
 Methods
 </div>
 </div>
-<div class="listing-description">
-<a href="./blogs/gwas.html" class="no-external"></a>
+<div class="card-text listing-description">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./blogs/gwas.html" class="no-external"></a></p><a href="./blogs/gwas.html" class="no-external">
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-categories="VGVybWluYWwlMkNQcm9ncmFtbWluZw==" data-listing-date-sort="1754863200000" data-listing-file-modified-sort="1754943926419" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+<a href="./blogs/gitsetup.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/gitandssh.gif" class="thumbnail-image card-img" style="height: 10em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Git and SSH Setup Guide
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('VGVybWluYWw='); return false;">
+Terminal
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1754255067213" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./blogs/healthecon.html" class="no-external"></a></p><a href="./blogs/healthecon.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/healthecon.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/healthecon.html" class="no-external">healthecon</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/healthecon.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./blogs/healthecon.html" class="no-external"></a>
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvZ3JhbW1pbmc='); return false;">
+Programming
 </div>
 </div>
-<div class="metadata">
-<p><a href="./blogs/healthecon.html" class="no-external"></a></p><a href="./blogs/healthecon.html" class="no-external">
+<div class="card-text listing-description">
+<p>This guide provides step-by-step instructions to connect git, clone repo and push commits</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 11, 2025
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1754255057342" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./blogs/mcmc.html" class="no-external"></a></p><a href="./blogs/mcmc.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/mcmc.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/mcmc.html" class="no-external">mcmc</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/mcmc.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./blogs/mcmc.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./blogs/mcmc.html" class="no-external"></a></p><a href="./blogs/mcmc.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1754255052196" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./blogs/mice.html" class="no-external"></a></p><a href="./blogs/mice.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/mice.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/mice.html" class="no-external">mice</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/mice.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./blogs/mice.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./blogs/mice.html" class="no-external"></a></p><a href="./blogs/mice.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1754255045349" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./blogs/prs.html" class="no-external"></a></p><a href="./blogs/prs.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/prs.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/prs.html" class="no-external">prs</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/prs.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./blogs/prs.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./blogs/prs.html" class="no-external"></a></p><a href="./blogs/prs.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ1Byb2dyYW1taW5n" data-listing-file-modified-sort="1754904255158" data-listing-reading-time-sort="4" data-listing-word-count-sort="646">
-<div class="thumbnail">
-<p><a href="./blogs/rpackagedev.html" class="no-external"></a></p><a href="./blogs/rpackagedev.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
-</a><p><a href="./blogs/rpackagedev.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/rpackagedev.html" class="no-external">Learnings from first R package development</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/rpackagedev.html" class="no-external"></a>
-</div>
+<div class="g-col-1" data-index="2" data-categories="UiUyQ1Byb2dyYW1taW5n" data-listing-date-sort="1754258400000" data-listing-file-modified-sort="1754943999383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="646">
+<a href="./blogs/rpackagedev.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/rpackage.png" class="thumbnail-image card-img" style="height: 10em;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Learnings from first R package development
+</h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
 R
@@ -391,14 +315,77 @@ R
 Programming
 </div>
 </div>
-<div class="listing-description">
-<a href="./blogs/rpackagedev.html" class="no-external">Basic checks and debugging while R package development </a>
+<div class="card-text listing-description">
+<p>Basic checks and debugging while R package development</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 4, 2025
 </div>
 </div>
-<div class="metadata">
-<p><a href="./blogs/rpackagedev.html" class="no-external"></a></p><a href="./blogs/rpackagedev.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1754255067213" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./blogs/healthecon.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+healthecon
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1754255057342" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./blogs/mcmc.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+mcmc
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1754255052196" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./blogs/mice.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+mice
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1754255045349" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./blogs/prs.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+prs
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">

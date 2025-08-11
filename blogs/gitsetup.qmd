@@ -3,6 +3,8 @@ title: "Git and SSH Setup Guide"
 description: |
   This guide provides step-by-step instructions to connect git, clone repo and push commits
 categories: [Terminal, Programming]
+date: 11-August-2025
+image: "../images/gitandssh.gif"
 ---
 
 # Introduction
