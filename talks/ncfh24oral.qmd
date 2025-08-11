@@ -17,6 +17,8 @@ toc: false
 
 *Trondheim, Norway*
 
+![](files/ncfh_3.jpg)
+
 ## Abstract
 
 **Introduction:**  Despite diagnostic advances in celiac disease (CeD), many patients remain undiagnosed. CeD has well established genetic risk factors in the leukocyte antigen (HLA) loci. The goal of the study was to provide susceptibility estimates for CeD subgroups using polygenic risk score (PRS) beyond the HLA loci.

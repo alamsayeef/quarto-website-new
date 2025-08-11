@@ -17,6 +17,8 @@ toc: false
 
 *Sheffield, UK*
 
+![](files/icds_4.jpg)
+
 ## Abstract
 
 **Introduction:** Previous studies have discovered genetic loci associated with celiac disease (CeD), within both the human leukocyte antigen (HLA) and the non-HLA region. Yet, half of the genetic variation remains unexplained. This study aims to investigate novel associations with CeD taking advantage of a screened population and mitigating selection-bias from prior case-control studies. 
