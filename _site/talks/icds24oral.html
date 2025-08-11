@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -204,11 +233,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p><strong>Introduction:</strong> Poor water quality has been considered to be a confounder factor of the communicable disease. The study analyzed the current burden of communicable diseases and explored the factors associated with it in the major urban populated states of India.</p>
-<p><strong>Methods:</strong> This study used the India’s fourth round District Level Household and Facility Survey (2012–13) data. The study particularly focused on the major urban states of India which are having more than 30,000 urban populations. We used bivariate analysis and the adjusted odds ratio (AOR) with 95% confidence intervals (CI) to identify the independent predictors.</p>
-<p><strong>Results:</strong> Public tap was found to be a prime source of drinking water in the urban India. Tamil Nadu (near about half) had the largest urban population using unimproved water sources. The prevalence of communicable disease was high (11 percent) among the population using unimproved drinking compared to their counterparts (5 percent). About 15 percent of the urban population in West Bengal had higher communicable diseases than other urban populated states of India. The factors found significantly associated with communicable diseases were age (AOR=1.40), years of schooling (AOR=0.95), source of drinking water (AOR=0.77) and having toilet facility (AOR=1.32).</p>
-<p><strong>Conclusion:</strong> Improved drinking water coverage in India is still considerably low as compared to the national target set in SDG. The present study suggests that improved drinking water sources and clean and hygienic toilet facility are significant determinants of communicable diseases. The measure should be devised to enhance health information and accessibility of safe drinking water to prevent communicable diseases in line with achieving the Sustainable Development Goal 3.</p>
-<p><em>Keywords:</em> <strong>Communicable diseases</strong>, <strong>risk factors</strong>, <strong>urban area</strong>, <strong>India</strong>.</p>
+<p><strong>Introduction:</strong> Previous studies have discovered genetic loci associated with celiac disease (CeD), within both the human leukocyte antigen (HLA) and the non-HLA region. Yet, half of the genetic variation remains unexplained. This study aims to investigate novel associations with CeD taking advantage of a screened population and mitigating selection-bias from prior case-control studies.</p>
+<p><strong>Methods:</strong> Utilizing data from the HUNT study in Norway, we screened 52,358 adults (&gt;20 years) for CeD using serology, identifying 465 incident biopsy-confirmed cases. Additionally, 377 prevalent cases were identified through hospital journal searches. Genotyping of 373,185 SNPs was performed using four Illumina HumanCoreExome arrays. Imputation using the Haplotype Reference Consortium panel, resulted in approximately 24.9 million variants, post quality control. A genome-wide association study was performed using SAIGE, and functional mapping and pathway enrichment analysis was conducted using FUMA.</p>
+<p><strong>Results:</strong> Five novel SNPs out of 6 independent associations reached genome wide significance (<span class="math inline">\(P≤5E-08\)</span>) having minor allele count greater than 10. <em>EML6</em>, <em>BCL11A</em>, <em>ABCA12</em>, <em>LRFN2</em>, <em>MED13</em>, <em>IRX1</em> are the loci respectively. Around 50 of over 80 loci identified in previous GWASs were replicated in our data, with <em>REL</em>, <em>ASHA2</em>, <em>IL18RAP</em>, <em>IL18R1</em>, <em>IL18RL1</em>, <em>IL18RL2</em>, <em>LPP</em>, <em>PFKFB3</em>, <em>PRKCQ</em>, <em>CIITA</em>, <em>SOCS1</em>, and <em>CLEC16A</em> reaching suggestive significance levels (<span class="math inline">\(5E-08≤P≤5E-06\)</span>).</p>
+<p><strong>Conclusion:</strong> The strongest evidence for an association was observed at <em>IRX1</em>, warranting further studies to validate this finding. Notably, the <em>IRX1</em> loci has also been associated with other autoimmune diseases such as rheumatoid arthritis.</p>
+<p><em>Keywords:</em> <strong>celiac</strong>, <strong>gluten</strong>, <strong>non-HLA</strong>, <strong>autoimmune</strong>, <strong>GWAS</strong>.</p>
 
 
 </section>
