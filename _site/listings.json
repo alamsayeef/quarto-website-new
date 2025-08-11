@@ -2,10 +2,10 @@
   {
     "listing": "/talks.html",
     "items": [
-      "/talks/icds24oral.html",
-      "/talks/icds24poster.html",
       "/talks/ncfh24oral.html",
       "/talks/ncfh24poster.html",
+      "/talks/icds24poster.html",
+      "/talks/icds24oral.html",
       "/talks/icuh2019oral.html",
       "/talks/insearch2018oral.html"
     ]

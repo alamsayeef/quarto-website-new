@@ -3,7 +3,7 @@ title: "Assessing the susceptibility of celiac disease by polygenic risk scores:
 author: Mohammad Sayeef Alam, Rebecka Hjort, Kristian Hveem, Knut E. A. Lundin, Iris H. Jonkers, Ludvig M. Sollid, Eivind Ness-Jensen
 date: 10 September, 2024
 format: html
-categories: [Oral presentations, GWAS, Celiac Genetics, Gastrointestinal disease]
+categories: [Poster, PRS, Celiac, Genetics, Gastrointestinal disease]
 toc: false
 ---
 
