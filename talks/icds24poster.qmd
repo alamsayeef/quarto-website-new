@@ -1,10 +1,9 @@
 ---
-title: "Assessing the susceptibility of celiac disease by polygenic risk
-scores: analysis of a population-based cohort, the HUNT study."
+title: "Assessing the susceptibility of celiac disease by polygenic risk scores: analysis of a population-based cohort, the HUNT study."
 author: 	Mohammad Sayeef Alam, Laurent F Thomas, Ben Brumpton, Kristian Hveem, Knut E A Lundin, Sebo Withoff, Iris H Jonkers, Ludvig M Sollid, Rebecka Hjort, Eivind Ness Jensen
-date: 10 September, 2024
+date: 6 September, 2024
 format: html
-categories: [Poster presentations, GWAS, Celiac Genetics, Gastrointestinal disease]
+categories: [Poster, PRS, Celiac, Genetics, Gastrointestinal disease]
 toc: false
 ---
 

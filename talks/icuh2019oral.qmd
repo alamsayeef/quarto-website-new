@@ -3,7 +3,7 @@ title: "Prevalence of communicable diseases and its epidemiological correlates i
 author: Mohammad Sayeef Alam, Balram Paswan, Mohammed Illias Sheikh
 date: 4 November, 2019
 format: html
-categories: [Oral presentation, Public Health, Communicable disease burden, Demographic Health Survey]
+categories: [Oral, Public Health, Communicable disease burden, Demographic Health Survey]
 toc: false
 ---
 

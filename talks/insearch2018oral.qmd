@@ -3,7 +3,7 @@ title: "Shifting Paradigm in the Cause of Maternal Mortality in West Bengal: A F
 author: Mohammad Sayeef Alam, Md Illias Kanchan Sk
 date: 18 December, 2018
 format: html
-categories: [Oral presentation, Public Health, Maternal Mortality, Mixed methods]
+categories: [Oral, Public Health, Maternal Mortality, Mixed methods]
 toc: false
 ---
 
