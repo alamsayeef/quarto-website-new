@@ -25,7 +25,7 @@
     "href": "workshops.html",
     "title": "About Me",
     "section": "",
-    "text": "About this site\n\nCode1 + 1\n\n[1] 2"
+    "text": "About this site\n\nCode1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "resume.html",
@@ -382,7 +382,7 @@
     "href": "talks/icds24oral.html#conference-venue",
     "title": "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study.",
     "section": "Conference Venue:",
-    "text": "Conference Venue:\nTrondheim, Norway"
+    "text": "Conference Venue:\nSheffield, UK"
   },
   {
     "objectID": "talks/icds24oral.html#abstract",
@@ -390,5 +390,19 @@
     "title": "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study.",
     "section": "Abstract",
     "text": "Abstract\nIntroduction: Poor water quality has been considered to be a confounder factor of the communicable disease. The study analyzed the current burden of communicable diseases and explored the factors associated with it in the major urban populated states of India.\nMethods: This study used the India’s fourth round District Level Household and Facility Survey (2012–13) data. The study particularly focused on the major urban states of India which are having more than 30,000 urban populations. We used bivariate analysis and the adjusted odds ratio (AOR) with 95% confidence intervals (CI) to identify the independent predictors.\nResults: Public tap was found to be a prime source of drinking water in the urban India. Tamil Nadu (near about half) had the largest urban population using unimproved water sources. The prevalence of communicable disease was high (11 percent) among the population using unimproved drinking compared to their counterparts (5 percent). About 15 percent of the urban population in West Bengal had higher communicable diseases than other urban populated states of India. The factors found significantly associated with communicable diseases were age (AOR=1.40), years of schooling (AOR=0.95), source of drinking water (AOR=0.77) and having toilet facility (AOR=1.32).\nConclusion: Improved drinking water coverage in India is still considerably low as compared to the national target set in SDG. The present study suggests that improved drinking water sources and clean and hygienic toilet facility are significant determinants of communicable diseases. The measure should be devised to enhance health information and accessibility of safe drinking water to prevent communicable diseases in line with achieving the Sustainable Development Goal 3.\nKeywords: Communicable diseases, risk factors, urban area, India."
+  },
+  {
+    "objectID": "talks/icds24oral.html",
+    "href": "talks/icds24oral.html",
+    "title": "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study.",
+    "section": "",
+    "text": "View"
+  },
+  {
+    "objectID": "talks/icds24oral.html#conference-name",
+    "href": "talks/icds24oral.html#conference-name",
+    "title": "The IRX1 locus is associated with celiac disease: results from a screened population-based cohort, the HUNT study.",
+    "section": "Conference name",
+    "text": "Conference name\n\nInternational Coeliac Disease Symposium (ICDS)"
   }
 ]
