@@ -7,7 +7,7 @@ categories: [Oral, GWAS, Celiac, Genetics, Gastrointestinal disease]
 toc: false
 ---
 
-<a href="files/ICDS2024_Oral.pdf" target="_blank" style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;"> View </a>
+<a href="files/ICDS2024_Oral.pdf" target="_blank" style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;"> View presentation </a>
 
 ## Conference name
 
