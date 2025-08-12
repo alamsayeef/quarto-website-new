@@ -10,29 +10,40 @@ format:
 
 ::: {.certificate-container}
 <a href="images/Cert_EcEvalinR2025_Part.pdf" target="_blank">
-<img src="images/thumbs/Cert_EcEvalinR2025_Part.png" alt="Economic Evaluation in R 2025" class="certificate-image">
+  <img src="images/thumbs/Cert_EcEvalinR2025_Part.png" 
+       alt="Economic Evaluation in R 2025" 
+       class="certificate-image">
 </a>
 :::
+
 
 ### 2024
 
 ::: {.certificate-row}
 <a href="images/Cert_AImpMtd2024_Part.pdf" target="_blank">
-<img src="images/thumbs/Cert_AImpMtd2024_Part.png" alt="AI Implementation Methods 2024" class="certificate-image">
+  <img src="images/thumbs/Cert_AImpMtd2024_Part.png" 
+       alt="AI Implementation Methods 2024" 
+       class="certificate-image">
 </a>
 
 <a href="images/Cert_ESHG2024_Part.pdf" target="_blank">
-<img src="images/thumbs/Cert_ESHG2024_Part.png" alt="ESHG 2024" class="certificate-image">
+  <img src="images/thumbs/Cert_ESHG2024_Part.png" 
+       alt="ESHG 2024" 
+       class="certificate-image">
 </a>
 :::
 
 ::: {.certificate-row}
 <a href="images/Cert_ICDS2024_Oral.pdf" target="_blank">
-<img src="images/thumbs/Cert_ICDS2024_Oral.png" alt="ICDS 2024 Oral Presentation" class="certificate-image">
+  <img src="images/thumbs/Cert_ICDS2024_Oral.png" 
+       alt="ICDS 2024 Oral Presentation" 
+       class="certificate-image">
 </a>
 
 <a href="images/Cert_ICDS2024_Poster.pdf" target="_blank">
-<img src="images/thumbs/Cert_ICDS2024_Poster.png" alt="ICDS 2024 Poster" class="certificate-image">
+  <img src="images/thumbs/Cert_ICDS2024_Poster.png" 
+       alt="ICDS 2024 Poster" 
+      class="certificate-image">
 </a>
 :::
 
@@ -40,7 +51,9 @@ format:
 
 ::: {.certificate-container}
 <a href="images/Cert_SML2021_Part.pdf" target="_blank">
-<img src="images/thumbs/Cert_SML2021_Part.png" alt="Statistical Machine Learning 2021" class="certificate-image">
+  <img src="images/thumbs/Cert_SML2021_Part.png" 
+       alt="Statistical Machine Learning 2021" 
+      class="certificate-image-l">
 </a>
 :::
 
@@ -48,18 +61,25 @@ format:
 
 ::: {.certificate-container}
 <a href="images/Cert_DST2020_Coursera.pdf" target="_blank">
-<img src="images/thumbs/Cert_DST2020_Coursera.png" alt="Data Science Tools 2020 - Coursera" class="certificate-image">
+  <img src="images/thumbs/Cert_DST2020_Coursera.png" 
+       alt="Data Science Tools 2020 - Coursera" 
+       class="certificate-image-l">
 </a>
 :::
 
 ::: {.certificate-container}
 <a href="images/Cert_PySpcl2020_Coursera.pdf" target="_blank">
-<img src="images/thumbs/Cert_PySpcl2020_Coursera.png" alt="Python Specialization 2020 - Coursera" class="certificate-image">
+  <img src="images/thumbs/Cert_PySpcl2020_Coursera.png" 
+       alt="Python Specialization 2020 - Coursera" 
+       class="certificate-image-l">
 </a>
 :::
 
 ::: {.certificate-container}
 <a href="images/Cert_RDIAS2020_Part.pdf" target="_blank">
-<img src="images/thumbs/Cert_RDIAS2020_Part.png" alt="RDIAS 2020" class="certificate-image">
+  <img src="images/thumbs/Cert_RDIAS2020_Part.png" 
+       alt="RDIAS 2020" 
+       class="certificate-image-l">
 </a>
 :::
+
