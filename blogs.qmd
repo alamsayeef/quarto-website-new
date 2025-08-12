@@ -1,5 +1,6 @@
 ---
 listing:
+  sort: "date desc"
   contents:
     - blogs/*.qmd
   type: grid

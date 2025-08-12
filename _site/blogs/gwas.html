@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mohammad Sayeef Alam">
+<meta name="dcterms.date" content="2024-04-21">
+<meta name="description" content="A hands-on guide for performing GWAS after preliminary QC, covering phenotype preparation, and association testing using SAIGE.">
 
-<title>Mohammad Sayeef Alam - GWAS</title>
+<title>Beyond QC: A Practical Guide to GWAS with SAIGE – MSA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -36,12 +73,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9bd210ca491bc6b4597a5f954a3d71f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-249da691a9a0c87493d41b9eefeb4185.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,11 +106,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,11 +147,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Mohammad Sayeef Alam</span>
+    <span class="navbar-title">MSA</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -112,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workshops.html"> 
-<span class="menu-text">Workshops</span></a>
+<span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blogs.html"> 
@@ -137,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -147,24 +213,59 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-youve-received" id="toc-what-youve-received" class="nav-link" data-scroll-target="#what-youve-received">What You’ve Received</a></li>
+  <li><a href="#post-qc-checks" id="toc-post-qc-checks" class="nav-link" data-scroll-target="#post-qc-checks">Post-QC Checks</a></li>
+  <li><a href="#gwas-with-saige" id="toc-gwas-with-saige" class="nav-link" data-scroll-target="#gwas-with-saige">GWAS with SAIGE</a></li>
+  <li><a href="#alternatives-to-saige" id="toc-alternatives-to-saige" class="nav-link" data-scroll-target="#alternatives-to-saige">Alternatives to SAIGE</a></li>
+  <li><a href="#output-expectations" id="toc-output-expectations" class="nav-link" data-scroll-target="#output-expectations">Output Expectations</a></li>
+  <li><a href="#downstream-analysis-in-gwas" id="toc-downstream-analysis-in-gwas" class="nav-link" data-scroll-target="#downstream-analysis-in-gwas">Downstream Analysis in GWAS</a></li>
+  <li><a href="#interpreting-ldsc-results" id="toc-interpreting-ldsc-results" class="nav-link" data-scroll-target="#interpreting-ldsc-results">Interpreting LDSC Results</a></li>
+  <li><a href="#summary-ld-score-regression-metrics" id="toc-summary-ld-score-regression-metrics" class="nav-link" data-scroll-target="#summary-ld-score-regression-metrics">Summary: LD Score Regression Metrics</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GWAS</h1>
+<h1 class="title">Beyond QC: A Practical Guide to GWAS with SAIGE</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Genetics</div>
     <div class="quarto-category">Methods</div>
+    <div class="quarto-category">Bash</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    <p>A hands-on guide for performing GWAS after preliminary QC, covering phenotype preparation, and association testing using SAIGE.</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mohammad Sayeef Alam </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 21, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -174,10 +275,369 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>Genome-wide association studies (GWAS)</strong> are powerful tools for uncovering genetic variants linked to traits and diseases. After preliminary quality control (QC), additional checks and thoughtful modeling are essential—especially when dealing with <em>related individuals</em> and <em>population structure</em>.</p>
+<p>This guide walks through:</p>
+<ul>
+<li><strong>Post-QC checks</strong></li>
+<li><strong>Phenotype and covariate preparation</strong></li>
+<li><strong>GWAS using SAIGE</strong></li>
+<li><strong>Alternatives to SAIGE</strong></li>
+<li><strong>Visualization and interpretation</strong></li>
+</ul>
+</section>
+<section id="what-youve-received" class="level2">
+<h2 class="anchored" data-anchor-id="what-youve-received">What You’ve Received</h2>
+<p>Before diving into the analysis, ensure you have:</p>
+<ul>
+<li><strong>Genotype data</strong> (after basic QC)</li>
+<li><strong>Phenotype file</strong></li>
+<li><strong>Covariates</strong> including <strong>PC1–PC20</strong></li>
+<li><strong>Related individuals</strong> in the cohort</li>
+</ul>
+</section>
+<section id="post-qc-checks" class="level2">
+<h2 class="anchored" data-anchor-id="post-qc-checks">Post-QC Checks</h2>
+<section id="sample-matching" class="level3">
+<h3 class="anchored" data-anchor-id="sample-matching">1. Sample Matching</h3>
+<p>Ensure sample IDs match across genotype and phenotype files.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">comm</span> <span class="at">-12</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> phenotype.txt <span class="kw">|</span> <span class="fu">sort</span><span class="op">)</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> genotype.fam <span class="kw">|</span> <span class="fu">sort</span><span class="op">)</span> <span class="op">&gt;</span> common_ids.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sex-check" class="level3">
+<h3 class="anchored" data-anchor-id="sex-check">2. Sex Check</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">comm</span> <span class="at">-12</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> phenotype.txt <span class="kw">|</span> <span class="fu">sort</span><span class="op">)</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> genotype.fam <span class="kw">|</span> <span class="fu">sort</span><span class="op">)</span> <span class="op">&gt;</span> common_ids.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="population-stratification" class="level3">
+<h3 class="anchored" data-anchor-id="population-stratification">3. Population Stratification</h3>
+<p>You already have <strong>PC1–PC20</strong>, so no need to compute PCA again. Just include these as <em>covariates</em> in your model.</p>
+</section>
+<section id="relatedness" class="level3">
+<h3 class="anchored" data-anchor-id="relatedness">4. Relatedness</h3>
+<p>Since your cohort includes <strong>related individuals</strong>, do not remove them. Instead, use a <em>mixed model approach</em> like <strong>SAIGE</strong> to account for relatedness.</p>
+</section>
+</section>
+<section id="gwas-with-saige" class="level2">
+<h2 class="anchored" data-anchor-id="gwas-with-saige">GWAS with SAIGE</h2>
+<section id="why-choose-saige" class="level3">
+<h3 class="anchored" data-anchor-id="why-choose-saige">Why Choose SAIGE?</h3>
+<p><strong>SAIGE</strong> is particularly well-suited for complex datasets because it:</p>
+<ul>
+<li><strong>Handles case-control imbalance</strong> effectively</li>
+<li><strong>Accounts for relatedness</strong> using a sparse GRM</li>
+<li><strong>Scales to large datasets</strong> efficiently</li>
+<li><strong>Supports both binary and quantitative traits</strong></li>
+</ul>
+</section>
+<section id="conducting-gwas-with-saige" class="level3">
+<h3 class="anchored" data-anchor-id="conducting-gwas-with-saige">Conducting GWAS with SAIGE</h3>
+<p>You can follow the comprehensive guide to perform GWAS from their well-<a href="https://saigegit.github.io/SAIGE-doc/">documented page</a>.</p>
+</section>
+</section>
+<section id="alternatives-to-saige" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives-to-saige">Alternatives to SAIGE</h2>
+<p>Depending on your specific needs, consider these alternatives:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 39%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Tool</strong></th>
+<th><strong>Best For</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PLINK</strong></td>
+<td>Small datasets, basic GWAS</td>
+<td>Fast, but doesn’t handle relatedness</td>
+</tr>
+<tr class="even">
+<td><strong>GEMMA</strong></td>
+<td>Mixed models, quantitative traits</td>
+<td>Handles relatedness well</td>
+</tr>
+<tr class="odd">
+<td><strong>BOLT-LMM</strong></td>
+<td>Large-scale quantitative traits</td>
+<td>Fast, limited binary trait support</td>
+</tr>
+<tr class="even">
+<td><strong>REGENIE</strong></td>
+<td>Binary and quantitative traits</td>
+<td>Scalable, supports stepwise modeling</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="output-expectations" class="level2">
+<h2 class="anchored" data-anchor-id="output-expectations">Output Expectations</h2>
+<p>After running your GWAS, you should expect:</p>
+<ul>
+<li><strong>GWAS results</strong>: SNP ID, effect size, SE, p-value</li>
+<li><strong>Manhattan plot and QQ plot</strong> for visualization</li>
+<li><strong>Additional visualizations</strong>: Regional plots, volcano plots, etc.</li>
+</ul>
+<section id="creating-manhattan-plots" class="level3">
+<h3 class="anchored" data-anchor-id="creating-manhattan-plots">Creating Manhattan Plots</h3>
+<p>There are several online resources that input summary statistics and output Manhattan plots.</p>
+<p><em>Personally, I opted for an in-house developed modified version of an R package used by research groups in the department.</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qqman)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gwas <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"gwas_results.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(gwas, <span class="at">chr=</span><span class="st">"CHR"</span>, <span class="at">bp=</span><span class="st">"BP"</span>, <span class="at">snp=</span><span class="st">"SNP"</span>, <span class="at">p=</span><span class="st">"P"</span>, <span class="at">main=</span><span class="st">"GWAS Manhattan Plot"</span>) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qq</span>(gwas<span class="sc">$</span>P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output could look similar to the following plots:</p>
+<!-- ::: {#fig-gwasplots layout-ncol=2} -->
+<div id="fig-mp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="thumbs/manhattan.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Manhattan Plot with red color indicating previously known loci and blue are the novel loci
+</figcaption>
+</figure>
+</div>
+<p><br></p>
+<div id="fig-qqp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qqp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="thumbs/qq.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qqp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: QQ Plot with a genomic correction value of 1.14
+</figcaption>
+</figure>
+</div>
+<!-- GWAS plots -->
+<!-- ::: -->
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Taken from <a href="https://www.nature.com/articles/s41598-025-04421-6">publication</a>.</p>
+</blockquote>
+</section>
+</section>
+<section id="downstream-analysis-in-gwas" class="level2">
+<h2 class="anchored" data-anchor-id="downstream-analysis-in-gwas">Downstream Analysis in GWAS</h2>
+<p>Once you’ve run your GWAS and identified significant associations, it’s important to assess the overall <strong>genetic architecture</strong> of the trait. Two key downstream analyses are <em>heritability estimation</em> and <em>LD Score Regression (LDSC)</em>.</p>
+<section id="snp-based-heritability" class="level3">
+<h3 class="anchored" data-anchor-id="snp-based-heritability">SNP-Based Heritability</h3>
+<p><strong>Heritability</strong> refers to the proportion of phenotypic variance in a trait that can be attributed to genetic variation. In GWAS, we often estimate <em>SNP-based heritability</em>, which considers only the common variants captured in the study.</p>
+<ul>
+<li><strong>Why it matters</strong>: It helps quantify how much of the trait is explained by the genotyped SNPs</li>
+<li><strong>Tools</strong>: Common tools include <strong>GCTA</strong>, <strong>LDSC</strong>, and <strong>REML</strong></li>
+<li><strong>Example</strong>: If SNP-based heritability is <strong>0.25</strong>, it means <em>25% of the trait variance</em> is explained by the SNPs used in the GWAS</li>
+</ul>
+</section>
+<section id="ld-score-regression-ldsc" class="level3">
+<h3 class="anchored" data-anchor-id="ld-score-regression-ldsc">LD Score Regression (LDSC)</h3>
+<p><strong>LD Score Regression</strong> is a method to distinguish <em>true polygenic signal</em> from confounding biases (like population stratification or cryptic relatedness).</p>
+<ul>
+<li><strong>LD Score</strong>: A measure of how much a SNP tags nearby variants due to <em>linkage disequilibrium (LD)</em></li>
+<li><strong>Key Insight</strong>: If a trait is polygenic, SNPs with higher LD scores should have higher test statistics</li>
+<li><strong>Intercept</strong>: LDSC provides an intercept value that helps detect inflation due to confounding. An intercept close to <strong>1</strong> suggests minimal confounding</li>
+</ul>
+<section id="ldsc-applications" class="level4">
+<h4 class="anchored" data-anchor-id="ldsc-applications">LDSC Applications</h4>
+<ul>
+<li>Estimating <strong>SNP heritability</strong> from summary statistics</li>
+<li><strong>Partitioning heritability</strong> across functional annotations</li>
+<li>Calculating <strong>genetic correlation</strong> between traits</li>
+</ul>
+</section>
+<section id="ldsc-command" class="level4">
+<h4 class="anchored" data-anchor-id="ldsc-command">LDSC Command</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ldsc.py</span> <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--h2</span> sumstats.txt <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--ref-ld-chr</span> eur_w_ld_chr/ <span class="dt">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--w-ld-chr</span> eur_w_ld_chr/ <span class="dt">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--out</span> trait_heritability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="interpreting-ldsc-results" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-ldsc-results">Interpreting LDSC Results</h2>
+<p>LDSC helps you understand whether your GWAS results reflect <em>true polygenic signal</em> or are inflated due to confounding. Here’s how to interpret the main components:</p>
+<section id="heritability-estimate-h²" class="level3">
+<h3 class="anchored" data-anchor-id="heritability-estimate-h²">1. Heritability Estimate (h²)</h3>
+<p><strong>What it means:</strong> The proportion of phenotypic variance explained by all SNPs in your GWAS.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Heritability Value</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>&gt; 0.2</strong></td>
+<td>Strong polygenic contribution</td>
+</tr>
+<tr class="even">
+<td><strong>&lt; 0.2</strong></td>
+<td>Limited genetic influence or insufficient power</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> This is <em>SNP-based heritability</em>, not total heritability (which includes rare variants and other sources).</p>
+</blockquote>
+</section>
+<section id="intercept" class="level3">
+<h3 class="anchored" data-anchor-id="intercept">2. Intercept</h3>
+<p><strong>What it means:</strong> Measures inflation in test statistics not due to polygenicity.</p>
+<p><strong>Ideal value:</strong> Close to <strong>1.0</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Intercept Value</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>≈ 1.0</strong></td>
+<td>Minimal confounding; inflation is likely due to true polygenic signal</td>
+</tr>
+<tr class="even">
+<td><strong>&gt; 1.0</strong></td>
+<td>Suggests confounding (e.g., population stratification, cryptic relatedness)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> If high, consider improving QC (e.g., more principal components, better ancestry matching).</p>
+</section>
+<section id="ldsc-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="ldsc-ratio">3. LDSC Ratio</h3>
+<p>The <strong>LDSC ratio</strong> is calculated as:</p>
+<p><span class="math display">\[
+\text{Ratio} = \frac{\text{Intercept} - 1}{\text{Mean}(\chi^2) - 1}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 39%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ratio Value</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>&lt; 0.1</strong></td>
+<td>Most inflation is due to true polygenic signal</td>
+<td>✅ Your GWAS is likely well-controlled</td>
+</tr>
+<tr class="even">
+<td><strong>0.1 – 0.3</strong></td>
+<td>Some inflation may be due to confounding</td>
+<td>⚠️ Consider checking population structure and relatedness</td>
+</tr>
+<tr class="odd">
+<td><strong>&gt; 0.3</strong></td>
+<td>A large portion of inflation is likely due to confounding</td>
+<td>❌ Revisit QC steps, include more PCs, or refine your model</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="test-statistic-vs-ld-score-plot" class="level3">
+<h3 class="anchored" data-anchor-id="test-statistic-vs-ld-score-plot">4. Test Statistic vs LD Score Plot</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 34%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Trend Type</strong></th>
+<th><strong>Plot</strong></th>
+<th><strong>Interpretation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Upward Trend</strong></td>
+<td><img src="thumbs/ldsc_plot1.png" class="img-fluid" alt="Upward Trend: Polygenic Signal"></td>
+<td>Indicates polygenic signal — SNPs with higher LD scores have higher test statistics</td>
+</tr>
+<tr class="even">
+<td><strong>Flat/Noisy Trend</strong></td>
+<td><img src="thumbs/ldsc_plot2.png" class="img-fluid" alt="Flat/Noisy Trend: Confounding"></td>
+<td>Suggests lack of polygenicity or presence of confounding factors</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="summary-ld-score-regression-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-ld-score-regression-metrics">Summary: LD Score Regression Metrics</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 32%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Metric</strong></th>
+<th><strong>Ideal Value</strong></th>
+<th><strong>What It Means</strong></th>
+<th><strong>Interpretation &amp; Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Heritability</strong> (h²)</td>
+<td><strong>&gt; 0.1</strong></td>
+<td>Proportion of trait variance explained by SNPs</td>
+<td><em>Low value</em> → trait may be weakly polygenic or underpowered study</td>
+</tr>
+<tr class="even">
+<td><strong>Intercept</strong></td>
+<td><strong>≈ 1.0</strong></td>
+<td>Inflation in test statistics not due to polygenicity</td>
+<td><em>&gt;1.0</em> → possible confounding (e.g., population stratification)</td>
+</tr>
+<tr class="odd">
+<td><strong>Ratio</strong></td>
+<td><strong>&lt; 0.1</strong></td>
+<td>Fraction of inflation due to confounding</td>
+<td><em>&gt;0.3</em> → revisit QC, ancestry correction, or model assumptions</td>
+</tr>
+<tr class="even">
+<td><strong>LD Score Plot</strong></td>
+<td><strong>Positive slope</strong></td>
+<td>Relationship between LD score and test statistic</td>
+<td><em>Flat/noisy</em> → weak polygenic signal or confounding present</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -357,18 +817,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -400,7 +849,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -408,7 +877,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -505,7 +974,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

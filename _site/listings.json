@@ -20,13 +20,13 @@
   {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/gwas.html",
-      "/blogs/gitsetup.html",
-      "/blogs/rpackagedev.html",
       "/blogs/healthecon.html",
       "/blogs/mcmc.html",
+      "/blogs/prs.html",
+      "/blogs/rpackagedev.html",
+      "/blogs/gitsetup.html",
       "/blogs/mice.html",
-      "/blogs/prs.html"
+      "/blogs/gwas.html"
     ]
   }
 ]

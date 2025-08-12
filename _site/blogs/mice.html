@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
-
+<meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Mohammad Sayeef Alam - mice</title>
+<meta name="author" content="Mohammad Sayeef Alam">
+<meta name="dcterms.date" content="2024-12-16">
+<meta name="description" content="A beginner-friendly guide to handling missing data using Multiple Imputation with the mice package in R.">
+<title>From Missing to Meaningful: Beginner’s Guide to Multiple Imputation – MSA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -36,13 +69,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-9bd210ca491bc6b4597a5f954a3d71f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-249da691a9a0c87493d41b9eefeb4185.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -67,30 +99,24 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><link rel="stylesheet" href="../styles.css">
 </head>
-
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Mohammad Sayeef Alam</span>
+    <span class="navbar-title">MSA</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -112,15 +138,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workshops.html"> 
-<span class="menu-text">Workshops</span></a>
+<span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blogs.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/sayeef_alam"> <i class="bi bi-twitter" role="img" aria-label="Quarto Twitter">
 </i> 
 <span class="menu-text"></span></a>
@@ -136,45 +162,819 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-is-multiple-imputation" id="toc-what-is-multiple-imputation" class="nav-link" data-scroll-target="#what-is-multiple-imputation">What is Multiple Imputation?</a></li>
+  <li><a href="#why-use-multiple-imputation" id="toc-why-use-multiple-imputation" class="nav-link" data-scroll-target="#why-use-multiple-imputation">Why Use Multiple Imputation?</a></li>
+  <li><a href="#getting-started-with-mice-in-r" id="toc-getting-started-with-mice-in-r" class="nav-link" data-scroll-target="#getting-started-with-mice-in-r">Getting Started with <code>mice</code> in R</a></li>
+  <li><a href="#limitations-of-multiple-imputation" id="toc-limitations-of-multiple-imputation" class="nav-link" data-scroll-target="#limitations-of-multiple-imputation">Limitations of Multiple Imputation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link" data-scroll-target="#tldr">TL;DR</a></li>
+  </ul></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">From Missing to Meaningful: Beginner’s Guide to Multiple Imputation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Programming</div>
+  </div>
+  </div>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">mice</h1>
+<div>
+  <div class="description">
+    <p>A beginner-friendly guide to handling missing data using Multiple Imputation with the <code>mice</code> package in R.</p>
+  </div>
 </div>
-
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mohammad Sayeef Alam </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 16, 2024</p>
+    </div>
+  </div>
   
     
   </div>
   
 
 
-</header>
+</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Missing data is a common issue in real-world datasets. Ignoring or improperly handling missing values can lead to biased results and incorrect conclusions. One powerful technique to address this is <strong>Multiple Imputation</strong>, and in R, the <code>mice</code> package makes it accessible and effective.</p>
+<p>This post will walk you through:</p>
+<ul>
+<li>What Multiple Imputation is</li>
+<li>Why it’s useful</li>
+<li>How to use the <code>mice</code> package in R</li>
+<li>Different imputation methods and their assumptions</li>
+<li>Limitations of Multiple Imputation</li>
+</ul></section><section id="what-is-multiple-imputation" class="level2"><h2 class="anchored" data-anchor-id="what-is-multiple-imputation">What is Multiple Imputation?</h2>
+<p><strong>Multiple Imputation</strong> is a statistical technique where missing values are filled in multiple times to create several complete datasets. Each dataset is analyzed separately, and the results are combined to account for the uncertainty due to missing data.</p>
+</section><section id="why-use-multiple-imputation" class="level2"><h2 class="anchored" data-anchor-id="why-use-multiple-imputation">Why Use Multiple Imputation?</h2>
+<ul>
+<li>Preserves sample size</li>
+<li>Reduces bias compared to single imputation</li>
+<li>Accounts for uncertainty in missing data</li>
+<li>Works well with many types of data</li>
+</ul></section><section id="getting-started-with-mice-in-r" class="level2"><h2 class="anchored" data-anchor-id="getting-started-with-mice-in-r">Getting Started with <code>mice</code> in R</h2>
+<section id="install-and-load-the-package" class="level3"><h3 class="anchored" data-anchor-id="install-and-load-the-package">0. Install and Load the Package</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("mice")</span></span>
+<span><span class="co"># install.packages("gt")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span><span class="co"># example dataset: airquality</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"airquality"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6</code></pre>
+</div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>     Ozone           Solar.R           Wind             Temp      
+ Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  
+ 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  
+ Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  
+ Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  
+ 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  
+ Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  
+ NA's   :37       NA's   :7                                       
+     Month            Day      
+ Min.   :5.000   Min.   : 1.0  
+ 1st Qu.:6.000   1st Qu.: 8.0  
+ Median :7.000   Median :16.0  
+ Mean   :6.993   Mean   :15.8  
+ 3rd Qu.:8.000   3rd Qu.:23.0  
+ Max.   :9.000   Max.   :31.0  
+                               </code></pre>
+</div>
+</div>
+<p>This dataset contains missing values in Ozone and Solar.R.</p>
+</section><section id="check-missing-data-pattern" class="level3"><h3 class="anchored" data-anchor-id="check-missing-data-pattern">1. Check missing data pattern</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://amices.org/mice/reference/md.pattern.html">md.pattern</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="mice_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Wind Temp Month Day Solar.R Ozone   
+111    1    1     1   1       1     1  0
+35     1    1     1   1       1     0  1
+5      1    1     1   1       0     1  1
+2      1    1     1   1       0     0  2
+       0    0     0   0       7    37 44</code></pre>
+</div>
+</div>
+</section><section id="perform-imputations" class="level3"><h3 class="anchored" data-anchor-id="perform-imputations">2. Perform imputations</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/mice.html">mice</a></span><span class="op">(</span><span class="va">airquality</span>, m <span class="op">=</span> <span class="fl">5</span>, method <span class="op">=</span> <span class="st">'pmm'</span>, seed <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>
+ iter imp variable
+  1   1  Ozone  Solar.R
+  1   2  Ozone  Solar.R
+  1   3  Ozone  Solar.R
+  1   4  Ozone  Solar.R
+  1   5  Ozone  Solar.R
+  2   1  Ozone  Solar.R
+  2   2  Ozone  Solar.R
+  2   3  Ozone  Solar.R
+  2   4  Ozone  Solar.R
+  2   5  Ozone  Solar.R
+  3   1  Ozone  Solar.R
+  3   2  Ozone  Solar.R
+  3   3  Ozone  Solar.R
+  3   4  Ozone  Solar.R
+  3   5  Ozone  Solar.R
+  4   1  Ozone  Solar.R
+  4   2  Ozone  Solar.R
+  4   3  Ozone  Solar.R
+  4   4  Ozone  Solar.R
+  4   5  Ozone  Solar.R
+  5   1  Ozone  Solar.R
+  5   2  Ozone  Solar.R
+  5   3  Ozone  Solar.R
+  5   4  Ozone  Solar.R
+  5   5  Ozone  Solar.R</code></pre>
+</div>
+</div>
+<p><code>m = 5</code>: Number of imputed datasets</p>
+<p><code>method = 'pmm'</code>: Predictive Mean Matching (default for numeric data)</p>
+<table class="caption-top table">
+<caption>Imputation methods within <code><a href="https://amices.org/mice/reference/mice.html">mice()</a></code>
+</caption>
+<thead><tr class="header">
+<th>Method</th>
+<th>Description</th>
+<th>Assumptions</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>pmm</td>
+<td>Predictive Mean</td>
+<td>Matching Data is approximately normal</td>
+</tr>
+<tr class="even">
+<td>norm</td>
+<td>Bayesian linear regression</td>
+<td>Continuous data</td>
+</tr>
+<tr class="odd">
+<td>logreg</td>
+<td>Logistic regression</td>
+<td>Binary data</td>
+</tr>
+<tr class="even">
+<td>polyreg</td>
+<td>Polytomous regression</td>
+<td>Categorical data</td>
+</tr>
+<tr class="odd">
+<td>cart</td>
+<td>Classification and regression trees</td>
+<td>Non-parametric</td>
+</tr>
+</tbody>
+</table></section><section id="check-imputed-values" class="level3"><h3 class="anchored" data-anchor-id="check-imputed-values">3. Check imputed values</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">imp</span><span class="op">$</span><span class="va">imp</span><span class="op">$</span><span class="va">Ozone</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>      1   2   3   4   5
+5    18   1  37  18  32
+10   12  30  30  20  20
+25   18   8   8  28   6
+26   13  18  18  20  13
+27   20  11  21  32  20
+32   16  23  44  49  59
+33   12   7  18  39  59
+34   19  37  28  18  32
+35   52  39  20  59  96
+36    7  85  71  96  80
+37   21  18  24  29  31
+39   64  76  61  76  76
+42   64  76 115  97 122
+43   61  97  80  76  97
+45   30  29  31  35  28
+46   13  63  52  37  63
+52   23  71  23  35  23
+53   85  64  64  40 108
+54   37  59  47  20  49
+55   23  37  71  35  89
+56   29  29  28  44  46
+57   47  23  35  40  63
+58   44  23  22  23  23
+59   46  45  36  20  28
+60   11  34   9  41   7
+61   78  64  78  73 108
+65   18  20  36  16  32
+72   52  35  16  44  35
+75   40  96  46  61  37
+83    7  59  35  71  23
+84   29  63  20  89  40
+102 110  77 108  66  82
+103  28  40  13  52  35
+107  16  16  14  21  23
+115  22  23  23  16  24
+119 122 122  85 135  82
+150  27  44  14  12  13</code></pre>
+</div>
+</div>
+</section><section id="complete-the-data" class="level3"><h3 class="anchored" data-anchor-id="complete-the-data">4. Complete the data</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">completed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html">complete</a></span><span class="op">(</span><span class="va">imp</span>, <span class="fl">1</span><span class="op">)</span>  <span class="co"># Get the first imputed dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">completed_data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    18     150 14.3   56     5   5
+6    28      48 14.9   66     5   6</code></pre>
+</div>
+</div>
+</section><section id="analyze-and-pool-the-results" class="level3"><h3 class="anchored" data-anchor-id="analyze-and-pool-the-results">4. Analyze and pool the results</h3>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">imp</span>, exp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Ozone</span> <span class="op">~</span> <span class="va">Solar.R</span> <span class="op">+</span> <span class="va">Wind</span> <span class="op">+</span> <span class="va">Temp</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">pooled</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/pool.html">pool</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pooled_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pooled</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove the 'statistic' and 'df' column</span></span>
+<span><span class="va">pooled_summary</span> <span class="op">&lt;-</span> <span class="va">pooled_summary</span><span class="op">[</span>, <span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">pooled_summary</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"statistic"</span>, <span class="st">"df"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Create a gt table</span></span>
+<span><span class="va">gt_table</span> <span class="op">&lt;-</span> <span class="va">pooled_summary</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Pooled Regression Results"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Using Multiple Imputation with mice"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span></span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">estimate</span>, <span class="va">std.error</span>, <span class="va">p.value</span><span class="op">)</span>,</span>
+<span>    decimals <span class="op">=</span> <span class="fl">3</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span></span>
+<span>    term <span class="op">=</span> <span class="st">"Term"</span>,</span>
+<span>    estimate <span class="op">=</span> <span class="st">"Estimate"</span>,</span>
+<span>    std.error <span class="op">=</span> <span class="st">"Std. Error"</span>,</span>
+<span>    p.value <span class="op">=</span> <span class="st">"p-Value"</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">gt_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div id="mkauhguazi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mkauhguazi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mkauhguazi thead, #mkauhguazi tbody, #mkauhguazi tfoot, #mkauhguazi tr, #mkauhguazi td, #mkauhguazi th {
+  border-style: none;
+}
+
+#mkauhguazi p {
+  margin: 0;
+  padding: 0;
+}
+
+#mkauhguazi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mkauhguazi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mkauhguazi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mkauhguazi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mkauhguazi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mkauhguazi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mkauhguazi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mkauhguazi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mkauhguazi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mkauhguazi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mkauhguazi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mkauhguazi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mkauhguazi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mkauhguazi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mkauhguazi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mkauhguazi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mkauhguazi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mkauhguazi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mkauhguazi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mkauhguazi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mkauhguazi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mkauhguazi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mkauhguazi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mkauhguazi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mkauhguazi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mkauhguazi .gt_left {
+  text-align: left;
+}
+
+#mkauhguazi .gt_center {
+  text-align: center;
+}
+
+#mkauhguazi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mkauhguazi .gt_font_normal {
+  font-weight: normal;
+}
+
+#mkauhguazi .gt_font_bold {
+  font-weight: bold;
+}
+
+#mkauhguazi .gt_font_italic {
+  font-style: italic;
+}
+
+#mkauhguazi .gt_super {
+  font-size: 65%;
+}
+
+#mkauhguazi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mkauhguazi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mkauhguazi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mkauhguazi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mkauhguazi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mkauhguazi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mkauhguazi .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mkauhguazi .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mkauhguazi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="4" class="gt_heading gt_title gt_font_normal">Pooled Regression Results</th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Using Multiple Imputation with mice</th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Std. Error</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p-Value</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">−62.907</td>
+<td class="gt_row gt_right" headers="std.error">22.861</td>
+<td class="gt_row gt_right" headers="p.value">0.009</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="term">Solar.R</td>
+<td class="gt_row gt_right" headers="estimate">0.053</td>
+<td class="gt_row gt_right" headers="std.error">0.026</td>
+<td class="gt_row gt_right" headers="p.value">0.059</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="term">Wind</td>
+<td class="gt_row gt_right" headers="estimate">−3.075</td>
+<td class="gt_row gt_right" headers="std.error">0.655</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="term">Temp</td>
+<td class="gt_row gt_right" headers="estimate">1.618</td>
+<td class="gt_row gt_right" headers="std.error">0.241</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section></section><section id="limitations-of-multiple-imputation" class="level2"><h2 class="anchored" data-anchor-id="limitations-of-multiple-imputation">Limitations of Multiple Imputation</h2>
+<ul>
+<li>Computationally intensive</li>
+<li>Requires careful model specification</li>
+<li>Assumes data is Missing at Random (MAR) — not always true</li>
+<li>Can be complex for high-dimensional data</li>
+</ul></section><section id="conclusion" class="level2"><h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Multiple Imputation is a robust way to handle missing data, and the mice package in R makes it approachable even for beginners. By understanding the methodology and using appropriate imputation methods, you can improve the quality of your analyses significantly.</p>
+</section><section id="tldr" class="level2"><h2 class="anchored" data-anchor-id="tldr">TL;DR</h2>
+<ul>
+<li>Problem: Missing data can bias results and reduce statistical power.</li>
+<li>Solution: Multiple Imputation fills in missing values multiple times to reflect uncertainty.</li>
+<li>Tool: The mice package in R makes this easy and flexible.</li>
+<li>Steps:
+<ul>
+<li>Inspect missing data (md.pattern)</li>
+<li>Impute with mice() using methods like pmm, norm, cart, etc.</li>
+<li>Analyze each imputed dataset</li>
+<li>Pool results for final inference</li>
+<li>Use Cases: Surveys, clinical trials, social science data, etc.</li>
+</ul>
+</li>
+<li>Assumptions: Data is Missing at Random (MAR)</li>
+<li>Limitations: Computational cost, model sensitivity, assumption of MAR</li>
+</ul>
 
 
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -353,18 +1153,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -396,7 +1185,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -404,7 +1213,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -501,7 +1310,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -728,8 +1536,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p><span class="container"><strong>Made with <a href="https://quarto.org/" target="_blank">Posit Quarto</a></strong></span></p>
 </div>   
@@ -741,8 +1548,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

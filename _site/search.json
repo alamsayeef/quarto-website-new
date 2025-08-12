@@ -18,7 +18,7 @@
     "href": "blogs.html",
     "title": "MSA",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nGWAS\n\n\n\nGenetics\n\n\nMethods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGit and SSH Setup Guide\n\n\n\nTerminal\n\n\nProgramming\n\n\n\nThis guide provides step-by-step instructions to connect git, clone repo and push commits\n\n\n\nAug 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearnings from first R package development\n\n\n\nR\n\n\nProgramming\n\n\n\nBasic checks and debugging while R package development\n\n\n\nAug 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nhealthecon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmcmc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprs\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nhealthecon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmcmc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearnings from first R package development\n\n\n\nR\n\n\nProgramming\n\n\n\nBasic checks and debugging while R package development\n\n\n\nAug 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComplete Git and SSH Setup Guide: From Zero to Push\n\n\n\nTerminal\n\n\nProgramming\n\n\n\nThis guide provides step-by-step instructions to connect git, clone repo and push commits\n\n\n\nJul 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Missing to Meaningful: Beginner’s Guide to Multiple Imputation\n\n\n\nR\n\n\nProgramming\n\n\n\nA beginner-friendly guide to handling missing data using Multiple Imputation with the mice package in R.\n\n\n\nDec 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeyond QC: A Practical Guide to GWAS with SAIGE\n\n\n\nGenetics\n\n\nMethods\n\n\nBash\n\n\nR\n\n\n\nA hands-on guide for performing GWAS after preliminary QC, covering phenotype preparation, and association testing using SAIGE.\n\n\n\nApr 21, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "workshops.html",
@@ -142,9 +142,9 @@
   {
     "objectID": "blogs/gitsetup.html",
     "href": "blogs/gitsetup.html",
-    "title": "Git and SSH Setup Guide",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
     "section": "",
-    "text": "Introduction\nThis guide provides step-by-step instructions to:\n\nConnect your Git account\nSet up SSH keys\nCreate a local Git repository\nLink it to an online repository\n\n\n\nStep 1: Connect Git Account\n\nHoping that you have git downloaded and installed if not you can download from official website\nConfigure your Git identity:\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@example.com\"\n\n\nStep 2: Set Up SSH Keys\n\nGenerate SSH key:\n\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nPress Enter to accept the default file location.\n\nStart the SSH agent:\n\neval \"$(ssh-agent -s)\"\n\nAdd your SSH key to the agent:\n\nssh-add ~/.ssh/id_ed25519\n\nCopy the SSH key to your clipboard:\n\ncat ~/.ssh/id_ed25519.pub\n\nAdd the key to your Git hosting service (e.g., GitHub, GitLab) under Settings &gt; SSH &gt; Add new key.\n\n\n\nStep 3: Create Local Git Repository\nNavigate to your project directory:\ncd /path/to/your/project\nInitialize Git:\ngit init\nAdd files and commit:\ngit add .\ngit commit -m \"Initial commit\"\n\n\nStep 4: Link to Online Repository\nCreate a new repository on GitHub/GitLab (without README if already committed locally).\nLink your local repo:\ngit remote add origin git@github.com:yourusername/your-repo.git\nSometimes it maybe master or main. You can check that by\ngit branch\nPush your code:\ngit push -u origin master\nHere the -u parameter means upstream so next time you can just write git push and it will remember that you wish to push it to master. (useful when you have single branch)\nAfter this you only need to repeat the following:\ngit add .\ngit commit -m \"provide new commit comment\"\ngit push origin master\n\n\n\n\n Back to top"
+    "text": "Whether you’re a beginner developer or switching to a new machine, setting up Git with SSH authentication can seem daunting. This comprehensive guide will walk you through every step to get you from a fresh installation to pushing your first commit securely.\nBy the end of this guide, you’ll be able to: - Configure Git with your identity - Generate and set up SSH keys for secure authentication - Create and manage local Git repositories - Connect your local work to remote repositories (GitHub, GitLab, etc.) - Understand the basic Git workflow for daily development"
   },
   {
     "objectID": "blogs/rpackagedev.html#step-4.5-perform-checks",
@@ -446,5 +446,236 @@
     "title": "Assessing the susceptibility of celiac disease by polygenic risk scores: analysis of a population-based cohort, the HUNT study.",
     "section": "Conference name",
     "text": "Conference name\n\nInternational Coeliac Disease Symposium (ICDS)"
+  },
+  {
+    "objectID": "blogs/mice.html",
+    "href": "blogs/mice.html",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "",
+    "text": "Missing data is a common issue in real-world datasets. Ignoring or improperly handling missing values can lead to biased results and incorrect conclusions. One powerful technique to address this is Multiple Imputation, and in R, the mice package makes it accessible and effective.\nThis post will walk you through:\n\nWhat Multiple Imputation is\nWhy it’s useful\nHow to use the mice package in R\nDifferent imputation methods and their assumptions\nLimitations of Multiple Imputation"
+  },
+  {
+    "objectID": "blogs/mice.html#introduction",
+    "href": "blogs/mice.html#introduction",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "",
+    "text": "Missing data is a common issue in real-world datasets. Ignoring or improperly handling missing values can lead to biased results and incorrect conclusions. One powerful technique to address this is Multiple Imputation, and in R, the mice package makes it accessible and effective.\nThis post will walk you through:\n\nWhat Multiple Imputation is\nWhy it’s useful\nHow to use the mice package in R\nDifferent imputation methods and their assumptions\nLimitations of Multiple Imputation"
+  },
+  {
+    "objectID": "blogs/mice.html#what-is-multiple-imputation",
+    "href": "blogs/mice.html#what-is-multiple-imputation",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "What is Multiple Imputation?",
+    "text": "What is Multiple Imputation?\nMultiple Imputation is a statistical technique where missing values are filled in multiple times to create several complete datasets. Each dataset is analyzed separately, and the results are combined to account for the uncertainty due to missing data."
+  },
+  {
+    "objectID": "blogs/mice.html#why-use-multiple-imputation",
+    "href": "blogs/mice.html#why-use-multiple-imputation",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "Why Use Multiple Imputation?",
+    "text": "Why Use Multiple Imputation?\n\nPreserves sample size\nReduces bias compared to single imputation\nAccounts for uncertainty in missing data\nWorks well with many types of data"
+  },
+  {
+    "objectID": "blogs/mice.html#getting-started-with-mice-in-r",
+    "href": "blogs/mice.html#getting-started-with-mice-in-r",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "Getting Started with mice in R",
+    "text": "Getting Started with mice in R\n0. Install and Load the Package\n\nCode# install.packages(\"mice\")\n# install.packages(\"gt\")\nlibrary(mice)\nlibrary(gt)\n# example dataset: airquality\ndata(\"airquality\")\nhead(airquality)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n\nCodesummary(airquality)\n\n     Ozone           Solar.R           Wind             Temp      \n Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  \n 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  \n Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  \n Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  \n 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  \n Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  \n NA's   :37       NA's   :7                                       \n     Month            Day      \n Min.   :5.000   Min.   : 1.0  \n 1st Qu.:6.000   1st Qu.: 8.0  \n Median :7.000   Median :16.0  \n Mean   :6.993   Mean   :15.8  \n 3rd Qu.:8.000   3rd Qu.:23.0  \n Max.   :9.000   Max.   :31.0  \n                               \n\n\nThis dataset contains missing values in Ozone and Solar.R.\n1. Check missing data pattern\n\nCodemd.pattern(airquality)\n\n\n\n\n\n\n\n    Wind Temp Month Day Solar.R Ozone   \n111    1    1     1   1       1     1  0\n35     1    1     1   1       1     0  1\n5      1    1     1   1       0     1  1\n2      1    1     1   1       0     0  2\n       0    0     0   0       7    37 44\n\n\n2. Perform imputations\n\nCodeimp &lt;- mice(airquality, m = 5, method = 'pmm', seed = 123)\n\n\n iter imp variable\n  1   1  Ozone  Solar.R\n  1   2  Ozone  Solar.R\n  1   3  Ozone  Solar.R\n  1   4  Ozone  Solar.R\n  1   5  Ozone  Solar.R\n  2   1  Ozone  Solar.R\n  2   2  Ozone  Solar.R\n  2   3  Ozone  Solar.R\n  2   4  Ozone  Solar.R\n  2   5  Ozone  Solar.R\n  3   1  Ozone  Solar.R\n  3   2  Ozone  Solar.R\n  3   3  Ozone  Solar.R\n  3   4  Ozone  Solar.R\n  3   5  Ozone  Solar.R\n  4   1  Ozone  Solar.R\n  4   2  Ozone  Solar.R\n  4   3  Ozone  Solar.R\n  4   4  Ozone  Solar.R\n  4   5  Ozone  Solar.R\n  5   1  Ozone  Solar.R\n  5   2  Ozone  Solar.R\n  5   3  Ozone  Solar.R\n  5   4  Ozone  Solar.R\n  5   5  Ozone  Solar.R\n\n\nm = 5: Number of imputed datasets\nmethod = 'pmm': Predictive Mean Matching (default for numeric data)\n\nImputation methods within mice()\n\n\nMethod\nDescription\nAssumptions\n\n\n\npmm\nPredictive Mean\nMatching Data is approximately normal\n\n\nnorm\nBayesian linear regression\nContinuous data\n\n\nlogreg\nLogistic regression\nBinary data\n\n\npolyreg\nPolytomous regression\nCategorical data\n\n\ncart\nClassification and regression trees\nNon-parametric\n\n\n3. Check imputed values\n\nCodeimp$imp$Ozone\n\n      1   2   3   4   5\n5    18   1  37  18  32\n10   12  30  30  20  20\n25   18   8   8  28   6\n26   13  18  18  20  13\n27   20  11  21  32  20\n32   16  23  44  49  59\n33   12   7  18  39  59\n34   19  37  28  18  32\n35   52  39  20  59  96\n36    7  85  71  96  80\n37   21  18  24  29  31\n39   64  76  61  76  76\n42   64  76 115  97 122\n43   61  97  80  76  97\n45   30  29  31  35  28\n46   13  63  52  37  63\n52   23  71  23  35  23\n53   85  64  64  40 108\n54   37  59  47  20  49\n55   23  37  71  35  89\n56   29  29  28  44  46\n57   47  23  35  40  63\n58   44  23  22  23  23\n59   46  45  36  20  28\n60   11  34   9  41   7\n61   78  64  78  73 108\n65   18  20  36  16  32\n72   52  35  16  44  35\n75   40  96  46  61  37\n83    7  59  35  71  23\n84   29  63  20  89  40\n102 110  77 108  66  82\n103  28  40  13  52  35\n107  16  16  14  21  23\n115  22  23  23  16  24\n119 122 122  85 135  82\n150  27  44  14  12  13\n\n\n4. Complete the data\n\nCodecompleted_data &lt;- complete(imp, 1)  # Get the first imputed dataset\nhead(completed_data)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    18     150 14.3   56     5   5\n6    28      48 14.9   66     5   6\n\n\n4. Analyze and pool the results\n\nCodefit &lt;- with(data = imp, exp = lm(Ozone ~ Solar.R + Wind + Temp))\npooled &lt;- pool(fit)\n\npooled_summary &lt;- summary(pooled)\n\n# Remove the 'statistic' and 'df' column\npooled_summary &lt;- pooled_summary[, !(names(pooled_summary) %in% c(\"statistic\", \"df\"))]\n\n# Create a gt table\ngt_table &lt;- pooled_summary |&gt;\n  gt() |&gt;\n  tab_header(\n    title = \"Pooled Regression Results\",\n    subtitle = \"Using Multiple Imputation with mice\"\n  ) |&gt;\n  fmt_number(\n    columns = vars(estimate, std.error, p.value),\n    decimals = 3\n  ) |&gt;\n  cols_label(\n    term = \"Term\",\n    estimate = \"Estimate\",\n    std.error = \"Std. Error\",\n    p.value = \"p-Value\"\n  )\n\ngt_table\n\n\n\n\n\n\nPooled Regression Results\n\n\nUsing Multiple Imputation with mice\n\n\nTerm\nEstimate\nStd. Error\np-Value\n\n\n\n\n(Intercept)\n−62.907\n22.861\n0.009\n\n\nSolar.R\n0.053\n0.026\n0.059\n\n\nWind\n−3.075\n0.655\n0.000\n\n\nTemp\n1.618\n0.241\n0.000"
+  },
+  {
+    "objectID": "blogs/mice.html#step-by-step-imputation",
+    "href": "blogs/mice.html#step-by-step-imputation",
+    "title": "Beginner’s Guide to Multiple Imputation Using the mice Package in R",
+    "section": "Step-by-step imputation",
+    "text": "Step-by-step imputation\n\n1. Check missing data pattern\nmd.pattern(airquality)\n\n\n2. Perform imputations\nimp &lt;- mice(airquality, m = 5, method = 'pmm', seed = 123)\nm = 5: Number of imputed datasets\nmethod = 'pmm': Predictive Mean Matching (default for numeric data)\nImputation methods in mice()\n\n\n3. Check imputed values\nimp$imp$Ozone\n\n\n4. Complete the data\ncompleted_data &lt;- complete(imp, 1)  # Get the first imputed dataset\nhead(completed_data)\n\n\n4. Analyze and pool the results\nfit &lt;- with(data = imp, exp = lm(Ozone ~ Solar.R + Wind + Temp))\npooled &lt;- pool(fit)\nsummary(pooled)\n\n\nLimitations of Multiple Imputation\n\nComputationally intensive\nRequires careful model specification\nAssumes data is Missing at Random (MAR) — not always true\nCan be complex for high-dimensional data\n\n\n\nConclusion\nMultiple Imputation is a robust way to handle missing data, and the mice package in R makes it approachable even for beginners. By understanding the methodology and using appropriate imputation methods, you can improve the quality of your analyses significantly.\n\n\n🧵 TL;DR: Multiple Imputation with mice in R\n\nProblem: Missing data can bias results and reduce statistical power.\nSolution: Multiple Imputation fills in missing values multiple times to reflect uncertainty.\nTool: The mice package in R makes this easy and flexible.\nSteps:\n\nInspect missing data (md.pattern)\nImpute with mice() using methods like pmm, norm, cart, etc.\nAnalyze each imputed dataset\nPool results for final inference\nUse Cases: Surveys, clinical trials, social science data, etc.\n\nAssumptions: Data is Missing at Random (MAR)\nLimitations: Computational cost, model sensitivity, assumption of MAR"
+  },
+  {
+    "objectID": "blogs/mice.html#limitations-of-multiple-imputation",
+    "href": "blogs/mice.html#limitations-of-multiple-imputation",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "Limitations of Multiple Imputation",
+    "text": "Limitations of Multiple Imputation\n\nComputationally intensive\nRequires careful model specification\nAssumes data is Missing at Random (MAR) — not always true\nCan be complex for high-dimensional data"
+  },
+  {
+    "objectID": "blogs/mice.html#conclusion",
+    "href": "blogs/mice.html#conclusion",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "Conclusion",
+    "text": "Conclusion\nMultiple Imputation is a robust way to handle missing data, and the mice package in R makes it approachable even for beginners. By understanding the methodology and using appropriate imputation methods, you can improve the quality of your analyses significantly."
+  },
+  {
+    "objectID": "blogs/mice.html#tldr-multiple-imputation-with-mice-in-r",
+    "href": "blogs/mice.html#tldr-multiple-imputation-with-mice-in-r",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "🧵 TL;DR: Multiple Imputation with mice in R",
+    "text": "🧵 TL;DR: Multiple Imputation with mice in R\n\nProblem: Missing data can bias results and reduce statistical power.\nSolution: Multiple Imputation fills in missing values multiple times to reflect uncertainty.\nTool: The mice package in R makes this easy and flexible.\nSteps:\n\nInspect missing data (md.pattern)\nImpute with mice() using methods like pmm, norm, cart, etc.\nAnalyze each imputed dataset\nPool results for final inference\nUse Cases: Surveys, clinical trials, social science data, etc.\n\n\nAssumptions: Data is Missing at Random (MAR)\nLimitations: Computational cost, model sensitivity, assumption of MAR"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#what-youll-learn",
+    "href": "blogs/gitsetup.html#what-youll-learn",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "",
+    "text": "Whether you’re a beginner developer or switching to a new machine, setting up Git with SSH authentication can seem daunting. This comprehensive guide will walk you through every step to get you from a fresh installation to pushing your first commit securely.\nBy the end of this guide, you’ll be able to: - Configure Git with your identity - Generate and set up SSH keys for secure authentication - Create and manage local Git repositories - Connect your local work to remote repositories (GitHub, GitLab, etc.) - Understand the basic Git workflow for daily development"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#prerequisites",
+    "href": "blogs/gitsetup.html#prerequisites",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nA computer with terminal/command line access\nAn account on a Git hosting service (GitHub, GitLab, Bitbucket, etc.)\nBasic familiarity with command line operations"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#step-1-install-and-configure-git",
+    "href": "blogs/gitsetup.html#step-1-install-and-configure-git",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Step 1: Install and Configure Git",
+    "text": "Step 1: Install and Configure Git\n\nInstall Git\nIf you haven’t already, download and install Git from the official website. Most Linux distributions and macOS come with Git pre-installed, but it’s worth updating to the latest version.\nCheck if Git is installed:\ngit --version\n\n\nConfigure Your Git Identity\nThis is crucial - Git needs to know who you are for commit attribution:\ngit config --global user.name \"Your Full Name\"\ngit config --global user.email \"your.email@example.com\"\nPro tip: Use the same email address associated with your GitHub/GitLab account for seamless integration.\nVerify your configuration:\ngit config --global --list\n\n\nOptional: Set Your Default Editor\nConfigure your preferred text editor for commit messages:\n# For VS Code\ngit config --global core.editor \"code --wait\"\n\n# For nano (beginner-friendly)\ngit config --global core.editor \"nano\"\n\n# For vim\ngit config --global core.editor \"vim\""
+  },
+  {
+    "objectID": "blogs/gitsetup.html#step-2-set-up-ssh-keys-for-secure-authentication",
+    "href": "blogs/gitsetup.html#step-2-set-up-ssh-keys-for-secure-authentication",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Step 2: Set Up SSH Keys for Secure Authentication",
+    "text": "Step 2: Set Up SSH Keys for Secure Authentication\nSSH keys provide a secure way to authenticate with Git hosting services without entering your password every time.\n\nGenerate Your SSH Key\nCreate a new SSH key pair using the modern Ed25519 algorithm:\nssh-keygen -t ed25519 -C \"your.email@example.com\"\nWhen prompted: - File location: Press Enter to accept the default (~/.ssh/id_ed25519) - Passphrase: Optional but recommended for extra security\n\n\nStart the SSH Agent\nThe SSH agent manages your keys in memory:\neval \"$(ssh-agent -s)\"\nYou should see output like: Agent pid 12345\n\n\nAdd Your Key to the SSH Agent\nssh-add ~/.ssh/id_ed25519\nIf you set a passphrase, you’ll be prompted to enter it.\n\n\nCopy Your Public Key\nDisplay and copy your public key:\ncat ~/.ssh/id_ed25519.pub\nCopy the entire output (starts with ssh-ed25519 and ends with your email).\n\n\nAdd Key to Your Git Hosting Service\n\nFor GitHub:\n\nGo to Settings → SSH and GPG keys\nClick New SSH key\nGive it a descriptive title (e.g., “My Laptop”)\nPaste your public key\nClick Add SSH key\n\n\n\nFor GitLab:\n\nGo to Preferences → SSH Keys\nPaste your public key in the Key field\nAdd a title and expiration date (optional)\nClick Add key\n\n\n\n\nTest Your SSH Connection\nVerify your setup works:\n# For GitHub\nssh -T git@github.com\n\n# For GitLab\nssh -T git@gitlab.com\nYou should see a welcome message confirming successful authentication."
+  },
+  {
+    "objectID": "blogs/gitsetup.html#step-3-create-your-first-local-repository",
+    "href": "blogs/gitsetup.html#step-3-create-your-first-local-repository",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Step 3: Create Your First Local Repository",
+    "text": "Step 3: Create Your First Local Repository\n\nNavigate to Your Project Directory\ncd /path/to/your/project\n# or create a new directory\nmkdir my-awesome-project\ncd my-awesome-project\n\n\nInitialize Git Repository\ngit init\nThis creates a hidden .git folder that tracks your project’s history.\n\n\nCreate Your First Files\nIf starting from scratch:\n# Create a README file\necho \"# My Awesome Project\" &gt; README.md\n\n# Create a simple .gitignore\ncat &gt; .gitignore &lt;&lt; EOF\n# OS generated files\n.DS_Store\nThumbs.db\n\n# IDE files\n.vscode/\n.idea/\n\n# Dependencies\nnode_modules/\nEOF\n\n\nStage and Commit Your Changes\n# Stage all files\ngit add .\n\n# Create your first commit\ngit commit -m \"Initial commit: Add README and .gitignore\"\nGood commit message practices: - Use present tense (“Add feature” not “Added feature”) - Keep the first line under 50 characters - Be descriptive but concise"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#step-4-connect-to-remote-repository",
+    "href": "blogs/gitsetup.html#step-4-connect-to-remote-repository",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Step 4: Connect to Remote Repository",
+    "text": "Step 4: Connect to Remote Repository\n\nCreate Remote Repository\n\nGo to your Git hosting service (GitHub/GitLab)\nCreate a new repository\nImportant: Don’t initialize with README, .gitignore, or license if you already have local commits\n\n\n\nLink Your Local Repository\ngit remote add origin git@github.com:yourusername/your-repo-name.git\n# Replace with your actual username and repository name\n\n\nCheck Your Default Branch\nModern Git uses main as the default branch, but older repos might use master:\ngit branch\nIf you’re on master but want to use main:\ngit branch -M main\n\n\nPush Your Code\nPush your local commits to the remote repository:\n# First push (sets up tracking)\ngit push -u origin main\n\n# Future pushes (after the -u flag is set)\ngit push\nThe -u flag (upstream) tells Git to remember this branch relationship, so future git push commands know where to go."
+  },
+  {
+    "objectID": "blogs/gitsetup.html#daily-git-workflow",
+    "href": "blogs/gitsetup.html#daily-git-workflow",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Daily Git Workflow",
+    "text": "Daily Git Workflow\nOnce everything is set up, your typical workflow will be:\n# Make changes to your files\n# ...\n\n# Check what's changed\ngit status\n\n# Stage changes\ngit add .\n# or stage specific files\ngit add filename.txt\n\n# Commit with a descriptive message\ngit commit -m \"Add user authentication feature\"\n\n# Push to remote\ngit push\n\nUseful Git Commands\n# View commit history\ngit log --oneline\n\n# Check current status\ngit status\n\n# See what changes you've made\ngit diff\n\n# Undo changes to a file\ngit checkout -- filename.txt\n\n# Pull latest changes from remote\ngit pull"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#troubleshooting-common-issues",
+    "href": "blogs/gitsetup.html#troubleshooting-common-issues",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Troubleshooting Common Issues",
+    "text": "Troubleshooting Common Issues\n\nPermission Denied (SSH)\n\nEnsure your SSH key is added to ssh-agent: ssh-add -l\nVerify the key is added to your Git hosting service\nTest SSH connection: ssh -T git@github.com\n\n\n\nRemote Already Exists\nIf you get “remote origin already exists”:\ngit remote remove origin\ngit remote add origin git@github.com:username/repo.git\n\n\nWrong Branch Name\nIf your local branch doesn’t match remote expectations:\n# Rename current branch\ngit branch -M main\ngit push -u origin main"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#security-best-practices",
+    "href": "blogs/gitsetup.html#security-best-practices",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Security Best Practices",
+    "text": "Security Best Practices\n\nUse SSH keys instead of passwords for authentication\nSet passphrases on your SSH keys for additional security\nRegularly rotate your SSH keys (annually recommended)\nNever commit sensitive data like passwords or API keys\nUse .gitignore to exclude sensitive files\nReview commits before pushing to avoid accidentally including secrets"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#next-steps",
+    "href": "blogs/gitsetup.html#next-steps",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Next Steps",
+    "text": "Next Steps\nNow that you have Git and SSH configured:\n\nLearn about branching and merging for collaborative development\nExplore pull requests/merge requests for code review workflows\nSet up automated backups of your repositories\nConsider using Git hooks for automated testing\nLearn about conventional commits for better commit messages"
+  },
+  {
+    "objectID": "blogs/gitsetup.html#conclusion",
+    "href": "blogs/gitsetup.html#conclusion",
+    "title": "Complete Git and SSH Setup Guide: From Zero to Push",
+    "section": "Conclusion",
+    "text": "Conclusion\nCongratulations! You’ve successfully set up Git with SSH authentication and created your first repository. This foundation will serve you well throughout your development journey. Remember, Git is a powerful tool that becomes more valuable as you learn its advanced features, but these basics will handle 90% of your daily needs.\nHappy coding! 🚀"
+  },
+  {
+    "objectID": "blogs/mice.html#tldr",
+    "href": "blogs/mice.html#tldr",
+    "title": "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation",
+    "section": "TL;DR",
+    "text": "TL;DR\n\nProblem: Missing data can bias results and reduce statistical power.\nSolution: Multiple Imputation fills in missing values multiple times to reflect uncertainty.\nTool: The mice package in R makes this easy and flexible.\nSteps:\n\nInspect missing data (md.pattern)\nImpute with mice() using methods like pmm, norm, cart, etc.\nAnalyze each imputed dataset\nPool results for final inference\nUse Cases: Surveys, clinical trials, social science data, etc.\n\n\nAssumptions: Data is Missing at Random (MAR)\nLimitations: Computational cost, model sensitivity, assumption of MAR"
+  },
+  {
+    "objectID": "blogs/gwas.html",
+    "href": "blogs/gwas.html",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "",
+    "text": "Genome-wide association studies (GWAS) are powerful tools for uncovering genetic variants linked to traits and diseases. After preliminary quality control (QC), additional checks and thoughtful modeling are essential—especially when dealing with related individuals and population structure.\nThis guide walks through:\n\nPost-QC checks\nPhenotype and covariate preparation\nGWAS using SAIGE\nAlternatives to SAIGE\nVisualization and interpretation"
+  },
+  {
+    "objectID": "blogs/gwas.html#introduction",
+    "href": "blogs/gwas.html#introduction",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "",
+    "text": "Genome-wide association studies (GWAS) are powerful tools for uncovering genetic variants linked to traits and diseases. After preliminary quality control (QC), additional checks and thoughtful modeling are essential—especially when dealing with related individuals and population structure.\nThis guide walks through:\n\nPost-QC checks\nPhenotype and covariate preparation\nGWAS using SAIGE\nAlternatives to SAIGE\nVisualization and interpretation"
+  },
+  {
+    "objectID": "blogs/gwas.html#what-youve-received",
+    "href": "blogs/gwas.html#what-youve-received",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "What You’ve Received",
+    "text": "What You’ve Received\nBefore diving into the analysis, ensure you have:\n\nGenotype data (after basic QC)\nPhenotype file\nCovariates including PC1–PC20\nRelated individuals in the cohort"
+  },
+  {
+    "objectID": "blogs/gwas.html#post-qc-checks",
+    "href": "blogs/gwas.html#post-qc-checks",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Post-QC Checks",
+    "text": "Post-QC Checks\n\n1. Sample Matching\nEnsure sample IDs match across genotype and phenotype files.\ncomm -12 &lt;(cut -f1 phenotype.txt | sort) &lt;(cut -f1 genotype.fam | sort) &gt; common_ids.txt\n\n\n2. Sex Check\ncomm -12 &lt;(cut -f1 phenotype.txt | sort) &lt;(cut -f1 genotype.fam | sort) &gt; common_ids.txt\n\n\n3. Population Stratification\nYou already have PC1–PC20, so no need to compute PCA again. Just include these as covariates in your model.\n\n\n4. Relatedness\nSince your cohort includes related individuals, do not remove them. Instead, use a mixed model approach like SAIGE to account for relatedness."
+  },
+  {
+    "objectID": "blogs/gwas.html#gwas-with-saige",
+    "href": "blogs/gwas.html#gwas-with-saige",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "GWAS with SAIGE",
+    "text": "GWAS with SAIGE\n\nWhy Choose SAIGE?\nSAIGE is particularly well-suited for complex datasets because it:\n\nHandles case-control imbalance effectively\nAccounts for relatedness using a sparse GRM\nScales to large datasets efficiently\nSupports both binary and quantitative traits\n\n\n\nConducting GWAS with SAIGE\nYou can follow the comprehensive guide to perform GWAS from their well-documented page."
+  },
+  {
+    "objectID": "blogs/gwas.html#alternatives-to-saige",
+    "href": "blogs/gwas.html#alternatives-to-saige",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Alternatives to SAIGE",
+    "text": "Alternatives to SAIGE\nDepending on your specific needs, consider these alternatives:\n\n\n\n\n\n\n\n\nTool\nBest For\nNotes\n\n\n\n\nPLINK\nSmall datasets, basic GWAS\nFast, but doesn’t handle relatedness\n\n\nGEMMA\nMixed models, quantitative traits\nHandles relatedness well\n\n\nBOLT-LMM\nLarge-scale quantitative traits\nFast, limited binary trait support\n\n\nREGENIE\nBinary and quantitative traits\nScalable, supports stepwise modeling"
+  },
+  {
+    "objectID": "blogs/gwas.html#output-expectations",
+    "href": "blogs/gwas.html#output-expectations",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Output Expectations",
+    "text": "Output Expectations\nAfter running your GWAS, you should expect:\n\nGWAS results: SNP ID, effect size, SE, p-value\nManhattan plot and QQ plot for visualization\nAdditional visualizations: Regional plots, volcano plots, etc.\n\n\nCreating Manhattan Plots\nThere are several online resources that input summary statistics and output Manhattan plots.\nPersonally, I opted for an in-house developed modified version of an R package used by research groups in the department.\nlibrary(qqman)\n\ngwas &lt;- read.table(\"gwas_results.txt\", header = TRUE) \n\nmanhattan(gwas, chr=\"CHR\", bp=\"BP\", snp=\"SNP\", p=\"P\", main=\"GWAS Manhattan Plot\") \n\nqq(gwas$P)\nThe output could look similar to the following plots:\n\n\n\n\n\n\n\nFigure 1: Manhattan Plot with red color indicating previously known loci and blue are the novel loci\n\n\n\n\n\n\n\n\n\n\nFigure 2: QQ Plot with a genomic correction value of 1.14\n\n\n\n\n\n\nNote: Taken from publication."
+  },
+  {
+    "objectID": "blogs/gwas.html#downstream-checks-in-gwas",
+    "href": "blogs/gwas.html#downstream-checks-in-gwas",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Downstream Checks in GWAS",
+    "text": "Downstream Checks in GWAS\nOnce you’ve run your GWAS and identified significant associations, it’s important to assess the overall genetic architecture of the trait. Two key downstream checks are heritability estimation and LD Score Regression (LDSC).\n\nSNP-Based Heritability\nHeritability refers to the proportion of phenotypic variance in a trait that can be attributed to genetic variation. In GWAS, we often estimate SNP-based heritability, which considers only the common variants captured in the study.\n\nWhy it matters: It helps quantify how much of the trait is explained by the genotyped SNPs.\nTools: Common tools include GCTA, LDSC, and REML.\nExample: If SNP-based heritability is 0.25, it means 25% of the trait variance is explained by the SNPs used in the GWAS.\n\n\n\nLD Score Regression (LDSC)\nLD Score Regression is a method to distinguish true polygenic signal from confounding biases (like population stratification or cryptic relatedness).\n\nLD Score: A measure of how much a SNP tags nearby variants due to linkage disequilibrium (LD).\nKey Insight: If a trait is polygenic, SNPs with higher LD scores should have higher test statistics.\nIntercept: LDSC provides an intercept value that helps detect inflation due to confounding. An intercept close to 1 suggests minimal confounding.\nApplications:\n\nEstimating SNP heritability from summary statistics.\nPartitioning heritability across functional annotations.\nGenetic correlation between traits.\n\n\n\n\nLDSC Command\nldsc.py \\\n  --h2 sumstats.txt \\\n  --ref-ld-chr eur_w_ld_chr/ \\\n  --w-ld-chr eur_w_ld_chr/ \\\n  --out trait_heritability\n\n\nInterpretation\nLDSC helps you understand whether your GWAS results reflect true polygenic signal or are inflated due to confounding. Here’s how to interpret the main components:\n1. Heritability Estimate (\\(h^2\\))\nWhat it means: The proportion of phenotypic variance explained by all SNPs in your GWAS.\nInterpretation:\n\n\n\n\n\n\n\nHeritability Value\nMeaning\n\n\n\n\n&gt; 0.2\nStrong polygenic contribution\n\n\n&lt; 0.2\nLimited genetic influence or insufficient power\n\n\n\nNote: This is SNP-based heritability, not total heritability (which includes rare variants and other sources).\n\n2. Intercept\nWhat it means: Measures inflation in test statistics not due to polygenicity.\nIdeal value: Close to 1.0.\nInterpretation:\n\n\n\n\n\n\n\nIntercept Value\nMeaning\n\n\n\n\n≈ 1.0\nMinimal confounding; inflation is likely due to true polygenic signal.\n\n\n&gt; 1.0\nSuggests confounding (e.g., population stratification, cryptic relatedness).\n\n\n\nAction: If high, consider improving QC (e.g., more principal components, better ancestry matching).\n3. LDSC Ratio\nThe LDSC ratio is calculated as:\n\\[\n\\text{Ratio} = \\frac{\\text{Intercept} - 1}{\\text{Mean}(\\chi^2) - 1}\n\\]\nInterpretation:\n\n\n\n\n\n\n\n\nRatio Value\nMeaning\nAction\n\n\n\n\n&lt; 0.1\nMost inflation is due to true polygenic signal.\n✅ Your GWAS is likely well-controlled.\n\n\n0.1 – 0.3\nSome inflation may be due to confounding.\n⚠️ Consider checking population structure and relatedness.\n\n\n&gt; 0.3\nA large portion of inflation is likely due to confounding.\n❌ Revisit QC steps, include more PCs, or refine your model.\n\n\n\n 4. Test Statistic vs LD Score Plot\n\n\n\n\n\n\n\n\nTrend Type\nPlot\nInterpretation\n\n\n\n\nUpward Trend\n\nIndicates polygenic signal — SNPs with higher LD scores have higher test statistics.\n\n\nFlat/Noisy Trend\n\nSuggests lack of polygenicity or presence of confounding factors.\n\n\n\n\n\nSummary of LD Score Regression Metrics\n\n\n\n\n\n\n\n\n\nMetric\nIdeal Value\nWhat It Means\nInterpretation & Action\n\n\n\n\nHeritability (\\(h^2\\))\n&gt; 0.1\nProportion of trait variance explained by SNPs\nLow value → trait may be weakly polygenic or underpowered study\n\n\nIntercept\n≈ 1.0\nInflation in test statistics not due to polygenicity\n&gt;1.0 → possible confounding (e.g., population stratification)\n\n\nRatio\n&lt; 0.1\nFraction of inflation due to confounding\n&gt;0.3 → revisit QC, ancestry correction, or model assumptions\n\n\nLD Score Plot\nPositive slope\nRelationship between LD score and test statistic\nFlat/noisy → weak polygenic signal or confounding present"
+  },
+  {
+    "objectID": "blogs/gwas.html#ldsc-command",
+    "href": "blogs/gwas.html#ldsc-command",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "LDSC Command",
+    "text": "LDSC Command\nldsc.py \\\n  --h2 sumstats.txt \\\n  --ref-ld-chr eur_w_ld_chr/ \\\n  --w-ld-chr eur_w_ld_chr/ \\\n  --out trait_heritability\n\nInterpretation\nHeritability estimate: Found in the .log file output.\nIntercept: If significantly &gt;1, consider revisiting population structure correction (e.g., using more PCs or better QC)."
+  },
+  {
+    "objectID": "blogs/gwas.html#downstream-analysis-in-gwas",
+    "href": "blogs/gwas.html#downstream-analysis-in-gwas",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Downstream Analysis in GWAS",
+    "text": "Downstream Analysis in GWAS\nOnce you’ve run your GWAS and identified significant associations, it’s important to assess the overall genetic architecture of the trait. Two key downstream analyses are heritability estimation and LD Score Regression (LDSC).\n\nSNP-Based Heritability\nHeritability refers to the proportion of phenotypic variance in a trait that can be attributed to genetic variation. In GWAS, we often estimate SNP-based heritability, which considers only the common variants captured in the study.\n\nWhy it matters: It helps quantify how much of the trait is explained by the genotyped SNPs\nTools: Common tools include GCTA, LDSC, and REML\nExample: If SNP-based heritability is 0.25, it means 25% of the trait variance is explained by the SNPs used in the GWAS\n\n\n\nLD Score Regression (LDSC)\nLD Score Regression is a method to distinguish true polygenic signal from confounding biases (like population stratification or cryptic relatedness).\n\nLD Score: A measure of how much a SNP tags nearby variants due to linkage disequilibrium (LD)\nKey Insight: If a trait is polygenic, SNPs with higher LD scores should have higher test statistics\nIntercept: LDSC provides an intercept value that helps detect inflation due to confounding. An intercept close to 1 suggests minimal confounding\n\n\nLDSC Applications\n\nEstimating SNP heritability from summary statistics\nPartitioning heritability across functional annotations\nCalculating genetic correlation between traits\n\n\n\nLDSC Command\nldsc.py \\\n  --h2 sumstats.txt \\\n  --ref-ld-chr eur_w_ld_chr/ \\\n  --w-ld-chr eur_w_ld_chr/ \\\n  --out trait_heritability"
+  },
+  {
+    "objectID": "blogs/gwas.html#interpreting-ldsc-results",
+    "href": "blogs/gwas.html#interpreting-ldsc-results",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Interpreting LDSC Results",
+    "text": "Interpreting LDSC Results\nLDSC helps you understand whether your GWAS results reflect true polygenic signal or are inflated due to confounding. Here’s how to interpret the main components:\n\n1. Heritability Estimate (h²)\nWhat it means: The proportion of phenotypic variance explained by all SNPs in your GWAS.\n\n\n\n\n\n\n\nHeritability Value\nMeaning\n\n\n\n\n&gt; 0.2\nStrong polygenic contribution\n\n\n&lt; 0.2\nLimited genetic influence or insufficient power\n\n\n\n\nNote: This is SNP-based heritability, not total heritability (which includes rare variants and other sources).\n\n\n\n2. Intercept\nWhat it means: Measures inflation in test statistics not due to polygenicity.\nIdeal value: Close to 1.0\n\n\n\n\n\n\n\nIntercept Value\nMeaning\n\n\n\n\n≈ 1.0\nMinimal confounding; inflation is likely due to true polygenic signal\n\n\n&gt; 1.0\nSuggests confounding (e.g., population stratification, cryptic relatedness)\n\n\n\nAction: If high, consider improving QC (e.g., more principal components, better ancestry matching).\n\n\n3. LDSC Ratio\nThe LDSC ratio is calculated as:\n\\[\n\\text{Ratio} = \\frac{\\text{Intercept} - 1}{\\text{Mean}(\\chi^2) - 1}\n\\]\n\n\n\n\n\n\n\n\nRatio Value\nMeaning\nAction\n\n\n\n\n&lt; 0.1\nMost inflation is due to true polygenic signal\n✅ Your GWAS is likely well-controlled\n\n\n0.1 – 0.3\nSome inflation may be due to confounding\n⚠️ Consider checking population structure and relatedness\n\n\n&gt; 0.3\nA large portion of inflation is likely due to confounding\n❌ Revisit QC steps, include more PCs, or refine your model\n\n\n\n\n\n4. Test Statistic vs LD Score Plot\n\n\n\n\n\n\n\n\nTrend Type\nPlot\nInterpretation\n\n\n\n\nUpward Trend\n\nIndicates polygenic signal — SNPs with higher LD scores have higher test statistics\n\n\nFlat/Noisy Trend\n\nSuggests lack of polygenicity or presence of confounding factors"
+  },
+  {
+    "objectID": "blogs/gwas.html#summary-ld-score-regression-metrics",
+    "href": "blogs/gwas.html#summary-ld-score-regression-metrics",
+    "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
+    "section": "Summary: LD Score Regression Metrics",
+    "text": "Summary: LD Score Regression Metrics\n\n\n\n\n\n\n\n\n\nMetric\nIdeal Value\nWhat It Means\nInterpretation & Action\n\n\n\n\nHeritability (h²)\n&gt; 0.1\nProportion of trait variance explained by SNPs\nLow value → trait may be weakly polygenic or underpowered study\n\n\nIntercept\n≈ 1.0\nInflation in test statistics not due to polygenicity\n&gt;1.0 → possible confounding (e.g., population stratification)\n\n\nRatio\n&lt; 0.1\nFraction of inflation due to confounding\n&gt;0.3 → revisit QC, ancestry correction, or model assumptions\n\n\nLD Score Plot\nPositive slope\nRelationship between LD score and test statistic\nFlat/noisy → weak polygenic signal or confounding present"
   }
 ]

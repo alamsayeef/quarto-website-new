@@ -1,5 +1,177 @@
 ---
-title: "mice"
-format: html
+title: "From Missing to Meaningful: Beginner’s Guide to Multiple Imputation"
+description: | 
+  A beginner-friendly guide to handling missing data using Multiple Imputation with the `mice` package in R.
+
+author: "Mohammad Sayeef Alam"
+categories: [R, Programming]
+date: "2024-12-16"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
+## Introduction
+
+Missing data is a common issue in real-world datasets. Ignoring or improperly handling missing values can lead to biased results and incorrect conclusions. One powerful technique to address this is **Multiple Imputation**, and in R, the `mice` package makes it accessible and effective.
+
+This post will walk you through:
+
+- What Multiple Imputation is
+- Why it's useful
+- How to use the `mice` package in R
+- Different imputation methods and their assumptions
+- Limitations of Multiple Imputation
+
+## What is Multiple Imputation?
+
+**Multiple Imputation** is a statistical technique where missing values are filled in multiple times to create several complete datasets. Each dataset is analyzed separately, and the results are combined to account for the uncertainty due to missing data.
+
+## Why Use Multiple Imputation?
+
+- Preserves sample size
+- Reduces bias compared to single imputation
+- Accounts for uncertainty in missing data
+- Works well with many types of data
+
+## Getting Started with `mice` in R
+
+### 0. Install and Load the Package
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+# install.packages("mice")
+# install.packages("gt")
+library(mice)
+library(gt)
+# example dataset: airquality
+data("airquality")
+head(airquality)
+summary(airquality)
+```
+
+This dataset contains missing values in Ozone and Solar.R.
+
+### 1. Check missing data pattern
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+md.pattern(airquality)
+```
+
+### 2. Perform imputations
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+imp <- mice(airquality, m = 5, method = 'pmm', seed = 123)
+```
+
+`m = 5`: Number of imputed datasets
+
+`method = 'pmm'`: Predictive Mean Matching (default for numeric data)
+
+| Method | Description | Assumptions |
+|---------|---------|---------|
+|pmm | Predictive Mean | Matching	Data is approximately normal |
+|norm |	Bayesian linear regression | Continuous data |
+|logreg |	Logistic regression | Binary data |
+|polyreg |	Polytomous regression | Categorical data |
+|cart |	Classification and regression trees | Non-parametric |
+: Imputation methods within `mice()`
+
+### 3. Check imputed values
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+imp$imp$Ozone
+```
+### 4. Complete the data
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+completed_data <- complete(imp, 1)  # Get the first imputed dataset
+head(completed_data)
+```
+
+### 4. Analyze and pool the results
+
+```{r}
+#| warning: false
+#| error: false
+#| message: false
+#| echo: true
+
+fit <- with(data = imp, exp = lm(Ozone ~ Solar.R + Wind + Temp))
+pooled <- pool(fit)
+
+pooled_summary <- summary(pooled)
+
+# Remove the 'statistic' and 'df' column
+pooled_summary <- pooled_summary[, !(names(pooled_summary) %in% c("statistic", "df"))]
+
+# Create a gt table
+gt_table <- pooled_summary |>
+  gt() |>
+  tab_header(
+    title = "Pooled Regression Results",
+    subtitle = "Using Multiple Imputation with mice"
+  ) |>
+  fmt_number(
+    columns = vars(estimate, std.error, p.value),
+    decimals = 3
+  ) |>
+  cols_label(
+    term = "Term",
+    estimate = "Estimate",
+    std.error = "Std. Error",
+    p.value = "p-Value"
+  )
+
+gt_table
+```
+
+## Limitations of Multiple Imputation
+ * Computationally intensive
+ * Requires careful model specification
+ * Assumes data is Missing at Random (MAR) — not always true
+ * Can be complex for high-dimensional data
+ 
+## Conclusion
+
+Multiple Imputation is a robust way to handle missing data, and the mice package in R makes it approachable even for beginners. By understanding the methodology and using appropriate imputation methods, you can improve the quality of your analyses significantly.
+
+## TL;DR
+
+* Problem: Missing data can bias results and reduce statistical power.
+* Solution: Multiple Imputation fills in missing values multiple times to reflect uncertainty.
+* Tool: The mice package in R makes this easy and flexible.
+* Steps:
+  - Inspect missing data (md.pattern)
+  - Impute with mice() using methods like pmm, norm, cart, etc.
+  - Analyze each imputed dataset
+  - Pool results for final inference
+  - Use Cases: Surveys, clinical trials, social science data, etc.
+ * Assumptions: Data is Missing at Random (MAR)
+ * Limitations: Computational cost, model sensitivity, assumption of MAR
+ 
