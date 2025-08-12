@@ -59,15 +59,16 @@ format:
 
 ### 2020
 
-::: {.certificate-container}
+::: {.certificate-row}
+<!-- ::: {.certificate-container} -->
 <a href="images/Cert_DST2020_Coursera.pdf" target="_blank">
   <img src="images/thumbs/Cert_DST2020_Coursera.png" 
        alt="Data Science Tools 2020 - Coursera" 
        class="certificate-image-l">
 </a>
-:::
+<!-- ::: -->
 
-::: {.certificate-container}
+<!-- ::: {.certificate-container} -->
 <a href="images/Cert_PySpcl2020_Coursera.pdf" target="_blank">
   <img src="images/thumbs/Cert_PySpcl2020_Coursera.png" 
        alt="Python Specialization 2020 - Coursera" 
