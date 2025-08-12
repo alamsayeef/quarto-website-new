@@ -18,7 +18,7 @@
     "href": "blogs.html",
     "title": "MSA",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nhealthecon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmcmc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearnings from first R package development\n\n\n\nR\n\n\nProgramming\n\n\n\nBasic checks and debugging while R package development\n\n\n\nAug 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComplete Git and SSH Setup Guide: From Zero to Push\n\n\n\nTerminal\n\n\nProgramming\n\n\n\nThis guide provides step-by-step instructions to connect git, clone repo and push commits\n\n\n\nJul 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Missing to Meaningful: Beginner’s Guide to Multiple Imputation\n\n\n\nR\n\n\nProgramming\n\n\n\nA beginner-friendly guide to handling missing data using Multiple Imputation with the mice package in R.\n\n\n\nDec 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeyond QC: A Practical Guide to GWAS with SAIGE\n\n\n\nGenetics\n\n\nMethods\n\n\nBash\n\n\nR\n\n\n\nA hands-on guide for performing GWAS after preliminary QC, covering phenotype preparation, and association testing using SAIGE.\n\n\n\nApr 21, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMonte Carlo Markov Chain (MCMC)\n\n\n\nDecision modelling\n\n\nMethods\n\n\nR\n\n\n\nA short description\n\n\n\nAug 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth Economics and R\n\n\n\nMethods\n\n\nR\n\n\n\nA short description\n\n\n\nJul 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearnings from first R package development\n\n\n\nR\n\n\nProgramming\n\n\n\nBasic checks and debugging while R package development\n\n\n\nJun 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComplete Git and SSH Setup Guide: From Zero to Push\n\n\n\nTerminal\n\n\nProgramming\n\n\n\nThis guide provides step-by-step instructions to connect git, clone repo and push commits\n\n\n\nMay 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Missing to Meaningful: Beginner’s Guide to Multiple Imputation\n\n\n\nR\n\n\nProgramming\n\n\n\nA beginner-friendly guide to handling missing data using Multiple Imputation with the mice package in R.\n\n\n\nDec 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPolygenic Risk Score\n\n\n\nMethods\n\n\nR\n\n\n\nA short description\n\n\n\nJun 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeyond QC: A Practical Guide to GWAS with SAIGE\n\n\n\nGenetics\n\n\nMethods\n\n\nBash\n\n\nR\n\n\n\nA hands-on guide for performing GWAS after preliminary QC, covering phenotype preparation, and association testing using SAIGE.\n\n\n\nApr 21, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "workshops.html",
@@ -677,5 +677,138 @@
     "title": "Beyond QC: A Practical Guide to GWAS with SAIGE",
     "section": "Summary: LD Score Regression Metrics",
     "text": "Summary: LD Score Regression Metrics\n\n\n\n\n\n\n\n\n\nMetric\nIdeal Value\nWhat It Means\nInterpretation & Action\n\n\n\n\nHeritability (h²)\n&gt; 0.1\nProportion of trait variance explained by SNPs\nLow value → trait may be weakly polygenic or underpowered study\n\n\nIntercept\n≈ 1.0\nInflation in test statistics not due to polygenicity\n&gt;1.0 → possible confounding (e.g., population stratification)\n\n\nRatio\n&lt; 0.1\nFraction of inflation due to confounding\n&gt;0.3 → revisit QC, ancestry correction, or model assumptions\n\n\nLD Score Plot\nPositive slope\nRelationship between LD score and test statistic\nFlat/noisy → weak polygenic signal or confounding present"
+  },
+  {
+    "objectID": "blogs/prs.html",
+    "href": "blogs/prs.html",
+    "title": "Polygenic Risk Score",
+    "section": "",
+    "text": "Polygenic Risk Scores (PRS) represent one of the most promising applications of genomics in personalized medicine and population health research. By aggregating the effects of thousands or millions of genetic variants across the genome, PRS provide a single metric that estimates an individual’s genetic predisposition to a particular trait or disease.\nThe field of PRS research has evolved rapidly, with two distinct but complementary approaches emerging:\n\nReproducing previously validated PRS - applying established scores to new populations or datasets\nDeveloping novel PRS methods - creating improved algorithms that enhance predictive accuracy\n\nThis comprehensive guide will explore both approaches, examining contemporary methodologies, practical implementation strategies, and the critical steps needed to successfully deploy PRS in research and clinical settings."
+  },
+  {
+    "objectID": "blogs/prs.html#conceptual-foundation",
+    "href": "blogs/prs.html#conceptual-foundation",
+    "title": "Polygenic Risk Score",
+    "section": "Conceptual Foundation",
+    "text": "Conceptual Foundation\nA polygenic risk score is mathematically defined as:\n\\[PRS_i = \\sum_{j=1}^{m} \\beta_j \\cdot G_{ij}\\]\nWhere: - \\(PRS_i\\) is the polygenic risk score for individual \\(i\\) - \\(\\beta_j\\) is the effect size (weight) for SNP \\(j\\) - \\(G_{ij}\\) is the genotype dosage for individual \\(i\\) at SNP \\(j\\) - \\(m\\) is the total number of SNPs included in the score"
+  },
+  {
+    "objectID": "blogs/prs.html#the-two-research-paradigms",
+    "href": "blogs/prs.html#the-two-research-paradigms",
+    "title": "Polygenic Risk Score",
+    "section": "The Two Research Paradigms",
+    "text": "The Two Research Paradigms\n\nReproducing Previously Validated PRS\nThis approach involves taking established PRS weights from published studies or databases and applying them to new datasets. The advantages include:\n\nSpeed and efficiency: No need for extensive method development\nEstablished validity: Scores have been validated in independent populations\nStandardization: Enables comparison across studies and populations\nClinical readiness: Many validated PRS are closer to clinical implementation\n\nKey considerations:\n\nPopulation ancestry matching\nSNP availability and imputation quality\nStrand alignment and allele matching\nQuality control procedures\n\n\n\nDeveloping Novel PRS Methods\nThis approach focuses on creating new algorithms and methodologies to improve predictive performance. Areas of active development include:\n\nAdvanced statistical methods: Bayesian approaches, machine learning\nMulti-ancestry modeling: Methods that work across diverse populations\nFunctional annotation integration: Incorporating biological knowledge\nCross-trait analysis: Leveraging pleiotropy between traits"
+  },
+  {
+    "objectID": "blogs/prs.html#classical-approaches",
+    "href": "blogs/prs.html#classical-approaches",
+    "title": "Polygenic Risk Score",
+    "section": "Classical Approaches",
+    "text": "Classical Approaches\n\nClumping and Thresholding (C+T)\nThe traditional approach involves:\n\nClumping: Removing SNPs in linkage disequilibrium\nThresholding: Selecting SNPs based on p-value cutoffs\nScoring: Applying weights to selected variants\n\n# PLINK clumping example\nplink --bfile target_data \\\n      --clump gwas_summary.txt \\\n      --clump-p1 5e-8 \\\n      --clump-p2 0.01 \\\n      --clump-r2 0.1 \\\n      --clump-kb 250 \\\n      --out clumped_snps\n\n\nSimple Summing\nBasic additive model without sophisticated weighting:\n# Simple PRS calculation\nprs_simple &lt;- rowSums(genotype_matrix * effect_sizes, na.rm = TRUE)"
+  },
+  {
+    "objectID": "blogs/prs.html#advanced-contemporary-methods",
+    "href": "blogs/prs.html#advanced-contemporary-methods",
+    "title": "Polygenic Risk Score",
+    "section": "Advanced Contemporary Methods",
+    "text": "Advanced Contemporary Methods\n\nLDpred and LDpred2\nLDpred represents a significant advancement by modeling linkage disequilibrium (LD) structure explicitly:\nKey innovations:\n\nBayesian framework incorporating LD information\nImproved handling of correlated variants\nBetter calibration of effect sizes\n\nLDpred2 improvements:\n\nComputational efficiency for biobank-scale data\nRobust handling of population stratification\nIntegration with sparse LD matrices\n\n# LDpred2 example workflow\nlibrary(bigsnpr)\n\n# Compute LD matrix\ncorr &lt;- snp_cor(G, ind.col = ind_val, ncores = nb_cores())\n\n# Run LDpred2-auto\nmulti_auto &lt;- snp_ldpred2_auto(corr, df_beta, h2_init = h2_est,\n                               vec_p_init = seq_log(1e-4, 0.9, 30),\n                               ncores = nb_cores())\n\n\nPRSice-2\nAn integrated tool providing:\n\nAutomated QC procedures\nMultiple P-value thresholds testing\nBuilt-in visualization capabilities\nCross-validation frameworks\n\n\n\nBayesian Methods\nSBayesR: Incorporates functional annotations and LD structure\nPRS-CS: Uses continuous shrinkage priors for effect size estimation\nBOLT-LMM: Linear mixed models for improved association testing"
+  },
+  {
+    "objectID": "blogs/prs.html#method-comparisons-and-improvements",
+    "href": "blogs/prs.html#method-comparisons-and-improvements",
+    "title": "Polygenic Risk Score",
+    "section": "Method Comparisons and Improvements",
+    "text": "Method Comparisons and Improvements\n\nPerformance Metrics\nContemporary methods are evaluated using:\n\nArea Under Curve (AUC): Discriminative ability\nNagelkerke R²: Variance explained\nCalibration metrics: Agreement between predicted and observed risks\nNet Reclassification Index (NRI): Clinical utility assessment\n\n\n\nMethodological Evolution\nEach new method builds upon previous limitations:\n\nC+T → LDpred: Better LD modeling\nLDpred → LDpred2: Computational scalability\nSingle-ancestry → Multi-ancestry: Population generalizability\nLinear → Non-linear: Capturing epistatic interactions\nSNP-based → Annotation-based: Biological interpretability"
+  },
+  {
+    "objectID": "blogs/prs.html#data-preparation-pipeline",
+    "href": "blogs/prs.html#data-preparation-pipeline",
+    "title": "Polygenic Risk Score",
+    "section": "Data Preparation Pipeline",
+    "text": "Data Preparation Pipeline\n\n1. Obtaining Reference PRS Weights\nSources for validated PRS include:\n\nPGS Catalog: Comprehensive repository of published scores\nOriginal publications: Supplementary materials\nBiobank repositories: UK Biobank, FinnGen, etc.\n\n# Download from PGS Catalog\nwget https://www.pgscatalog.org/rest/score/PGS000001/scoring_file/\n\n\n2. Target Dataset Preparation\n\nQuality Control Steps\n# Basic QC pipeline in PLINK\nplink --bfile raw_data \\\n      --maf 0.01 \\\n      --geno 0.05 \\\n      --mind 0.05 \\\n      --hwe 1e-6 \\\n      --make-bed \\\n      --out qc_data\n\n\nPopulation Stratification\n# Principal component analysis\nplink --bfile qc_data \\\n      --pca 10 \\\n      --out population_pcs\n\n\n\n3. Harmonization Process\nCritical steps for ensuring compatibility:\n\nSNP Matching and Alignment\n# R code for harmonization\nlibrary(data.table)\n\n# Load PRS weights\nprs_weights &lt;- fread(\"prs_weights.txt\")\nsetnames(prs_weights, c(\"SNP\", \"A1\", \"A2\", \"BETA\"))\n\n# Load target SNP info\ntarget_snps &lt;- fread(\"target_data.bim\")\nsetnames(target_snps, paste0(\"V\", 1:6), \n         c(\"CHR\", \"SNP\", \"CM\", \"BP\", \"A1\", \"A2\"))\n\n# Match SNPs\nmatched_snps &lt;- merge(prs_weights, target_snps, by = \"SNP\")\n\n# Handle strand flips and allele switches\nmatched_snps[, aligned_beta := ifelse(\n  (A1.x == A1.y & A2.x == A2.y) | \n  (A1.x == A2.y & A2.x == A1.y), \n  ifelse(A1.x == A1.y, BETA, -BETA), \n  NA\n)]\n\n# Remove ambiguous SNPs (A/T, G/C)\nambiguous &lt;- c(\"AT\", \"TA\", \"GC\", \"CG\")\nmatched_snps &lt;- matched_snps[\n  !paste0(A1.x, A2.x) %in% ambiguous\n]\n\n\nFrequency Alignment\n# Check allele frequency concordance\nfreq_check &lt;- fread(\"target_data.frq\")\nprs_freq &lt;- merge(matched_snps, freq_check, by = \"SNP\")\n\n# Flag discordant frequencies (&gt;0.2 difference)\nprs_freq[, freq_diff := abs(MAF - reference_freq)]\nproblematic_snps &lt;- prs_freq[freq_diff &gt; 0.2, SNP]"
+  },
+  {
+    "objectID": "blogs/prs.html#prs-calculation-with-plink",
+    "href": "blogs/prs.html#prs-calculation-with-plink",
+    "title": "Polygenic Risk Score",
+    "section": "PRS Calculation with PLINK",
+    "text": "PRS Calculation with PLINK\n\nCreating Score Files\n# Prepare PLINK score file\nscore_file &lt;- matched_snps[!is.na(aligned_beta), \n                          .(SNP, A1.x, aligned_beta)]\nfwrite(score_file, \"prs_score.txt\", sep = \"\\t\", col.names = FALSE)\n\n\nRunning PLINK Score Calculation\n# Calculate PRS using PLINK\nplink --bfile qc_data \\\n      --score prs_score.txt \\\n      --out prs_results"
+  },
+  {
+    "objectID": "blogs/prs.html#integration-with-individual-level-data",
+    "href": "blogs/prs.html#integration-with-individual-level-data",
+    "title": "Polygenic Risk Score",
+    "section": "Integration with Individual-Level Data",
+    "text": "Integration with Individual-Level Data\n\nLoading and Merging Data\n# Load PLINK results\nprs_results &lt;- fread(\"prs_results.sscore\")\nsetnames(prs_results, c(\"FID\", \"IID\", \"ALLELE_CT\", \"NAMED_ALLELE_CT\", \"SCORE1_AVG\"))\n\n# Load individual-level data\nindividual_data &lt;- fread(\"individual_phenotypes.txt\")\n\n# Merge datasets\nfinal_data &lt;- merge(individual_data, \n                   prs_results[, .(IID, PRS = SCORE1_AVG)], \n                   by = \"IID\")"
+  },
+  {
+    "objectID": "blogs/prs.html#normalization-and-standardization",
+    "href": "blogs/prs.html#normalization-and-standardization",
+    "title": "Polygenic Risk Score",
+    "section": "Normalization and Standardization",
+    "text": "Normalization and Standardization\n\nRank-Based Inverse Normal Transformation\nThe rank-based inverse normal transformation ensures interpretability and removes distributional assumptions:\n# Rank-based inverse normal transformation function\ninverse_normal_transform &lt;- function(x) {\n  # Remove missing values\n  non_missing &lt;- !is.na(x)\n  x_clean &lt;- x[non_missing]\n  \n  # Calculate ranks\n  ranks &lt;- rank(x_clean, ties.method = \"average\")\n  \n  # Convert to quantiles (0, 1)\n  quantiles &lt;- (ranks - 0.5) / length(ranks)\n  \n  # Apply inverse normal transformation\n  transformed &lt;- qnorm(quantiles)\n  \n  # Create output vector\n  result &lt;- rep(NA, length(x))\n  result[non_missing] &lt;- transformed\n  \n  return(result)\n}\n\n# Apply transformation\nfinal_data[, PRS_normalized := inverse_normal_transform(PRS)]"
+  },
+  {
+    "objectID": "blogs/prs.html#validation-and-quality-assessment",
+    "href": "blogs/prs.html#validation-and-quality-assessment",
+    "title": "Polygenic Risk Score",
+    "section": "Validation and Quality Assessment",
+    "text": "Validation and Quality Assessment\n\nDistribution Checks\nlibrary(ggplot2)\n\n# Plot distributions\np1 &lt;- ggplot(final_data, aes(x = PRS)) +\n  geom_histogram(bins = 50, alpha = 0.7, fill = \"blue\") +\n  labs(title = \"Raw PRS Distribution\")\n\np2 &lt;- ggplot(final_data, aes(x = PRS_normalized)) +\n  geom_histogram(bins = 50, alpha = 0.7, fill = \"red\") +\n  labs(title = \"Normalized PRS Distribution\")\n\ngridExtra::grid.arrange(p1, p2, ncol = 2)\n\n\nPerformance Validation\n# Association testing (example for binary trait)\nif(\"case_status\" %in% names(final_data)) {\n  # Logistic regression\n  model &lt;- glm(case_status ~ PRS_normalized + PC1 + PC2 + PC3 + age + sex,\n               data = final_data, family = binomial)\n  \n  # Extract results\n  prs_or &lt;- exp(coef(model)[\"PRS_normalized\"])\n  prs_pvalue &lt;- summary(model)$coefficients[\"PRS_normalized\", \"Pr(&gt;|z|)\"]\n  \n  # Calculate AUC\n  library(pROC)\n  roc_result &lt;- roc(final_data$case_status, \n                   predict(model, type = \"response\"))\n  auc_value &lt;- auc(roc_result)\n  \n  cat(\"PRS Odds Ratio:\", round(prs_or, 3), \"\\n\")\n  cat(\"P-value:\", format(prs_pvalue, scientific = TRUE), \"\\n\")\n  cat(\"AUC:\", round(auc_value, 3), \"\\n\")\n}"
+  },
+  {
+    "objectID": "blogs/prs.html#population-ancestry-and-transferability",
+    "href": "blogs/prs.html#population-ancestry-and-transferability",
+    "title": "Polygenic Risk Score",
+    "section": "Population Ancestry and Transferability",
+    "text": "Population Ancestry and Transferability\n\nAncestry-Specific Considerations\n# Check ancestry composition\nif(\"ancestry\" %in% names(final_data)) {\n  # Performance by ancestry\n  performance_by_ancestry &lt;- final_data[, .(\n    mean_prs = mean(PRS_normalized, na.rm = TRUE),\n    sd_prs = sd(PRS_normalized, na.rm = TRUE),\n    n = .N\n  ), by = ancestry]\n  \n  print(performance_by_ancestry)\n}\n\n\nMulti-Ancestry Adjustments\n# Ancestry-specific normalization\nfinal_data[, PRS_ancestry_norm := inverse_normal_transform(PRS), by = ancestry]"
+  },
+  {
+    "objectID": "blogs/prs.html#clinical-implementation-considerations",
+    "href": "blogs/prs.html#clinical-implementation-considerations",
+    "title": "Polygenic Risk Score",
+    "section": "Clinical Implementation Considerations",
+    "text": "Clinical Implementation Considerations\n\nRisk Stratification\n# Create risk categories\nfinal_data[, risk_category := cut(\n  PRS_percentile,\n  breaks = c(0, 20, 40, 60, 80, 100),\n  labels = c(\"Very Low\", \"Low\", \"Average\", \"High\", \"Very High\"),\n  include.lowest = TRUE\n)]\n\n# Risk category summary\nrisk_summary &lt;- final_data[, .(\n  n = .N,\n  case_rate = mean(case_status, na.rm = TRUE)\n), by = risk_category]\n\n\nReporting and Interpretation\n# Generate individual reports\ngenerate_prs_report &lt;- function(individual_id, final_data) {\n  ind_data &lt;- final_data[IID == individual_id]\n  \n  cat(\"=== PRS Report for Individual\", individual_id, \"===\\n\")\n  cat(\"Raw PRS:\", round(ind_data$PRS, 4), \"\\n\")\n  cat(\"Percentile:\", round(ind_data$PRS_percentile, 1), \"%\\n\")\n  cat(\"Risk Category:\", as.character(ind_data$risk_category), \"\\n\")\n  cat(\"Normalized Score:\", round(ind_data$PRS_normalized, 3), \"\\n\")\n}"
+  },
+  {
+    "objectID": "blogs/prs.html#quality-control-checklist",
+    "href": "blogs/prs.html#quality-control-checklist",
+    "title": "Polygenic Risk Score",
+    "section": "Quality Control Checklist",
+    "text": "Quality Control Checklist\n\nPre-calculation QC:\n\nSNP call rate &gt; 95%\nIndividual call rate &gt; 95%\nHardy-Weinberg equilibrium p &gt; 1e-6\nMinor allele frequency &gt; 1%\n\nHarmonization QC:\n\nStrand alignment verification\nAllele frequency concordance\nPopulation ancestry matching\nSNP position consistency\n\nPost-calculation QC:\n\nDistribution normality assessment\nOutlier identification\nPopulation stratification testing\nPerformance validation"
+  },
+  {
+    "objectID": "blogs/prs.html#documentation-and-reproducibility",
+    "href": "blogs/prs.html#documentation-and-reproducibility",
+    "title": "Polygenic Risk Score",
+    "section": "Documentation and Reproducibility",
+    "text": "Documentation and Reproducibility\n# Session information\nsessionInfo()\n\n# Parameter documentation\nprs_params &lt;- list(\n  prs_source = \"PGS Catalog ID: PGS000001\",\n  target_population = \"European ancestry\",\n  qc_filters = list(\n    maf = 0.01,\n    geno = 0.05,\n    mind = 0.05,\n    hwe = 1e-6\n  ),\n  n_snps_original = nrow(prs_weights),\n  n_snps_matched = nrow(matched_snps),\n  n_individuals = nrow(final_data)\n)\n\nsaveRDS(prs_params, \"prs_calculation_parameters.rds\")"
+  },
+  {
+    "objectID": "blogs/prs.html#emerging-methodologies",
+    "href": "blogs/prs.html#emerging-methodologies",
+    "title": "Polygenic Risk Score",
+    "section": "Emerging Methodologies",
+    "text": "Emerging Methodologies\n\nMulti-omic integration: Incorporating transcriptomic and epigenomic data\nDynamic PRS: Age and environment-specific risk scores\n\nPathway-based PRS: Biologically-informed scoring systems\nFederated learning: Privacy-preserving collaborative model development"
+  },
+  {
+    "objectID": "blogs/prs.html#clinical-translation-challenges",
+    "href": "blogs/prs.html#clinical-translation-challenges",
+    "title": "Polygenic Risk Score",
+    "section": "Clinical Translation Challenges",
+    "text": "Clinical Translation Challenges\n\nRegulatory approval processes\nHealthcare system integration\nProvider education and training\nPatient communication strategies\nHealth equity considerations"
+  },
+  {
+    "objectID": "blogs/prs.html#code-availability",
+    "href": "blogs/prs.html#code-availability",
+    "title": "Polygenic Risk Score",
+    "section": "Code Availability",
+    "text": "Code Availability\nAll code examples in this post are available in the accompanying GitHub repository: https://github.com/username/prs-tutorial"
+  },
+  {
+    "objectID": "blogs/prs.html#acknowledgments",
+    "href": "blogs/prs.html#acknowledgments",
+    "title": "Polygenic Risk Score",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nWe thank the global genomics community for developing and sharing the tools and methods that make PRS research possible."
   }
 ]

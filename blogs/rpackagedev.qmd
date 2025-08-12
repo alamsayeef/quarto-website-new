@@ -3,7 +3,7 @@ title: "Learnings from first R package development"
 description: |
   Basic checks and debugging while R package development
 categories: [R, Programming]
-date: 4-August-2025
+date: "2025-06-11"
 image: "../images/rpackage.png"
 ---
 

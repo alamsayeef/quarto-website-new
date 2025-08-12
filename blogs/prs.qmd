@@ -1,5 +1,438 @@
 ---
-title: "prs"
-format: html
+title: "Polygenic Risk Score"
+description: | 
+  A short description
+
+author: "Mohammad Sayeef Alam"
+categories: [Methods, R]
+date: "2024-06-21"
+image: "thumbs/prs.png"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
+# Introduction
+
+Polygenic Risk Scores (PRS) represent one of the most promising applications of genomics in personalized medicine and population health research. By aggregating the effects of thousands or millions of genetic variants across the genome, PRS provide a single metric that estimates an individual's genetic predisposition to a particular trait or disease.
+
+The field of PRS research has evolved rapidly, with two distinct but complementary approaches emerging:
+
+1. **Reproducing previously validated PRS** - applying established scores to new populations or datasets
+2. **Developing novel PRS methods** - creating improved algorithms that enhance predictive accuracy
+
+This comprehensive guide will explore both approaches, examining contemporary methodologies, practical implementation strategies, and the critical steps needed to successfully deploy PRS in research and clinical settings.
+
+# Understanding Polygenic Risk Scores
+
+## Conceptual Foundation
+
+A polygenic risk score is mathematically defined as:
+
+$$PRS_i = \sum_{j=1}^{m} \beta_j \cdot G_{ij}$$
+
+Where:
+- $PRS_i$ is the polygenic risk score for individual $i$
+- $\beta_j$ is the effect size (weight) for SNP $j$
+- $G_{ij}$ is the genotype dosage for individual $i$ at SNP $j$
+- $m$ is the total number of SNPs included in the score
+
+## The Two Research Paradigms
+
+### Reproducing Previously Validated PRS
+
+This approach involves taking established PRS weights from published studies or databases and applying them to new datasets. The advantages include:
+
+- **Speed and efficiency**: No need for extensive method development
+- **Established validity**: Scores have been validated in independent populations
+- **Standardization**: Enables comparison across studies and populations
+- **Clinical readiness**: Many validated PRS are closer to clinical implementation
+
+Key considerations:
+
+  - Population ancestry matching
+  - SNP availability and imputation quality
+  - Strand alignment and allele matching
+  - Quality control procedures
+
+### Developing Novel PRS Methods
+
+This approach focuses on creating new algorithms and methodologies to improve predictive performance. Areas of active development include:
+
+- **Advanced statistical methods**: Bayesian approaches, machine learning
+- **Multi-ancestry modeling**: Methods that work across diverse populations
+- **Functional annotation integration**: Incorporating biological knowledge
+- **Cross-trait analysis**: Leveraging pleiotropy between traits
+
+# Contemporary PRS Methods
+
+## Classical Approaches
+
+### Clumping and Thresholding (C+T)
+
+The traditional approach involves:
+
+1. **Clumping**: Removing SNPs in linkage disequilibrium
+2. **Thresholding**: Selecting SNPs based on p-value cutoffs
+3. **Scoring**: Applying weights to selected variants
+
+```bash
+# PLINK clumping example
+plink --bfile target_data \
+      --clump gwas_summary.txt \
+      --clump-p1 5e-8 \
+      --clump-p2 0.01 \
+      --clump-r2 0.1 \
+      --clump-kb 250 \
+      --out clumped_snps
+```
+
+### Simple Summing
+
+Basic additive model without sophisticated weighting:
+
+```r
+# Simple PRS calculation
+prs_simple <- rowSums(genotype_matrix * effect_sizes, na.rm = TRUE)
+```
+
+## Advanced Contemporary Methods
+
+### LDpred and LDpred2
+
+LDpred represents a significant advancement by modeling linkage disequilibrium (LD) structure explicitly:
+
+**Key innovations:**
+
+- Bayesian framework incorporating LD information
+- Improved handling of correlated variants
+- Better calibration of effect sizes
+
+**LDpred2 improvements:**
+
+- Computational efficiency for biobank-scale data
+- Robust handling of population stratification
+- Integration with sparse LD matrices
+
+```r
+# LDpred2 example workflow
+library(bigsnpr)
+
+# Compute LD matrix
+corr <- snp_cor(G, ind.col = ind_val, ncores = nb_cores())
+
+# Run LDpred2-auto
+multi_auto <- snp_ldpred2_auto(corr, df_beta, h2_init = h2_est,
+                               vec_p_init = seq_log(1e-4, 0.9, 30),
+                               ncores = nb_cores())
+```
+
+### PRSice-2
+
+An integrated tool providing:
+
+- Automated QC procedures
+- Multiple P-value thresholds testing
+- Built-in visualization capabilities
+- Cross-validation frameworks
+
+### Bayesian Methods
+
+**SBayesR**: Incorporates functional annotations and LD structure
+
+**PRS-CS**: Uses continuous shrinkage priors for effect size estimation
+
+**BOLT-LMM**: Linear mixed models for improved association testing
+
+## Method Comparisons and Improvements
+
+### Performance Metrics
+
+Contemporary methods are evaluated using:
+
+- **Area Under Curve (AUC)**: Discriminative ability
+- **Nagelkerke R²**: Variance explained
+- **Calibration metrics**: Agreement between predicted and observed risks
+- **Net Reclassification Index (NRI)**: Clinical utility assessment
+
+### Methodological Evolution
+
+Each new method builds upon previous limitations:
+
+1. **C+T → LDpred**: Better LD modeling
+2. **LDpred → LDpred2**: Computational scalability
+3. **Single-ancestry → Multi-ancestry**: Population generalizability
+4. **Linear → Non-linear**: Capturing epistatic interactions
+5. **SNP-based → Annotation-based**: Biological interpretability
+
+# Reproducing Previously Validated PRS
+
+## Data Preparation Pipeline
+
+### 1. Obtaining Reference PRS Weights
+
+Sources for validated PRS include:
+
+- **PGS Catalog**: Comprehensive repository of published scores
+- **Original publications**: Supplementary materials
+- **Biobank repositories**: UK Biobank, FinnGen, etc.
+
+```bash
+# Download from PGS Catalog
+wget https://www.pgscatalog.org/rest/score/PGS000001/scoring_file/
+```
+
+### 2. Target Dataset Preparation
+
+#### Quality Control Steps
+
+```bash
+# Basic QC pipeline in PLINK
+plink --bfile raw_data \
+      --maf 0.01 \
+      --geno 0.05 \
+      --mind 0.05 \
+      --hwe 1e-6 \
+      --make-bed \
+      --out qc_data
+```
+
+#### Population Stratification
+
+```bash
+# Principal component analysis
+plink --bfile qc_data \
+      --pca 10 \
+      --out population_pcs
+```
+
+### 3. Harmonization Process
+
+Critical steps for ensuring compatibility:
+
+#### SNP Matching and Alignment
+
+```r
+# R code for harmonization
+library(data.table)
+
+# Load PRS weights
+prs_weights <- fread("prs_weights.txt")
+setnames(prs_weights, c("SNP", "A1", "A2", "BETA"))
+
+# Load target SNP info
+target_snps <- fread("target_data.bim")
+setnames(target_snps, paste0("V", 1:6), 
+         c("CHR", "SNP", "CM", "BP", "A1", "A2"))
+
+# Match SNPs
+matched_snps <- merge(prs_weights, target_snps, by = "SNP")
+
+# Handle strand flips and allele switches
+matched_snps[, aligned_beta := ifelse(
+  (A1.x == A1.y & A2.x == A2.y) | 
+  (A1.x == A2.y & A2.x == A1.y), 
+  ifelse(A1.x == A1.y, BETA, -BETA), 
+  NA
+)]
+
+# Remove ambiguous SNPs (A/T, G/C)
+ambiguous <- c("AT", "TA", "GC", "CG")
+matched_snps <- matched_snps[
+  !paste0(A1.x, A2.x) %in% ambiguous
+]
+```
+
+#### Frequency Alignment
+
+```r
+# Check allele frequency concordance
+freq_check <- fread("target_data.frq")
+prs_freq <- merge(matched_snps, freq_check, by = "SNP")
+
+# Flag discordant frequencies (>0.2 difference)
+prs_freq[, freq_diff := abs(MAF - reference_freq)]
+problematic_snps <- prs_freq[freq_diff > 0.2, SNP]
+```
+
+## PRS Calculation with PLINK
+
+### Creating Score Files
+
+```r
+# Prepare PLINK score file
+score_file <- matched_snps[!is.na(aligned_beta), 
+                          .(SNP, A1.x, aligned_beta)]
+fwrite(score_file, "prs_score.txt", sep = "\t", col.names = FALSE)
+```
+
+### Running PLINK Score Calculation
+
+```bash
+# Calculate PRS using PLINK
+plink --bfile qc_data \
+      --score prs_score.txt \
+      --out prs_results
+```
+
+## Integration with Individual-Level Data
+
+### Loading and Merging Data
+
+```r
+# Load PLINK results
+prs_results <- fread("prs_results.sscore")
+setnames(prs_results, c("FID", "IID", "ALLELE_CT", "NAMED_ALLELE_CT", "SCORE1_AVG"))
+
+# Load individual-level data
+individual_data <- fread("individual_phenotypes.txt")
+
+# Merge datasets
+final_data <- merge(individual_data, 
+                   prs_results[, .(IID, PRS = SCORE1_AVG)], 
+                   by = "IID")
+```
+
+## Normalization and Standardization
+
+### Rank-Based Inverse Normal Transformation
+
+The rank-based inverse normal transformation ensures interpretability and removes distributional assumptions:
+
+```r
+# Rank-based inverse normal transformation function
+inverse_normal_transform <- function(x) {
+  # Remove missing values
+  non_missing <- !is.na(x)
+  x_clean <- x[non_missing]
+  
+  # Calculate ranks
+  ranks <- rank(x_clean, ties.method = "average")
+  
+  # Convert to quantiles (0, 1)
+  quantiles <- (ranks - 0.5) / length(ranks)
+  
+  # Apply inverse normal transformation
+  transformed <- qnorm(quantiles)
+  
+  # Create output vector
+  result <- rep(NA, length(x))
+  result[non_missing] <- transformed
+  
+  return(result)
+}
+
+# Apply transformation
+final_data[, PRS_normalized := inverse_normal_transform(PRS)]
+```
+
+
+## Validation and Quality Assessment
+
+### Distribution Checks
+
+```r
+library(ggplot2)
+
+# Plot distributions
+p1 <- ggplot(final_data, aes(x = PRS)) +
+  geom_histogram(bins = 50, alpha = 0.7, fill = "blue") +
+  labs(title = "Raw PRS Distribution")
+
+p2 <- ggplot(final_data, aes(x = PRS_normalized)) +
+  geom_histogram(bins = 50, alpha = 0.7, fill = "red") +
+  labs(title = "Normalized PRS Distribution")
+
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+### Performance Validation
+
+```r
+# Association testing (example for binary trait)
+if("case_status" %in% names(final_data)) {
+  # Logistic regression
+  model <- glm(case_status ~ PRS_normalized + PC1 + PC2 + PC3 + age + sex,
+               data = final_data, family = binomial)
+  
+  # Extract results
+  prs_or <- exp(coef(model)["PRS_normalized"])
+  prs_pvalue <- summary(model)$coefficients["PRS_normalized", "Pr(>|z|)"]
+  
+  # Calculate AUC
+  library(pROC)
+  roc_result <- roc(final_data$case_status, 
+                   predict(model, type = "response"))
+  auc_value <- auc(roc_result)
+  
+  cat("PRS Odds Ratio:", round(prs_or, 3), "\n")
+  cat("P-value:", format(prs_pvalue, scientific = TRUE), "\n")
+  cat("AUC:", round(auc_value, 3), "\n")
+}
+```
+
+## Clinical Implementation Considerations
+
+### Risk Stratification
+
+```r
+# Create risk categories
+final_data[, risk_category := cut(
+  PRS_percentile,
+  breaks = c(0, 20, 40, 60, 80, 100),
+  labels = c("Very Low", "Low", "Average", "High", "Very High"),
+  include.lowest = TRUE
+)]
+
+# Risk category summary
+risk_summary <- final_data[, .(
+  n = .N,
+  case_rate = mean(case_status, na.rm = TRUE)
+), by = risk_category]
+```
+
+### Reporting and Interpretation
+
+```r
+# Generate individual reports
+generate_prs_report <- function(individual_id, final_data) {
+  ind_data <- final_data[IID == individual_id]
+  
+  cat("=== PRS Report for Individual", individual_id, "===\n")
+  cat("Raw PRS:", round(ind_data$PRS, 4), "\n")
+  cat("Percentile:", round(ind_data$PRS_percentile, 1), "%\n")
+  cat("Risk Category:", as.character(ind_data$risk_category), "\n")
+  cat("Normalized Score:", round(ind_data$PRS_normalized, 3), "\n")
+}
+```
+
+# Best Practices and Recommendations
+
+## Quality Control Checklist
+
+1. **Pre-calculation QC**:
+   - SNP call rate > 95%
+   - Individual call rate > 95%
+   - Hardy-Weinberg equilibrium p > 1e-6
+   - Minor allele frequency > 1%
+
+2. **Harmonization QC**:
+   - Strand alignment verification
+   - Allele frequency concordance
+   - Population ancestry matching
+   - SNP position consistency
+
+3. **Post-calculation QC**:
+   - Distribution normality assessment
+   - Outlier identification
+   - Population stratification testing
+   - Performance validation
+
+# Conclusion
+
+Polygenic Risk Scores represent a rapidly evolving field at the intersection of genomics, statistics, and clinical medicine. Whether reproducing established PRS or developing novel methodologies, success depends on rigorous quality control, appropriate population matching, and careful validation.
+
+The practical workflow outlined here (as partly applied in my own research) — from data preparation through PLINK calculation to normalization and integration—provides a robust foundation for PRS research and application. As methods continue to advance and datasets grow larger and more diverse, PRS promise to play an increasingly important role in precision medicine and population health.
+
+The key to successful PRS implementation lies in understanding and ensuring that these powerful tools are applied appropriately and interpreted correctly in their intended contexts.

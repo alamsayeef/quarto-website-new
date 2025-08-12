@@ -1,5 +1,16 @@
 ---
-title: "healthecon"
-format: html
+title: "Health Economics and R"
+description: | 
+  A short description
+
+author: "Mohammad Sayeef Alam"
+categories: [Methods, R]
+date: "2025-07-21"
+image: "thumbs/img.png"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
+## Introduction

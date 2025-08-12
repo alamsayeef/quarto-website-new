@@ -3,7 +3,7 @@ title: "Complete Git and SSH Setup Guide: From Zero to Push"
 description: |
   This guide provides step-by-step instructions to connect git, clone repo and push commits
 categories: [Terminal, Programming]
-date: "2025-07-11"
+date: "2025-05-07"
 image: "thumbs/gitandssh.gif"
 ---
 

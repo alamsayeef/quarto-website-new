@@ -1,5 +1,16 @@
 ---
-title: "mcmc"
-format: html
+title: "Monte Carlo Markov Chain (MCMC)"
+description: | 
+  A short description
+
+author: "Mohammad Sayeef Alam"
+categories: [Decision modelling, Methods, R]
+date: "2025-08-12"
+image: "thumbs/img.png"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
+## Introduction

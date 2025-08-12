@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mohammad Sayeef Alam">
+<meta name="dcterms.date" content="2024-06-21">
+<meta name="description" content="A short description">
 
-<title>Mohammad Sayeef Alam - prs</title>
+<title>Polygenic Risk Score – MSA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -36,12 +73,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9bd210ca491bc6b4597a5f954a3d71f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-249da691a9a0c87493d41b9eefeb4185.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,11 +106,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,11 +147,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Mohammad Sayeef Alam</span>
+    <span class="navbar-title">MSA</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -112,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workshops.html"> 
-<span class="menu-text">Workshops</span></a>
+<span class="menu-text">Certifications</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../blogs.html"> 
@@ -137,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -147,20 +213,74 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#understanding-polygenic-risk-scores" id="toc-understanding-polygenic-risk-scores" class="nav-link" data-scroll-target="#understanding-polygenic-risk-scores">Understanding Polygenic Risk Scores</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-foundation" id="toc-conceptual-foundation" class="nav-link" data-scroll-target="#conceptual-foundation">Conceptual Foundation</a></li>
+  <li><a href="#the-two-research-paradigms" id="toc-the-two-research-paradigms" class="nav-link" data-scroll-target="#the-two-research-paradigms">The Two Research Paradigms</a></li>
+  </ul></li>
+  <li><a href="#contemporary-prs-methods" id="toc-contemporary-prs-methods" class="nav-link" data-scroll-target="#contemporary-prs-methods">Contemporary PRS Methods</a>
+  <ul class="collapse">
+  <li><a href="#classical-approaches" id="toc-classical-approaches" class="nav-link" data-scroll-target="#classical-approaches">Classical Approaches</a></li>
+  <li><a href="#advanced-contemporary-methods" id="toc-advanced-contemporary-methods" class="nav-link" data-scroll-target="#advanced-contemporary-methods">Advanced Contemporary Methods</a></li>
+  <li><a href="#method-comparisons-and-improvements" id="toc-method-comparisons-and-improvements" class="nav-link" data-scroll-target="#method-comparisons-and-improvements">Method Comparisons and Improvements</a></li>
+  </ul></li>
+  <li><a href="#reproducing-previously-validated-prs-1" id="toc-reproducing-previously-validated-prs-1" class="nav-link" data-scroll-target="#reproducing-previously-validated-prs-1">Reproducing Previously Validated PRS</a>
+  <ul class="collapse">
+  <li><a href="#data-preparation-pipeline" id="toc-data-preparation-pipeline" class="nav-link" data-scroll-target="#data-preparation-pipeline">Data Preparation Pipeline</a></li>
+  <li><a href="#prs-calculation-with-plink" id="toc-prs-calculation-with-plink" class="nav-link" data-scroll-target="#prs-calculation-with-plink">PRS Calculation with PLINK</a></li>
+  <li><a href="#integration-with-individual-level-data" id="toc-integration-with-individual-level-data" class="nav-link" data-scroll-target="#integration-with-individual-level-data">Integration with Individual-Level Data</a></li>
+  <li><a href="#normalization-and-standardization" id="toc-normalization-and-standardization" class="nav-link" data-scroll-target="#normalization-and-standardization">Normalization and Standardization</a></li>
+  <li><a href="#validation-and-quality-assessment" id="toc-validation-and-quality-assessment" class="nav-link" data-scroll-target="#validation-and-quality-assessment">Validation and Quality Assessment</a></li>
+  <li><a href="#clinical-implementation-considerations" id="toc-clinical-implementation-considerations" class="nav-link" data-scroll-target="#clinical-implementation-considerations">Clinical Implementation Considerations</a></li>
+  </ul></li>
+  <li><a href="#best-practices-and-recommendations" id="toc-best-practices-and-recommendations" class="nav-link" data-scroll-target="#best-practices-and-recommendations">Best Practices and Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#quality-control-checklist" id="toc-quality-control-checklist" class="nav-link" data-scroll-target="#quality-control-checklist">Quality Control Checklist</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">prs</h1>
-</div>
+<h1 class="title">Polygenic Risk Score</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Methods</div>
+    <div class="quarto-category">R</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    <p>A short description</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mohammad Sayeef Alam </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 21, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -170,10 +290,413 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Polygenic Risk Scores (PRS) represent one of the most promising applications of genomics in personalized medicine and population health research. By aggregating the effects of thousands or millions of genetic variants across the genome, PRS provide a single metric that estimates an individual’s genetic predisposition to a particular trait or disease.</p>
+<p>The field of PRS research has evolved rapidly, with two distinct but complementary approaches emerging:</p>
+<ol type="1">
+<li><strong>Reproducing previously validated PRS</strong> - applying established scores to new populations or datasets</li>
+<li><strong>Developing novel PRS methods</strong> - creating improved algorithms that enhance predictive accuracy</li>
+</ol>
+<p>This comprehensive guide will explore both approaches, examining contemporary methodologies, practical implementation strategies, and the critical steps needed to successfully deploy PRS in research and clinical settings.</p>
+</section>
+<section id="understanding-polygenic-risk-scores" class="level1">
+<h1>Understanding Polygenic Risk Scores</h1>
+<section id="conceptual-foundation" class="level2">
+<h2 class="anchored" data-anchor-id="conceptual-foundation">Conceptual Foundation</h2>
+<p>A polygenic risk score is mathematically defined as:</p>
+<p><span class="math display">\[PRS_i = \sum_{j=1}^{m} \beta_j \cdot G_{ij}\]</span></p>
+<p>Where: - <span class="math inline">\(PRS_i\)</span> is the polygenic risk score for individual <span class="math inline">\(i\)</span> - <span class="math inline">\(\beta_j\)</span> is the effect size (weight) for SNP <span class="math inline">\(j\)</span> - <span class="math inline">\(G_{ij}\)</span> is the genotype dosage for individual <span class="math inline">\(i\)</span> at SNP <span class="math inline">\(j\)</span> - <span class="math inline">\(m\)</span> is the total number of SNPs included in the score</p>
+</section>
+<section id="the-two-research-paradigms" class="level2">
+<h2 class="anchored" data-anchor-id="the-two-research-paradigms">The Two Research Paradigms</h2>
+<section id="reproducing-previously-validated-prs" class="level3">
+<h3 class="anchored" data-anchor-id="reproducing-previously-validated-prs">Reproducing Previously Validated PRS</h3>
+<p>This approach involves taking established PRS weights from published studies or databases and applying them to new datasets. The advantages include:</p>
+<ul>
+<li><strong>Speed and efficiency</strong>: No need for extensive method development</li>
+<li><strong>Established validity</strong>: Scores have been validated in independent populations</li>
+<li><strong>Standardization</strong>: Enables comparison across studies and populations</li>
+<li><strong>Clinical readiness</strong>: Many validated PRS are closer to clinical implementation</li>
+</ul>
+<p>Key considerations:</p>
+<ul>
+<li>Population ancestry matching</li>
+<li>SNP availability and imputation quality</li>
+<li>Strand alignment and allele matching</li>
+<li>Quality control procedures</li>
+</ul>
+</section>
+<section id="developing-novel-prs-methods" class="level3">
+<h3 class="anchored" data-anchor-id="developing-novel-prs-methods">Developing Novel PRS Methods</h3>
+<p>This approach focuses on creating new algorithms and methodologies to improve predictive performance. Areas of active development include:</p>
+<ul>
+<li><strong>Advanced statistical methods</strong>: Bayesian approaches, machine learning</li>
+<li><strong>Multi-ancestry modeling</strong>: Methods that work across diverse populations</li>
+<li><strong>Functional annotation integration</strong>: Incorporating biological knowledge</li>
+<li><strong>Cross-trait analysis</strong>: Leveraging pleiotropy between traits</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="contemporary-prs-methods" class="level1">
+<h1>Contemporary PRS Methods</h1>
+<section id="classical-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="classical-approaches">Classical Approaches</h2>
+<section id="clumping-and-thresholding-ct" class="level3">
+<h3 class="anchored" data-anchor-id="clumping-and-thresholding-ct">Clumping and Thresholding (C+T)</h3>
+<p>The traditional approach involves:</p>
+<ol type="1">
+<li><strong>Clumping</strong>: Removing SNPs in linkage disequilibrium</li>
+<li><strong>Thresholding</strong>: Selecting SNPs based on p-value cutoffs</li>
+<li><strong>Scoring</strong>: Applying weights to selected variants</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PLINK clumping example</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> target_data <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--clump</span> gwas_summary.txt <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--clump-p1</span> 5e-8 <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--clump-p2</span> 0.01 <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--clump-r2</span> 0.1 <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--clump-kb</span> 250 <span class="dt">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out</span> clumped_snps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="simple-summing" class="level3">
+<h3 class="anchored" data-anchor-id="simple-summing">Simple Summing</h3>
+<p>Basic additive model without sophisticated weighting:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple PRS calculation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>prs_simple <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(genotype_matrix <span class="sc">*</span> effect_sizes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="advanced-contemporary-methods" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-contemporary-methods">Advanced Contemporary Methods</h2>
+<section id="ldpred-and-ldpred2" class="level3">
+<h3 class="anchored" data-anchor-id="ldpred-and-ldpred2">LDpred and LDpred2</h3>
+<p>LDpred represents a significant advancement by modeling linkage disequilibrium (LD) structure explicitly:</p>
+<p><strong>Key innovations:</strong></p>
+<ul>
+<li>Bayesian framework incorporating LD information</li>
+<li>Improved handling of correlated variants</li>
+<li>Better calibration of effect sizes</li>
+</ul>
+<p><strong>LDpred2 improvements:</strong></p>
+<ul>
+<li>Computational efficiency for biobank-scale data</li>
+<li>Robust handling of population stratification</li>
+<li>Integration with sparse LD matrices</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LDpred2 example workflow</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bigsnpr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute LD matrix</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">snp_cor</span>(G, <span class="at">ind.col =</span> ind_val, <span class="at">ncores =</span> <span class="fu">nb_cores</span>())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run LDpred2-auto</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>multi_auto <span class="ot">&lt;-</span> <span class="fu">snp_ldpred2_auto</span>(corr, df_beta, <span class="at">h2_init =</span> h2_est,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">vec_p_init =</span> <span class="fu">seq_log</span>(<span class="fl">1e-4</span>, <span class="fl">0.9</span>, <span class="dv">30</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                               <span class="at">ncores =</span> <span class="fu">nb_cores</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prsice-2" class="level3">
+<h3 class="anchored" data-anchor-id="prsice-2">PRSice-2</h3>
+<p>An integrated tool providing:</p>
+<ul>
+<li>Automated QC procedures</li>
+<li>Multiple P-value thresholds testing</li>
+<li>Built-in visualization capabilities</li>
+<li>Cross-validation frameworks</li>
+</ul>
+</section>
+<section id="bayesian-methods" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-methods">Bayesian Methods</h3>
+<p><strong>SBayesR</strong>: Incorporates functional annotations and LD structure</p>
+<p><strong>PRS-CS</strong>: Uses continuous shrinkage priors for effect size estimation</p>
+<p><strong>BOLT-LMM</strong>: Linear mixed models for improved association testing</p>
+</section>
+</section>
+<section id="method-comparisons-and-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="method-comparisons-and-improvements">Method Comparisons and Improvements</h2>
+<section id="performance-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="performance-metrics">Performance Metrics</h3>
+<p>Contemporary methods are evaluated using:</p>
+<ul>
+<li><strong>Area Under Curve (AUC)</strong>: Discriminative ability</li>
+<li><strong>Nagelkerke R²</strong>: Variance explained</li>
+<li><strong>Calibration metrics</strong>: Agreement between predicted and observed risks</li>
+<li><strong>Net Reclassification Index (NRI)</strong>: Clinical utility assessment</li>
+</ul>
+</section>
+<section id="methodological-evolution" class="level3">
+<h3 class="anchored" data-anchor-id="methodological-evolution">Methodological Evolution</h3>
+<p>Each new method builds upon previous limitations:</p>
+<ol type="1">
+<li><strong>C+T → LDpred</strong>: Better LD modeling</li>
+<li><strong>LDpred → LDpred2</strong>: Computational scalability</li>
+<li><strong>Single-ancestry → Multi-ancestry</strong>: Population generalizability</li>
+<li><strong>Linear → Non-linear</strong>: Capturing epistatic interactions</li>
+<li><strong>SNP-based → Annotation-based</strong>: Biological interpretability</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="reproducing-previously-validated-prs-1" class="level1">
+<h1>Reproducing Previously Validated PRS</h1>
+<section id="data-preparation-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-pipeline">Data Preparation Pipeline</h2>
+<section id="obtaining-reference-prs-weights" class="level3">
+<h3 class="anchored" data-anchor-id="obtaining-reference-prs-weights">1. Obtaining Reference PRS Weights</h3>
+<p>Sources for validated PRS include:</p>
+<ul>
+<li><strong>PGS Catalog</strong>: Comprehensive repository of published scores</li>
+<li><strong>Original publications</strong>: Supplementary materials</li>
+<li><strong>Biobank repositories</strong>: UK Biobank, FinnGen, etc.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download from PGS Catalog</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://www.pgscatalog.org/rest/score/PGS000001/scoring_file/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="target-dataset-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="target-dataset-preparation">2. Target Dataset Preparation</h3>
+<section id="quality-control-steps" class="level4">
+<h4 class="anchored" data-anchor-id="quality-control-steps">Quality Control Steps</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic QC pipeline in PLINK</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> raw_data <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--maf</span> 0.01 <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--geno</span> 0.05 <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--mind</span> 0.05 <span class="dt">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--hwe</span> 1e-6 <span class="dt">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--make-bed</span> <span class="dt">\</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out</span> qc_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="population-stratification" class="level4">
+<h4 class="anchored" data-anchor-id="population-stratification">Population Stratification</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Principal component analysis</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> qc_data <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--pca</span> 10 <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out</span> population_pcs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="harmonization-process" class="level3">
+<h3 class="anchored" data-anchor-id="harmonization-process">3. Harmonization Process</h3>
+<p>Critical steps for ensuring compatibility:</p>
+<section id="snp-matching-and-alignment" class="level4">
+<h4 class="anchored" data-anchor-id="snp-matching-and-alignment">SNP Matching and Alignment</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R code for harmonization</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load PRS weights</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>prs_weights <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"prs_weights.txt"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(prs_weights, <span class="fu">c</span>(<span class="st">"SNP"</span>, <span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"BETA"</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load target SNP info</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>target_snps <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"target_data.bim"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(target_snps, <span class="fu">paste0</span>(<span class="st">"V"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>         <span class="fu">c</span>(<span class="st">"CHR"</span>, <span class="st">"SNP"</span>, <span class="st">"CM"</span>, <span class="st">"BP"</span>, <span class="st">"A1"</span>, <span class="st">"A2"</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Match SNPs</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>matched_snps <span class="ot">&lt;-</span> <span class="fu">merge</span>(prs_weights, target_snps, <span class="at">by =</span> <span class="st">"SNP"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle strand flips and allele switches</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>matched_snps[, aligned_beta <span class="sc">:</span><span class="er">=</span> <span class="fu">ifelse</span>(</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  (A1.x <span class="sc">==</span> A1.y <span class="sc">&amp;</span> A2.x <span class="sc">==</span> A2.y) <span class="sc">|</span> </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  (A1.x <span class="sc">==</span> A2.y <span class="sc">&amp;</span> A2.x <span class="sc">==</span> A1.y), </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(A1.x <span class="sc">==</span> A1.y, BETA, <span class="sc">-</span>BETA), </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove ambiguous SNPs (A/T, G/C)</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ambiguous <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AT"</span>, <span class="st">"TA"</span>, <span class="st">"GC"</span>, <span class="st">"CG"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>matched_snps <span class="ot">&lt;-</span> matched_snps[</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">paste0</span>(A1.x, A2.x) <span class="sc">%in%</span> ambiguous</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="frequency-alignment" class="level4">
+<h4 class="anchored" data-anchor-id="frequency-alignment">Frequency Alignment</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check allele frequency concordance</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>freq_check <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"target_data.frq"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>prs_freq <span class="ot">&lt;-</span> <span class="fu">merge</span>(matched_snps, freq_check, <span class="at">by =</span> <span class="st">"SNP"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Flag discordant frequencies (&gt;0.2 difference)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>prs_freq[, freq_diff <span class="sc">:</span><span class="er">=</span> <span class="fu">abs</span>(MAF <span class="sc">-</span> reference_freq)]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>problematic_snps <span class="ot">&lt;-</span> prs_freq[freq_diff <span class="sc">&gt;</span> <span class="fl">0.2</span>, SNP]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="prs-calculation-with-plink" class="level2">
+<h2 class="anchored" data-anchor-id="prs-calculation-with-plink">PRS Calculation with PLINK</h2>
+<section id="creating-score-files" class="level3">
+<h3 class="anchored" data-anchor-id="creating-score-files">Creating Score Files</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare PLINK score file</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>score_file <span class="ot">&lt;-</span> matched_snps[<span class="sc">!</span><span class="fu">is.na</span>(aligned_beta), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                          .(SNP, A1.x, aligned_beta)]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(score_file, <span class="st">"prs_score.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">col.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="running-plink-score-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="running-plink-score-calculation">Running PLINK Score Calculation</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate PRS using PLINK</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> qc_data <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--score</span> prs_score.txt <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out</span> prs_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="integration-with-individual-level-data" class="level2">
+<h2 class="anchored" data-anchor-id="integration-with-individual-level-data">Integration with Individual-Level Data</h2>
+<section id="loading-and-merging-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-and-merging-data">Loading and Merging Data</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load PLINK results</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>prs_results <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"prs_results.sscore"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(prs_results, <span class="fu">c</span>(<span class="st">"FID"</span>, <span class="st">"IID"</span>, <span class="st">"ALLELE_CT"</span>, <span class="st">"NAMED_ALLELE_CT"</span>, <span class="st">"SCORE1_AVG"</span>))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load individual-level data</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>individual_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"individual_phenotypes.txt"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>final_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(individual_data, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                   prs_results[, .(IID, <span class="at">PRS =</span> SCORE1_AVG)], </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">by =</span> <span class="st">"IID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="normalization-and-standardization" class="level2">
+<h2 class="anchored" data-anchor-id="normalization-and-standardization">Normalization and Standardization</h2>
+<section id="rank-based-inverse-normal-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="rank-based-inverse-normal-transformation">Rank-Based Inverse Normal Transformation</h3>
+<p>The rank-based inverse normal transformation ensures interpretability and removes distributional assumptions:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank-based inverse normal transformation function</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>inverse_normal_transform <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove missing values</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  non_missing <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(x)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  x_clean <span class="ot">&lt;-</span> x[non_missing]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ranks</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ranks <span class="ot">&lt;-</span> <span class="fu">rank</span>(x_clean, <span class="at">ties.method =</span> <span class="st">"average"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert to quantiles (0, 1)</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  quantiles <span class="ot">&lt;-</span> (ranks <span class="sc">-</span> <span class="fl">0.5</span>) <span class="sc">/</span> <span class="fu">length</span>(ranks)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Apply inverse normal transformation</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  transformed <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(quantiles)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create output vector</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(x))</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  result[non_missing] <span class="ot">&lt;-</span> transformed</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply transformation</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>final_data[, PRS_normalized <span class="sc">:</span><span class="er">=</span> <span class="fu">inverse_normal_transform</span>(PRS)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="validation-and-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="validation-and-quality-assessment">Validation and Quality Assessment</h2>
+<section id="distribution-checks" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-checks">Distribution Checks</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot distributions</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(final_data, <span class="fu">aes</span>(<span class="at">x =</span> PRS)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Raw PRS Distribution"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(final_data, <span class="fu">aes</span>(<span class="at">x =</span> PRS_normalized)) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">fill =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Normalized PRS Distribution"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>gridExtra<span class="sc">::</span><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="performance-validation" class="level3">
+<h3 class="anchored" data-anchor-id="performance-validation">Performance Validation</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Association testing (example for binary trait)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"case_status"</span> <span class="sc">%in%</span> <span class="fu">names</span>(final_data)) {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Logistic regression</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  model <span class="ot">&lt;-</span> <span class="fu">glm</span>(case_status <span class="sc">~</span> PRS_normalized <span class="sc">+</span> PC1 <span class="sc">+</span> PC2 <span class="sc">+</span> PC3 <span class="sc">+</span> age <span class="sc">+</span> sex,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> final_data, <span class="at">family =</span> binomial)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract results</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  prs_or <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">coef</span>(model)[<span class="st">"PRS_normalized"</span>])</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  prs_pvalue <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>coefficients[<span class="st">"PRS_normalized"</span>, <span class="st">"Pr(&gt;|z|)"</span>]</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate AUC</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pROC)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  roc_result <span class="ot">&lt;-</span> <span class="fu">roc</span>(final_data<span class="sc">$</span>case_status, </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">predict</span>(model, <span class="at">type =</span> <span class="st">"response"</span>))</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  auc_value <span class="ot">&lt;-</span> <span class="fu">auc</span>(roc_result)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"PRS Odds Ratio:"</span>, <span class="fu">round</span>(prs_or, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"P-value:"</span>, <span class="fu">format</span>(prs_pvalue, <span class="at">scientific =</span> <span class="cn">TRUE</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"AUC:"</span>, <span class="fu">round</span>(auc_value, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="clinical-implementation-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="clinical-implementation-considerations">Clinical Implementation Considerations</h2>
+<section id="risk-stratification" class="level3">
+<h3 class="anchored" data-anchor-id="risk-stratification">Risk Stratification</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create risk categories</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>final_data[, risk_category <span class="sc">:</span><span class="er">=</span> <span class="fu">cut</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  PRS_percentile,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="dv">100</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Very Low"</span>, <span class="st">"Low"</span>, <span class="st">"Average"</span>, <span class="st">"High"</span>, <span class="st">"Very High"</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">include.lowest =</span> <span class="cn">TRUE</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Risk category summary</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>risk_summary <span class="ot">&lt;-</span> final_data[, .(</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> .N,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">case_rate =</span> <span class="fu">mean</span>(case_status, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>), by <span class="ot">=</span> risk_category]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reporting-and-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-and-interpretation">Reporting and Interpretation</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate individual reports</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>generate_prs_report <span class="ot">&lt;-</span> <span class="cf">function</span>(individual_id, final_data) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  ind_data <span class="ot">&lt;-</span> final_data[IID <span class="sc">==</span> individual_id]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"=== PRS Report for Individual"</span>, individual_id, <span class="st">"===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Raw PRS:"</span>, <span class="fu">round</span>(ind_data<span class="sc">$</span>PRS, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Percentile:"</span>, <span class="fu">round</span>(ind_data<span class="sc">$</span>PRS_percentile, <span class="dv">1</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Risk Category:"</span>, <span class="fu">as.character</span>(ind_data<span class="sc">$</span>risk_category), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Normalized Score:"</span>, <span class="fu">round</span>(ind_data<span class="sc">$</span>PRS_normalized, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="best-practices-and-recommendations" class="level1">
+<h1>Best Practices and Recommendations</h1>
+<section id="quality-control-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="quality-control-checklist">Quality Control Checklist</h2>
+<ol type="1">
+<li><strong>Pre-calculation QC</strong>:
+<ul>
+<li>SNP call rate &gt; 95%</li>
+<li>Individual call rate &gt; 95%</li>
+<li>Hardy-Weinberg equilibrium p &gt; 1e-6</li>
+<li>Minor allele frequency &gt; 1%</li>
+</ul></li>
+<li><strong>Harmonization QC</strong>:
+<ul>
+<li>Strand alignment verification</li>
+<li>Allele frequency concordance</li>
+<li>Population ancestry matching</li>
+<li>SNP position consistency</li>
+</ul></li>
+<li><strong>Post-calculation QC</strong>:
+<ul>
+<li>Distribution normality assessment</li>
+<li>Outlier identification</li>
+<li>Population stratification testing</li>
+<li>Performance validation</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Polygenic Risk Scores represent a rapidly evolving field at the intersection of genomics, statistics, and clinical medicine. Whether reproducing established PRS or developing novel methodologies, success depends on rigorous quality control, appropriate population matching, and careful validation.</p>
+<p>The practical workflow outlined here (as partly applied in my own research) — from data preparation through PLINK calculation to normalization and integration—provides a robust foundation for PRS research and application. As methods continue to advance and datasets grow larger and more diverse, PRS promise to play an increasingly important role in precision medicine and population health.</p>
+<p>The key to successful PRS implementation lies in understanding and ensuring that these powerful tools are applied appropriately and interpreted correctly in their intended contexts.</p>
 
 
+</section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -353,18 +876,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -396,7 +908,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -404,7 +936,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -501,7 +1033,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
