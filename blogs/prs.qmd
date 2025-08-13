@@ -1,7 +1,7 @@
 ---
 title: "Polygenic Risk Score"
 description: | 
-  A short description
+  A guide to understanding, implementing, and evaluating polygenic risk scores using both classical and modern methods in R.
 
 author: "Mohammad Sayeef Alam"
 categories: [Methods, R]
