@@ -7,91 +7,80 @@ format:
 
 <a href="images/ResumeMSA.pdf" download style="background-color: #009000; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px;"> Download PDF </a>
 
--   **Location:** Trondheim, Norway\
--   **Email:** alam.sayeef\@gmail.com\
--   **Phone:** +47 4867 1602\
--   **LinkedIn:** [linkedin.com/in/mohasal/](https://www.linkedin.com/in/mohasal/)
+**Location:** Trondheim, Norway  
+**Email:** alam.sayeef@gmail.com  
+**Phone:** +47 4867 1602  
+**LinkedIn:** linkedin.com/in/mohasal
 
-## Summary
+---
 
--   PhD in Genetic Epidemiology, dual master’s in Biostatistics, and bachelor’s in Statistics.
--   Six years of experience in data analysis in various statistical methods and datasets related to health.
--   Knowledge of methods related to epidemiology, biostatistics, clinical trials, and genetics with hands-on experience of its implementation in both R and Excel.
--   Technically minded with the ability to break down a complex solution to ensure understanding at multiple levels and heterogeneous audience.
--   Collaborative and supportive team player, conscious of my role as a contributor to a good working environment.
--   Ability to take on new challenges in a fast-paced environment and make decisions under pressure.
--   Fluent in English and beginner in Norwegian
+## Key Qualifications
+
+- PhD in Genetic Epidemiology, dual Master’s degrees in Biostatistics, and a Bachelor’s in Statistics, with over six years of experience in health-related data analysis.
+- Proficient in epidemiological and health economic research methods, including survival analysis, longitudinal modeling, and utility analyses, with practical expertise in R and Excel.
+- Skilled at translating complex statistical concepts into digestible topics for diverse audiences, including internal teams and external stakeholders.
+- Highly adaptable in fast-paced environments, capable of managing multiple roles, meeting tight deadlines, and making informed decisions under pressure.
+- Collaborative team player who fosters a supportive and productive work atmosphere through effective communication and cooperation.
+- Strong written and verbal communication skills in English, with experience in technical documentation and client-facing reporting.
+
+---
 
 ## Professional Experience
 
-### Associate, Parexel - Remote, India
-
+### Associate, Parexel – Remote, India  
 **July 2021 – February 2022**
 
--   Supported the development of interactive platforms (e.g., RShiny) to conduct economic evaluations (e.g., cost-effectiveness, budget impact) under senior guidance.
--   Performed statistical analyzes (e.g., Bayesian network meta-analysis, MAIC, STC) aligned with health technology assessment (HTA) guidelines (e.g., TSD, NICE) across multiple disease areas.
--   Automated dashboards (Excel/VBA) to visualize key clinical endpoints (e.g. survival curves, demographics) for regional stakeholder reporting.
--   Supported client engagements by helping to coordinate projects, manage their expectations, and ensured the timely delivery of analytical output.
--   Contributed to statistical analysis plans (SAPs) by programming scripts, conducting feasibility assessments, and validating data sets for accuracy.
--   Assisted in presenting analytical results to internal and external stakeholders, incorporating feedback to refine deliverables.
+- Supported the end-to-end development of a dynamic and interactive R Shiny application for conducting economic evaluations, visualizing results, and generating downloadable reports.
+- Performed a variety of statistical analyses to support evidence synthesis, utility estimation, and uncertainty assessments.
+- Designed and implemented dynamic dashboards to visualize key clinical endpoints, including survival outcomes, therapy lines, and demographic summaries, customized for regional stakeholder reporting.
+- Contributed to the development of statistical analysis plans by scripting analyses, conducting feasibility assessments, and validating datasets for accuracy and completeness.
+- Delivered clear and actionable insights to internal and external stakeholders, incorporating feedback to improve deliverables.
+
+---
 
 ## Research Experience
 
-### PhD, NTNU – Trondheim, Norway
-
+### PhD, NTNU – Trondheim, Norway  
 **April 2022 – Current**
 
--   Applied advanced statistical methods to analyze high-dimensional genetic and real-world registry data, generating actionable insights for large-scale studies.
--   Designed and optimized analysis pipelines, reducing computational time and resource usage, and increasing team productivity.
--   Presented research findings at national and international conferences and published results in peer-reviewed journals, contributing to scientific knowledge and visibility.
--   Fostered and expanded collaborations with external university research groups, driving successful joint projects.
--   Built a supportive academic network during an international research stay, facilitating new research opportunities.
--   Secured more than 150,000 NOK in competitive external funding from three agencies, supporting innovative research initiatives.
+- Conducted genome-wide association studies to identify novel genetic associations with celiac disease, analyzing 24 million variants using established statistical pipelines.
+- Developed a polygenic risk score (PRS) model that helped reclassify 7–11% of the population into different risk groups, enabling personalized approaches to medicine.
+- Integrated real-world data from patient registries, health surveys, and clinical databases to build predictive models by combining genetic and non-genetic information.
+- Presented research findings at national and international conferences and published corresponding manuscripts in peer-reviewed journals.
+- Secured more than 150,000 NOK in competitive external funding for a research stay abroad, supporting collaboration between university research groups.
 
-## [Project](projects.qmd)
+### Researcher, NTNU – Trondheim, Norway  
+**April 2025 – Current**
 
-### [Nordic Shortfall Calculator](projects/nsc.qmd)
+- Developed a proof-of-concept R Shiny app to calculate absolute and proportional shortfall for Nordic countries, using dynamic inputs and comparative options for discount rates and EQ-5D value sets.
+- Performed regression analysis to infer the relationship between mental health patients’ referral rejections and patient/GP characteristics using real-world data.
+- Built an R package to migrate existing decision analytics models for obesity from Excel to R, creating a lightweight, updatable tool that promotes open-access science.
 
--   Developed a proof-of-concept model that calculates the absolute and proportional shortfall of 4 Nordic countries, i.e., Denmark, Finland, Norway, and Sweden
--   Provides up-to-date estimates of quality-adjusted life expectency of respective Nordic population based on the EQ-5D or 3D values.
--   Features comparative options between different value sets for each country, discount rates, updates automatically with dynamic input, provides HRQoL, Cummulative Survival and Cummulative QALYs.
-
-## Skills
-
--   **Software:** R, SAS, Python, Git, Microsoft Excel, PowerPoint, Word
--   **Transferable:** Communicator, Detail-oriented, Problem solver, Relationship builder, Results-driven, Strategic
--   **Hobbies:** Hiking, Skiing, Swimming, Anime
+---
 
 ## Education
 
--   **MPhil in Biostatistics and Demography**, International Institute for Population Sciences (2020 – 2021)
--   **MSc in Biostatistics and Demography**, International Institute for Population Sciences (2018 – 2020)
--   **BSc in Statistics**, University of Calcutta (2014 – 2018)
+- **MPhil in Biostatistics and Demography**, International Institute for Population Sciences (June 2020 – May 2021)  
+- **MSc in Biostatistics and Demography**, International Institute for Population Sciences (July 2018 – June 2020)  
+- **BSc in Statistics**, University of Calcutta (April 2014 – May 2018)
 
-## Publications
+---
 
-1.  [Population screening of adults identifies novel genetic variants associated with celiac disease.](https://doi.org/10.1038/s41598-025-04421-6) *Alam MS, Thomas L, Brumpton B, Hveem K, Lundin KE, Withoff S, Jonkers IH, Sollid LM, Hjort R, Ness-Jensen E.* Scientific Reports. 2025 Jun 5;15(1):19764
+## Skills and Interests
 
-2.  [Understanding the spatial predictors of malnutrition among 0–2 years children in India using path analysis.](https://doi.org/10.3389/fpubh.2021.667502) *Singh M, Alam MS, Majumdar P, Tiwary B, Narzari H, Mahendradhata Y.* Frontiers in Public Health. 2021 Jul 30;9:667502
+**Software:** R, Stata, Python, SAS, Git, Bash, Excel (VBA)  
+**Methods:** Parametric survival analysis, Longitudinal analysis, Evidence synthesis (network meta-analysis), Indirect treatment comparison (MAIC, PAIC, STC, ML-NMR), Utility analysis (cost-effectiveness, cost-utility, budget-impact)  
+**Soft Skills:** Client-focused, Empathetic collaborator, Clear communicator, Flexible when required, Logical decision-maker  
+**Hobbies:** Hiking, Downhill skiing, Volunteering, Cooking, Learning Norwegian
 
-3.  [Thyroid Function Test in COVID-19 Patients: A Cross-Sectional Study in a Tertiary Care Hospital.](https://doi.org/10.4103/ijem.IJEM_779_20) *Sen K, Sinha A, Sen S, Chakraborty S, Alam MS.* Indian J Endocrinol Metab. 2020;24(6):532-536
+---
 
-4.  [The effects of social media consumption among the internet users during COVID-19 lockdown in India: Results from an online survey.](https://www.ojhas.org/issue76/2020-4-6.html) *Mustafa A, Alam MS, Shekhar C.* Online Journal of Health and Allied Sciences 19 (4)
+## Certifications
+- **Economic Evaluation Modelling in R**, Bristol Medical School (14, 16 and 21 July 2025)  
+- **Advanced Multiple Imputation Methods to Deal with Missing Data**, Bristol Medical School (5–6 December 2024)
 
-## [Conferences](talks.qmd#)
-
-### Oral
-
-1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
-2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
-3.  16th International Conference on Urban Health – Xiamen, China, November 2019
-4.  5th International Integrative Research Conference on Governance and Modernization in Changing Environment - Comilla, Bangladesh, December 2018
-
-### Poster
-
-1.  20th International Celiac Disease Symposium – Sheffield, UK, September 2024
-2.  Nordic Conference on Future Health – Trondheim, Norway, September 2024
+---
 
 ## References
 
-Available upon request.
+References can be provided on request.
